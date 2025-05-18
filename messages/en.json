@@ -1,0 +1,216 @@
+{
+    
+  "AGB": {
+    "AGB": "General Terms and Conditions"
+  },
+
+  "authButton":{
+
+    "login": "Sign in",
+    "Text_02": "Registrieren"
+  },
+  
+   "Error": {
+      "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+      "title": "Something went wrong!"
+    },
+
+  "CallToAct": {
+      "Fragen": "any Questions",
+      "FragenText01": "Contact us to clarify all your questions. Write us an email. We will answer all your open questions"
+ },
+  
+ "CollapsCard": {
+  "Text_01": "We are top!!!",
+  "Text_02": "Here is why:",
+  "Text_06": "Individuality is at 8zense.com grossly affected. Each of our concrete compositions is unique!",
+  "Text_07": "We maintain best connections to architects and designers!",
+  "Text_08": "All of the workpieces we produce are handmade!!!",
+  "zeitlos": "Timeless",
+  "Text_09": "We use only high-quality materials!",             
+  "Text_10": "8zense.com concrete design is timeless!"
+
+},
+
+    "Contact": {
+      "Title_Contact": "Contact us!"
+    },
+
+    "Curriculum": {
+      "cv":"Curriculum vitae"
+    },
+
+    "Dashboard": {
+      "Dashboard_title": "Welcome to your personal account area of ​​8zense.com!",
+      "Dashboard_subtitle": "A compact overview of your current projects, your successes and your goals.",
+      "LoginData": "You have an account and are logged in with the following data:",  
+      "Galery": "Galeriy to demonstrate our several Concret-Compositions"
+    },
+  
+    "Datenschutz": {
+      "Title_Datenschutz": "Data Protection"
+    },
+  
+    "emailMessage": {
+      "Email_Text01": "England",
+      "Email_Text02": "England",
+      "Email_Text03": "England"
+    },
+
+
+    "Header": {
+      "signin": "Sign in"
+    },
+  
+    "Hero": {
+      "präTitle": "Make your masterpiece in German Healthcare",
+  
+      "Title": "digital online healthcare",
+  
+      "postTitle": "Fit for the German Gesundheitssystem"
+    },
+
+    "HeroMobil": {
+      "präTitle": "Make your masterpiece in German Healthcare",
+  
+      "Title": "digital online healthcare",
+  
+      "postTitle": "Fit for the German Gesundheitssystem"
+    },
+
+    "Hero_Skizze": {
+  
+      "zitat": "The beauty of a living being is not created by the atoms it contains, but by the arrangement of these in relation to each other",
+  
+      "text01": "Desing Interiore",
+  
+      "text02":  "Professionell Accompagnment, Advice and Support \n in planing and project-realizing your\n individual Interieure-Desings-Project\n in Appartement, Home, Office or medical Office. \n Contact us - you are welcome!!!!",
+  
+      "text03": "Timeless Design",
+  
+      "text04": "is a synonym for timeless exclusive and individuelles Design. Every piece of our conqouer pieces are handmade and a unicat"
+  
+    },
+  
+    "HowItWorks": {
+
+        "Howitworks": "How it works!",
+        "Prozesse": "Workflow of prozesses at 8zense.com:",
+        "Previous": "Next",            
+        "Next": "Weiter",
+        "text_01": "Sign up an account on our webside 8zense.com!",
+        "text_02": "Arrange a goal-setting meeting with Fernanda to define your wishes, ideas and visions!",
+        "text_03": "Thanks to our excellent networking, we will find exactly the team for you that, under the leadership of Fernanda, will fulfill your design dream.",
+        "text_04": "The project is broken down into many individual projects - little by little your design dream comes together like a puzzle to create something extraordinary and wonderful",
+        "text_05": "In allen Phasen des Projektes wird in einemIn all phases of the process, your project will be continuously developed in an analyze-evaluate-synthesize circuit until your goals and objectives are achieved! Analyze-Evaluate-Synthesyze-Circuit kontenuierlich fortentwickelt, bis Ihre Ziele und Vorgaben erreicht sind!",
+        "text_06": "Once your design project has been implemented, Fernanda will give the green light for the project to be accepted by everyone involved until all corrections and complaints have been resolved."
+      },
+   
+
+
+    "IntroWebside": {
+      "zitat01": "the beauty of a living being",
+      "zitat02": "is not created by the atoms",
+      "zitat03": "which it contains, but by the arrangement",
+      "zitat04": "of these to each other"
+},
+
+  
+    "LocaleLayout":{
+        "title": "8zense.com",
+        "description": "Landingpage for Startup 8zense.com developed with Next.js and next-intl and Supabase"  
+      },
+
+      "LocaleSwitcher": {
+        "label": "Change Language",
+        "locale": "{locale, select, de {🇩🇪 German} en {🇺🇸 English} fr {🇫🇷 French} other {Unbekannt}}"
+      },
+
+
+
+    "Metadata": {
+      "title": "8zense.com",
+      "description": "landing page entwickelt mit Next.js und next-intl"
+    },
+  
+  
+  
+    "Manifest": {
+      "description": "",
+      "name": ""
+    },
+  
+    "Navbar": {
+      "home": "Home",
+      "gallery": "Gallery",
+      "about": "About",
+      "cv": "Curriculum vitae",
+      "whatwedo": "What we do?",
+      "whoweare": "Who we are?",
+      "services": "Services",
+      "contact": "Contact",
+      "impressum": "Imprint",
+      "datenschutz": "Data protection",
+      "rechtliches": "items of right",
+      "cookies": "Cookies",
+      "agb": "General Terms and Conditions",
+       "Admin": "Dashboard"
+    },
+  
+    "NotFoundPage": {
+      "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
+      "title": "Page not found"
+    },
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    "OurHistory": {},
+
+  
+
+  
+    "Rechtliches": {
+      "Title_Rechtliches": "Rechtliches"
+    },
+
+    "PageLayout": {
+      "links": {
+        "docs": {
+          "description": "Learn more about next-intl in the official docs.",
+          "href": "https://next-intl.dev",
+          "title": "Docs"
+        },
+        "source": {
+          "description": "Browse the source code of this example on GitHub.",
+          "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+          "title": "Source code"
+        }
+      }
+    },
+  
+
+  
+    "protected": {
+      "Title_Protected": "This is a protected page that you can only see as an authenticated user",
+      "userDetails": "Your user details",
+      "logged_in": "logged in as:"
+    },
+
+    "SignIn": {
+      "welcome": "Welcome to 8zense.com",
+      "signin": "Please sign in to your account"  
+      
+    },
+  
+    "Whoweare": {
+      "präTitle": "about 8zense.com",
+      "Title_Whoweare": "Who we are?",
+      "SubTitle_Whoweare": "8zense.com is Fernanda Pereira",
+      "Text_Whoweare": "was born out of intuition, although Fernanda repeatedly asked herself whether good design is only available to those people who can afford it. As a trained interior designer, Fernanda has supervised countless projects and the ingredients concrete, wood, steel and glass have proven to be The preferred materials of her work were developed around good, appealing and timeless design. It was always Fernanda's desire to combine the symbiosis of the materials and to experiment with them. The result is:"
+    },
+
+    "Whatwedo": {
+      "präTitle": "about 8zense.com",
+      "Title_Whatwedo": "Who we are?",
+      "SubTitle_Whatwedo": "8zense.com is Fernanda Pereira",
+      "Text_Whatwedo": "was born out of intuition, although Fernanda repeatedly asked herself whether good design is only available to those people who can afford it. As a trained interior designer, Fernanda has supervised countless projects and the ingredients concrete, wood, steel and glass have proven to be The preferred materials of her work were developed around good, appealing and timeless design. It was always Fernanda's desire to combine the symbiosis of the materials and to experiment with them. The result is:"
+    }
+  }

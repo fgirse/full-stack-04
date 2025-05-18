@@ -1,0 +1,208 @@
+{
+   
+  "AGB": {
+    "AGB": "Termes et Conditions generales"
+  },
+  
+  "authButton":{
+
+    "login": "registre",
+    "Text_02": "Registrieren"
+  },
+  
+  "Error": {
+      "description": "<p>Es ist leider ein Problem aufgetreten.</p><p>Du kannst versuchen <retry>diese Seite neu zu laden</retry>.</p>",
+      "title": "Etwas ist schief gelaufen!"
+    },
+
+  
+    "CallToAct": {
+      "Fragen": "des Questions",
+      "FragenText01": "Contactez-nous pour clarifier toutes vos questions. Envoyez-nous un email. Nous répondrons à toutes vos questions ouvertes"
+    },
+    
+    "CollapsCard": {
+      "Text_01": "Nous sommes top!!!",
+      "Text_02": "Voici pourquoi:",               
+      "Text_06": "L'individualité est très importante chez 8zense.com. Chacune de nos compositions de béton est unique !",
+      "Text_07": "Nous vous proposons des liaisons avec nos architectes et designers!",
+      "Text_08": "Toutes les pièces que nous produisons sont faites à la main !!",
+      "Text_09": "8zense.com est synonyme de design clair, de haute fonctionnalité et d'excellente qualité des matériaux !",
+      "zeitlos": "Intemporel",
+      "Text_10": "Le design béton 8zense.com est intemporel !",
+      "Text_11": "",
+      "Text_12": "",
+      "Text_13": ""  
+    },
+
+    "Contact": {
+      "Title_Contact": "Contactez nous!"
+    },
+
+    "Curriculum": {
+      "cv":"Curriculum vitae"
+    },
+
+    "Dashboard": {
+      "Dashboard_title": "Bienvenue sur vote espace compte personelle de 8zense.com!",
+      "Dashboard_subtitle": "Un aperçu compact de vos projets en cours, de vos réussites et de vos objectifs.",
+      "LoginData": "Vous disposez d'un compte et êtes connecté avec les informations suivantes :",
+      "Galery": "Galeriy a demonstrez notre Beton-Compositions"
+    },
+
+    "Datenschutz": {
+      "Title_Datenschutz": "Protection des données"
+    },
+  
+    "emailMessage": {
+      "Email_Text01": "France",
+      "Email_Text02": "Frncee",
+      "Email_Text03": "France"
+    },
+
+    "Header": {
+      "signin": "Connectez-vous"
+    },
+  
+    "Hero": {
+  
+      "präTitle": "Adapté au système de gestion allemand",
+      "Title": "digitale online krankenpflege",
+      "postTitle": "online schule für internationale krankenpflege studenten"
+     
+    },
+
+    "HeroMobil": {
+  
+      "präTitle": "Adapté au système de gestion allemand",
+      "Title": "digitale\nonline\nkrankenpflege",
+      "postTitle": "online schule für internationale krankenpflege studenten"
+     
+    },
+
+    "Hero_Skizze": {
+  
+    "zitat": " La beauté d'un être vivant\n n'est pas créée par les atomes\nqu'il contient, mais par la manière\ndont ils sont disposés les uns par\nrapport aux autres.",
+    "text01": "Desing Interiore",
+    "text02":  "begleitet, beratet und unterstützt Sie professionell bei der Planung und Umsetzung Ihres individuellen Interieure Desings in Wohnung, Haus, Büro ofer Praxis. Sprechen Sie uns an - Wir freuen uns auf Sie!",
+    "text03": "Timeless Design",
+    "text04": "steht für zeitloses, exklusives und individuelles Design aus dem Werkstoff Beton. Jedes unserer individuell hergestellten Betonwerkstücke ist handgefertigt und ein Unikat "
+
+  },
+    
+
+    
+    "HowItWorks": {
+        "Howitworks": "Comment ça marche !",
+        "Previous": "Suivant",            
+        "Next": "Précédent",
+        "Prozesse": "Flux de travail des processus sur 8zense.com :",
+        "text_01": "créez un compte sur notre site Web 8zense!",
+        "text_02": "Arrange a goal-setting meeting with Fernanda to define your wishes, ideas and visions!",
+        "text_03": "Grâce à notre excellent réseau, nous trouverons pour vous exactement l'équipe qui réalisera votre rêve de design sous la direction de Fernanda.",
+        "text_04": "Le projet est divisé en plusieurs projets individuels - petit à petit, votre rêve de design se transforme comme un puzzle en quelque chose d'extraordinaire et de merveilleux.",
+        "text_05": "Dans toutes les phases du processus, votre projet sera développé en continu dans un circuit Analyse-Évaluer-Synthèse jusqu'à ce que vos buts et objectifs soient atteints !",
+        "text_06": "Une fois votre projet de conception mis en œuvre, le signal de départ est donné pour que Fernanda accepte le projet avec toutes les personnes impliquées jusqu'à ce que toutes les corrections et plaintes soient résolues."
+      },
+
+
+
+    "LocaleLayout":{
+        "title": "8zense.com",
+        "description": "Landingpage de Startup 8zense.com developez avec Next.js et next-intl und Supabase"  
+      },
+  
+    "": {
+      "title": "8zense.com",
+      "description": "landing page entwickelt mit Next.js und next-intl"
+    },
+  
+    "LocaleSwitcher": {
+      "label": "Changer la Lanque",
+      "locale": "{locale, select, de {🇩🇪 Allmend} en {🇺🇸 Anglais} fr {🇫🇷 France} other {ne pas connue}}"
+    },
+  
+    "Navbar": {
+      "home": "Maison",
+      "gallery": "Exposition",
+      "about": "apropos de nous",
+      "cv": "Curriculum",
+      "whatwedo": "Questque fait?",
+      "whoweare": "Qui nous sommes?",
+      
+      "services": "Accesoires",
+      "contact": "Contacte",
+      "impressum": "Imprimer",
+      "datenschutz": "Protection des données",
+      "rechtliches": "point du juristement",
+      "cookies": "Cookies",
+      "agb": "conditions generales",
+      "Admin": "Adminboard"
+    },
+  
+    "NotFoundPage": {
+      "description": "Veuillez vérifier la barre d'adresse de votre navigateur ou utiliser la navigation pour accéder à une page familière.",
+      "title": "Page non trouvée!!!!!!!!"
+    },
+  
+    "OurHistory": {
+      "title": "Notre histoire"
+    },
+  
+    
+    "protected": {
+      "Title_Protected": "Vous ne verrez cette page que si vous êtes inscrit ou connecté sur kica2024.de !",
+      "userDetails": "Votre info d'user",
+      "logged_in": "connecter a:"
+    },
+
+    "IntroWebside": {
+      "zitat": " La beauté d'un être vivant\n n'est pas créée par les atomes\nqu'il contient, mais par la manière\ndont ils sont disposés les uns par\nrapport aux autres."
+    },
+
+  
+    "Rechtliches": {
+      "Title_Rechtliches": "Rechtliches"
+    },
+
+
+    "PageLayout": {
+      "links": {
+        "docs": {
+          "description": "Learn more about next-intl in the official docs.",
+          "href": "https://next-intl.dev",
+          "title": "Docs"
+        },
+        "source": {
+          "description": "Browse the source code of this example on GitHub.",
+          "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+          "title": "Source code"
+        }
+      }
+    },
+  
+
+    "SignIn": {
+      "welcome": "Bienvenue sur 8zense.com",
+      "signin": "connecter a cuntinuer!"   
+      
+    },
+    
+    "Whoweare": {
+      "präTitle": "da 8zense.com",
+      "Title_Whoweare": "Qui nous sommes?",
+      "SubTitle_Whoweare": "8zense.com est Fernanda Pereira",
+      "Text_Whoweare": "est née de l'intuition, même si Fernanda s'est demandé à plusieurs reprises si un bon design n'était accessible qu'à ceux qui en ont les moyens. En tant qu'architecte d'intérieur de formation, Fernanda a supervisé d'innombrables projets et les ingrédients que sont le béton, le bois, l'acier et le verre ont fait leurs preuves. be Les matériaux préférés de son travail ont été développés autour d'un design bon, attrayant et intemporel. Fernanda a toujours eu le désir de combiner la symbiose des matériaux et de les expérimenter. Le résultat est:"
+    },
+
+    "Whatwedo": {
+      "präTitle": "about 8zense.com",
+      "Title_Whatwedo": "Who we are?",
+      "SubTitle_Whatwedo": "8zense.com is Fernanda Pereira",
+      "Text_Whatwedo": "was born out of intuition, although Fernanda repeatedly asked herself whether good design is only available to those people who can afford it. As a trained interior designer, Fernanda has supervised countless projects and the ingredients concrete, wood, steel and glass have proven to be The preferred materials of her work were developed around good, appealing and timeless design. It was always Fernanda's desire to combine the symbiosis of the materials and to experiment with them. The result is:"
+    }
+    
+  }
+
+
+
