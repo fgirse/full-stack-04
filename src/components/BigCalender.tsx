@@ -1,15 +1,11 @@
 "use client";
 
-import { Calendar, momentLocalizer, View, Views, CalendarProps } from "react-big-calendar";
+import { Calendar, momentLocalizer, View, Views } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { useState } from "react";
 
 const localizer = momentLocalizer(moment);
-
-const MyCalendar: React.FC<CalendarProps<any, any>> = (props) => {
-  return <MyCalendar {...props} />;
-};
 
 const BigCalendar = ({
   data,
@@ -23,7 +19,7 @@ const BigCalendar = ({
   };
 
   return (
-    <MyCalendar
+    <Calendar
       localizer={localizer}
       events={data}
       startAccessor="start"
