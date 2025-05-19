@@ -1,6 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
+import clsx from "clsx";
 
 const getRoleClass = (role: string) => {
   switch (role) {
@@ -47,9 +48,13 @@ const Navbar = async () => {
           </span>
           {typeof user?.publicMetadata?.role === "string" && (
             <span
-              className={`px-2 py-1 rounded-xl text-[10px] text-white text-center ${getRoleClass(
-                user.publicMetadata.role as string,
-              )}`}
+              className={clsx("px-2 py-1 rounded-xl text-[10px] text-white text-center ",
+                {
+                  "bg-gray-300": user.publicMetadata.role === "admin",
+                  "bg-blue-500": user.publicMetadata.role === "teacher",
+                  "bg-amber-400": user.publicMetadata.role === "student",
+                  "bg-stone-400": user.publicMetadata.role === "parent",
+                })}
             >
               {user.publicMetadata.role}
             </span>

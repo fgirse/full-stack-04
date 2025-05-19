@@ -14,7 +14,7 @@ const Header = () => {
 
     <nav className=" bg-transparent">
       <div className="flex flex-row justify-between items-center bg-stone-600 py-1">
-        <div className="flex flex-row items-stretch gap-x-3">
+        <div className="flex flex-row items-start gap-x-3">
         <div className="w-36 mr-6 lg:mr-12 mb-3">
       <Image src="/LogoDms.png" alt="Logo" width={90} height={44} className=" ml-3 mt-3" />
       </div>
