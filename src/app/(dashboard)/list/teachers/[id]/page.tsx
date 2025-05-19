@@ -37,6 +37,8 @@ const SingleTeacherPage = async ({
     },
   });
 
+  const title = teacher?.name || "Default Title";
+
   if (!teacher) {
     return notFound();
   }

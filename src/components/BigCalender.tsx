@@ -18,6 +18,8 @@ const BigCalendar = ({
     setView(selectedView);
   };
 
+  // console.log(teacher); // Removed undefined variable
+
   return (
     <Calendar
       localizer={localizer}
