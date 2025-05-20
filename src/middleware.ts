@@ -1,32 +1,55 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { routeAccessMap } from "./lib/settings";
+import createIntlMiddleware from 'next-intl/middleware';
+import { routing } from '@/i18n/routing';
+import { routeAccessMap } from "@/lib/settings";
 
+// Create the internationalization middleware
+const intlMiddleware = createIntlMiddleware(routing);
+
+// Setup route matchers for role-based access
 const matchers = Object.keys(routeAccessMap).map((route) => ({
   matcher: createRouteMatcher([route]),
   allowedRoles: routeAccessMap[route],
 }));
 
-console.log(matchers);
+// Function to chain middlewares
+function chainMiddleware(req: NextRequest, middlewares: Array<(req: NextRequest) => Promise<NextResponse | undefined> | NextResponse | undefined>) {
+  return async () => {
+    for (const middleware of middlewares) {
+      const result = await middleware(req);
+      if (result) {
+        return result;
+      }
+    }
+    return undefined;
+  };
+}
 
-export default clerkMiddleware((auth, req) => {
-  // if (isProtectedRoute(req)) auth().protect()
+// Export the middleware
+export default clerkMiddleware(async (auth, req) => {
+  // First apply Clerk's authentication logic
+  const { sessionClaims } =  await auth();  const role = (sessionClaims?.metadata as { role?: string })?.role;
 
-  const { sessionClaims } = auth();
-
-  const role = (sessionClaims?.metadata as { role?: string })?.role;
-
+  // Check role-based access
   for (const { matcher, allowedRoles } of matchers) {
-    if (matcher(req) && !allowedRoles.includes(role!)) {
-      return NextResponse.redirect(new URL(`/admin`, req.url));
+    if (matcher(req) && role && !allowedRoles.includes(role)) {
+      return NextResponse.redirect(new URL(`/${role}`, req.url));
     }
   }
+
+  // Then apply the internationalization middleware
+  return intlMiddleware(req);
 });
 
+// Combine the matchers from both middlewares
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Match all pathnames except for
+    // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+    // - … the ones containing a dot (e.g. `favicon.ico`)
+    '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
+    
     // Always run for API routes
     "/(api|trpc)(.*)",
   ],
