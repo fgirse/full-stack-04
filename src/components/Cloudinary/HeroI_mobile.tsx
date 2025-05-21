@@ -28,48 +28,55 @@ const cld = new Cloudinary({
   }
 }); 
 
-const t = useTranslations('Hero');
+const t = useTranslations('HeroMobil');
 
 // Use the image with public ID, 'sample'.
-const myImage = cld.image('hero-banner05-Photoroom_xgmpgq',);
+const myImage = cld.image('Strategic-Planning-for-Mid-Sized-Healthcare-Organizations-Turning-Vision-into-Daily-Impact-1400x788_zq6ftu_400x800_laihov',);
 
 
 // Transform the image.
 myImage
-  .resize(fill(3600, 900))
+  .resize(fill(1700, 2900))
   .roundCorners(byRadius(0)).overlay(   
     source(
-      text(t("Headline"), new TextStyle('bowlby one sc',80))
-      .textColor('#fffeee')       
+      text(t("Headline"), new TextStyle('bowlby one sc',90))
+      .textColor('#FFFFFF')       
     )
   
-    .position(new Position().gravity(compass('north_east')).offsetY(0).offsetX(0)))
+    .position(new Position().gravity(compass('north_west')).offsetY(50).offsetX(50)))
 
-
+    .overlay(   
+      source(
+        text(t("Jahr"), new TextStyle('bowlby one sc',160))
+        .textColor('orange')       
+      )
+      
+      .position(new Position().gravity(compass('north_west')).offsetY(130).offsetX(50)))
+  
 
   .overlay(   
     source(
-      text(t("präTitle"), new TextStyle('bowlby one sc',54))
+      text(t("präTitle"), new TextStyle('bowlby one sc',90))
       .textColor('orange')       
     )
     
-    .position(new Position().gravity(compass('north_west')).offsetY(560).offsetX(110)))
+    .position(new Position().gravity(compass('north_west')).offsetY(1560).offsetX(110)))
 
   
   .overlay(   
     source(
-      text(t("Title"), new TextStyle('bowlby one sc',96))
+      text(t("Title"), new TextStyle('bowlby one sc',200))
       .textColor('white')       
     )
     
-    .position(new Position().gravity(compass('north_west')).offsetY(638).offsetX(110)))
+    .position(new Position().gravity(compass('north_west')).offsetY(1638).offsetX(110)))
 
     .overlay(   
       source(
         text(t("postTitle"), new TextStyle('raleway', 36) .textAlignment('justify') .fontWeight('black')) // Apply 'bold' using .fontWeight()
           .textColor('white')      
       )
-      .position(new Position().gravity(compass('north_west')).offsetY(740).offsetX(119)))
+      .position(new Position().gravity(compass('north_west')).offsetY(2440).offsetX(119)))
   
 
     
