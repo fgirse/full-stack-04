@@ -1,6 +1,6 @@
 
 import HeroImageB from "@/components/Cloudinary/HeroImageB";
-import Hero_mobile from "@/components/Cloudinary/HeroI_mobile";
+import Hero_mobile from "@/components/Cloudinary/Hero_mobile";
 import React from "react";
 //import HeroImage02 from "@/components/CldImage/HeroImage02";
 //import HeroImage03 from "@/components/CldImage/HeroImage03";
@@ -28,7 +28,7 @@ export default function Home() {
         </section>
 
          <section className="flex flex-col items-start justify-center px-4">
-          <div className="">
+          <div className="mt-12">
             <h1 className="ml-12 text-6xl font-bold tracking-tighter md:text-8xl">
               PRODUCT
               <br />

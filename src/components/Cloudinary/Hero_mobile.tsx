@@ -65,7 +65,7 @@ myImage
   
   .overlay(   
     source(
-      text(t("Title"), new TextStyle('bowlby one sc',200))
+      text(t("Title"), new TextStyle('bowlby one sc',200) .lineSpacing(-10))
       .textColor('white')       
     )
     
@@ -73,8 +73,9 @@ myImage
 
     .overlay(   
       source(
-        text(t("postTitle"), new TextStyle('raleway', 36) .textAlignment('justify') .fontWeight('black')) // Apply 'bold' using .fontWeight()
-          .textColor('white')      
+        text(t("postTitle"), new TextStyle('raleway', 36) .textAlignment('justify') .fontWeight('black') .lineSpacing (-50) ) // Apply 'bold' using .fontWeight()
+          .textColor('white') 
+             
       )
       .position(new Position().gravity(compass('north_west')).offsetY(2440).offsetX(119)))
   
