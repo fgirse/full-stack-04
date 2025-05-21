@@ -36,7 +36,7 @@ const myImage = cld.image('Strategic-Planning-for-Mid-Sized-Healthcare-Organizat
 
 // Transform the image.
 myImage
-  .resize(fill(1700, 2900))
+  .resize(fill(1900,4000))
   .roundCorners(byRadius(0)).overlay(   
     source(
       text(t("Headline"), new TextStyle('bowlby one sc',90))
