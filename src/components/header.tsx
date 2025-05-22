@@ -25,7 +25,7 @@ const Header = () => {
       <div className="w-1/3 mr-3"> 
         <SignedOut>
             <SignInButton>
-              <button  className="rounded-lg py-2 px-3 bg-slate-600 text-center text-white w-36 hover:bg-orange-400">{t("signin")}</button>
+              <button  className="rounded-lg py-2 px-3 bg-slate-600 text-center text-white hover:bg-orange-400 text-[.6rem]">{t("signin")}</button>
             </SignInButton>
           </SignedOut>
           <SignedIn>

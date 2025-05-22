@@ -9,6 +9,7 @@ import Image from "next/image"
 import { cn } from "../../../../lib/lib/utils"
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation"
+import link from "next/link"
 
 
 export function Navbar() {
@@ -20,8 +21,7 @@ export function Navbar() {
   }
 
   const t = useTranslations("Navbar")  
-  const pathway = <u></u>
-
+  const pathname = usePathname()
   // Navigation data
 const navigation = [
 
@@ -52,11 +52,19 @@ const navigation = [
 
   ]
 
+  function clsx(arg0: string, arg1: { 'bg-red-500': boolean }): string | undefined {
+    throw new Error("Function not implemented.")
+  }
+
+  function clxs(arg0: string): string | undefined {
+    throw new Error("Function not implemented.")
+  }
+
   return (
     <header className="bg:slate-800 lg:bg-amber-500 shadow-sm ">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-5" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="uppercase-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
             <div className="h-8 w-auto font-bold text-xl">
               {/*<Image src="/LogoDms.png" alt="Logo" width={180} height={70} />*/}
@@ -113,7 +121,9 @@ const navigation = [
                               className="-m-3 flex items-start rounded-lg p-3 hover:bg-stone-200"
                               onClick={() => setActiveDropdown(null)}
                             >
-                              <div>
+                              <div className={clxs(
+                                `bg-neutral-600 ${pathname === child.href ? "active-class" : ""}`
+                              )}>
                                 <p className="text-sm font-medium text-gray-900">{child.title}</p>
                                 <p className="mt-1 text-sm text-gray-500">{child.description}</p>
                               </div>
@@ -182,7 +192,11 @@ const navigation = [
               ) : (
                 <Link
                   href={item.href}
-                  className="py-1 px-3 rounded-xl block bg-green-600 text-base font-semibold leading-5 text-gray-900 uppercase"
+                  className={ clsx (
+                    
+                    "py-1 px-3 rounded-xl block bg-green-600 text-base font-semibold leading-5 text-gray-900 uppercase",
+                    {'bg-red-500'  : pathname===item.href,}
+                  )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.title}
