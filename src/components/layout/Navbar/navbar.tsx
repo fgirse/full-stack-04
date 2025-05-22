@@ -8,7 +8,7 @@ import { ChevronDown, Menu, X } from "lucide-react"
 import Image from "next/image"
 import { cn } from "../../../../lib/lib/utils"
 import { useTranslations } from "next-intl";
-//import TextLogo from '/public/TextLogo4.png';
+import { usePathname } from "next/navigation"
 
 
 export function Navbar() {
@@ -20,6 +20,7 @@ export function Navbar() {
   }
 
   const t = useTranslations("Navbar")  
+  const pathway = <u></u>
 
   // Navigation data
 const navigation = [
@@ -52,10 +53,10 @@ const navigation = [
   ]
 
   return (
-    <header className="bg:stone-700 lg:bg-amber-500 shadow-sm ">
+    <header className="bg:slate-800 lg:bg-amber-500 shadow-sm ">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-5" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="uppercase-m-1.5 p-1.5">
             <span className="sr-only"></span>
             <div className="h-8 w-auto font-bold text-xl">
               {/*<Image src="/LogoDms.png" alt="Logo" width={180} height={70} />*/}
@@ -191,7 +192,7 @@ const navigation = [
           ))}
         </div>
         <div className="border-t border-gray-200 px-4 py-6">
-        <Link href="/admin" className="text-xl text-white bg-red-800 rounded-lg px-3 py-1 hover:bg-lime-500">{t("Admin")}</Link>
+        <Link href="/admin" className="text-xl text-white bg-white-800 rounded-lg px-3 py-1 hover:bg-red-500">{t("Admin")}</Link>
 
 
         </div>

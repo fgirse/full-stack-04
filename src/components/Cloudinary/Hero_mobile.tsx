@@ -90,7 +90,7 @@ myImage
   return(
     
     
-    <div className="flex flex-col justify-start items-center -mt-24">
+    <div className="flex flex-col justify-start items-center -mt-20">
     
       <Image src={myUrl} width={1980} height={900} alt="Transformed Image" className="text-white text-left" />
     </div>
