@@ -34,7 +34,7 @@ const myImage = cld.image('hero-banner05-Photoroom_1_c0uw5q',);
 
 // Transform the image.
 myImage
-  .resize(fill(2100,700))
+  .resize(fill(2100,750))
   .roundCorners(byRadius(0)).overlay(   
     source(
       text(t("Headline"), new TextStyle('bowlby one sc',90))

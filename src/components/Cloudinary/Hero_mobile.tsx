@@ -36,7 +36,7 @@ const myImage = cld.image('Strategic-Planning-for-Mid-Sized-Healthcare-Organizat
 
 // Transform the image.
 myImage
-  .resize(fill(1900,4000))
+  .resize(fill(1900,3700))
   .roundCorners(byRadius(0)).overlay(   
     source(
       text(t("Headline"), new TextStyle('bowlby one sc',90))
@@ -56,28 +56,28 @@ myImage
 
   .overlay(   
     source(
-      text(t("präTitle"), new TextStyle('bowlby one sc',90))
+      text(t("präTitle"), new TextStyle('bowlby one sc',60))
       .textColor('orange')       
     )
     
-    .position(new Position().gravity(compass('north_west')).offsetY(1560).offsetX(110)))
+    .position(new Position().gravity(compass('west')).offsetY(690).offsetX(110)))
 
   
   .overlay(   
     source(
-      text(t("Title"), new TextStyle('bowlby one sc',200) .lineSpacing(-10))
+      text(t("Title"), new TextStyle('bowlby one sc',290) .lineSpacing(-180))
       .textColor('white')       
     )
     
-    .position(new Position().gravity(compass('north_west')).offsetY(1638).offsetX(110)))
+    .position(new Position().gravity(compass('west')).offsetY(1138).offsetX(110)))
 
     .overlay(   
       source(
-        text(t("postTitle"), new TextStyle('raleway', 36) .textAlignment('justify') .fontWeight('black') .lineSpacing (-50) ) // Apply 'bold' using .fontWeight()
+        text(t("postTitle"), new TextStyle('raleway', 48) .textAlignment('justify') .fontWeight('black') .lineSpacing (-50) ) // Apply 'bold' using .fontWeight()
           .textColor('white') 
              
       )
-      .position(new Position().gravity(compass('north_west')).offsetY(2440).offsetX(119)))
+      .position(new Position().gravity(compass('south_west')).offsetY(5).offsetX(1)))
   
 
     
@@ -90,7 +90,7 @@ myImage
   return(
     
     
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col justify-start items-center -mt-36">
     
       <Image src={myUrl} width={1980} height={900} alt="Transformed Image" className="text-white text-left" />
     </div>
