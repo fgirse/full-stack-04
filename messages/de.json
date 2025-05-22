@@ -151,7 +151,7 @@
 
     "Navbar": {
       "home": "Start",
-      "gallery": "Gallerie",
+      "kurse": "Kurse",
       "about": "über uns",
       "cv": "Lebenslauf",
       "whatwedo": "Was wir tun?",
@@ -164,7 +164,8 @@
       "rechtliches": "Rechtliches",
       "cookies": "Cookies",
       "agb": "allgemeine Geschäftsbedingungen",
-      "Admin": "Adminboard"
+      "Admin": "Adminboard",
+      "info": "Information"
     
     },
     "NotFoundPage": {
@@ -175,7 +176,7 @@
     "protected": {
       "Title_Protected": "Diese Seite sehen Sie nur wenn sie bei ",
       "Title02_Protected": "8zense.com registriert bzw. eingeloggt sind!",    "userDetails": "Ihre Anwenderdaten",
-      "logged_in": "angemeldet als:"
+      "logged_ind": "angemeldet als:"
     },
 
    

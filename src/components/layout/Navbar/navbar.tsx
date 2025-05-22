@@ -45,14 +45,14 @@ const navigation = [
         { title: t("agb"), href: "/agb", description: "zur freien Verfügumg  " },
       ],
     },
-    { title: "gallery", href: "/galleria" },
-    { title: "service", href: "/services" },
+    { title: "kurse", href: "/kurse" },
+    { title: "iinfo", href: "/info" },
     { title: "contact", href: "/contact" },
 
   ]
 
   return (
-    <header className="bg:stone-300 lg:bg-amber-500 shadow-sm ">
+    <header className="bg:stone-700 lg:bg-amber-500 shadow-sm ">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-5" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
@@ -74,7 +74,7 @@ const navigation = [
             {mobileMenuOpen ? (
               <X className="h-6 w-6" aria-hidden="true" />
             ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
+              <Menu className="h-6 " aria-hidden="true" />
             )}
           </button>
         </div>
@@ -171,7 +171,7 @@ const navigation = [
                           className="block py-2"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <div className="text-sm font-medium text-gray-900">{child.title}</div>
+                          <div className="uppercase text-sm font-medium text-gray-900">{child.title}</div>
                           <div className="text-sm text-gray-500">{child.description}</div>
                         </Link>
                       ))}
@@ -181,7 +181,7 @@ const navigation = [
               ) : (
                 <Link
                   href={item.href}
-                  className="block text-base font-semibold leading-7 text-gray-900"
+                  className="py-1 px-3 rounded-xl block bg-green-600 text-base font-semibold leading-5 text-gray-900 uppercase"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.title}

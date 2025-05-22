@@ -147,7 +147,8 @@
   
     "Navbar": {
       "home": "Home",
-      "gallery": "Gallery",
+      "kurse": "Kurse",
+      "info": "Information",
       "about": "About",
       "cv": "Curriculum vitae",
       "whatwedo": "What we do?",
