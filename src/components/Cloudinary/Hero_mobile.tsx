@@ -1,14 +1,12 @@
 import Image from "next/image";
-import {Cloudinary} from "@cloudinary/url-gen";
-
+import {Cloudinary, Transformation} from "@cloudinary/url-gen";
+import {image } from "@cloudinary/url-gen/qualifiers/source";            
 // Import required actions.
 
 import {byAngle} from "@cloudinary/url-gen/actions/rotate"
 
-
-
   // Import the required actions and qualifiers.
-  import {fill} from "@cloudinary/url-gen/actions/resize";
+  import {fill, scale} from "@cloudinary/url-gen/actions/resize";
   import {source} from "@cloudinary/url-gen/actions/overlay";
   import {byRadius} from "@cloudinary/url-gen/actions/roundCorners";
 
@@ -19,6 +17,7 @@ import {byAngle} from "@cloudinary/url-gen/actions/rotate"
   import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
   import {autoGravity, compass} from "@cloudinary/url-gen/qualifiers/gravity";
   import { TextAlignment } from "@cloudinary/url-gen/qualifiers";
+import { hue } from "@cloudinary/url-gen/actions/adjust";
 // Create and configure your Cloudinary instance.
 
 export default function HeroImage() {
@@ -52,7 +51,18 @@ myImage
       )
       
       .position(new Position().gravity(compass('north_west')).offsetY(130).offsetX(50)))
-  
+
+      .overlay(
+        source(
+          image('LogoDms_czdjvn                                                            ')
+            .transformation(new Transformation()
+            .resize(scale().height(455))
+            .adjust(hue(-20))
+            .rotate(byAngle(0                                                                                                       ))
+            )
+        )
+        .position(new Position().gravity(compass('north_west')).offsetX(110).offsetY(150)) 
+      )
 
   .overlay(   
     source(
