@@ -13,7 +13,7 @@ import {byAngle} from "@cloudinary/url-gen/actions/rotate"
   import {byRadius} from "@cloudinary/url-gen/actions/roundCorners";
 
   // Import required values.
-  import {text} from "@cloudinary/url-gen/qualifiers/source";
+  import {image, text} from "@cloudinary/url-gen/qualifiers/source";
   import {Position} from "@cloudinary/url-gen/qualifiers/position";
   import { useTranslations } from "next-intl";
   import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
@@ -36,7 +36,7 @@ const myImage = cld.image('Strategic-Planning-for-Mid-Sized-Healthcare-Organizat
 
 // Transform the image.
 myImage
-  .resize(fill(1900,3700))
+  .resize(fill(1900,4300))
   .roundCorners(byRadius(0)).overlay(   
     source(
       text(t("Headline"), new TextStyle('bowlby one sc',90))
@@ -65,36 +65,36 @@ myImage
   
   .overlay(   
     source(
-      text(t("Title"), new TextStyle('bowlby one sc',290) .lineSpacing(-180))
+      text(t("Title"), new TextStyle('bowlby one sc', 290).lineSpacing(-180))
       .textColor('white')       
     )
-    
-    .position(new Position().gravity(compass('west')).offsetY(1138).offsetX(110)))
+    .position(new Position().gravity(compass('west')).offsetY(1138).offsetX(110))
+  )
 
-    .overlay(   
-      source(
-        text(t("postTitle"), new TextStyle('raleway', 48) .textAlignment('justify') .fontWeight('black') .lineSpacing (-50) ) // Apply 'bold' using .fontWeight()
-          .textColor('white') 
-             
-      )
-      .position(new Position().gravity(compass('south_west')).offsetY(5).offsetX(1)))
-  
+  .overlay(   
+    source(
+      text(t("postTitle"), new TextStyle('raleway', 54).textAlignment('justify').fontWeight('black').lineSpacing(-50)) // Apply 'bold' using .fontWeight()
+      .textColor('white') 
+    )
+    .position(new Position().gravity(compass('west')).offsetY(1600).offsetX(110))
+  )
 
-    
+  .overlay(
+    source(
+      image(cld.image('LogoDms_czdjvn').toURL()) // Convert CloudinaryImage to a compatible format
+    )
+    .position(new Position().gravity(compass('north_west')).offsetY(50).offsetX(50)) // Adjust position as needed
+  )
+
   .rotate(byAngle(0))
   .format('png');
   
 
   // Return the delivery URL
-  const myUrl = myImage.toURL()
+  const myUrl = myImage.toURL();
   return(
-    
-    
     <div className="flex flex-col justify-start ite">
-    
       <Image src={myUrl} width={1980} height={900} alt="Transformed Image" className="text-white text-left" />
     </div>
-    
-    
   );
 }

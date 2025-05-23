@@ -9,7 +9,7 @@ import Image from "next/image"
 import { cn } from "../../../../lib/lib/utils"
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation"
-import link from "next/link"
+import clsx from "clsx"
 
 
 export function Navbar() {
@@ -51,14 +51,6 @@ const navigation = [
     { title: "contact", href: "/contact" },
 
   ]
-
-  function clsx(arg0: string, arg1: { 'bg-red-500': boolean }): string | undefined {
-    throw new Error("Function not implemented.")
-  }
-
-  function clxs(arg0: string): string | undefined {
-    throw new Error("Function not implemented.")
-  }
 
   return (
     <header className="bg:slate-800 lg:bg-amber-500 shadow-sm ">
@@ -121,7 +113,7 @@ const navigation = [
                               className="-m-3 flex items-start rounded-lg p-3 hover:bg-stone-200"
                               onClick={() => setActiveDropdown(null)}
                             >
-                              <div className={clxs(
+                              <div className={cn(
                                 `bg-neutral-600 ${pathname === child.href ? "active-class" : ""}`
                               )}>
                                 <p className="text-sm font-medium text-gray-900">{child.title}</p>
@@ -182,8 +174,12 @@ const navigation = [
                           className="block py-2"
                           onClick={() => setMobileMenuOpen(false)}
                         >
+                          <div className={clsx('bg-cyan-400', 
+                            { 'bg-amber-400': pathname === child.href }
+                          )}>
                           <div className="uppercase text-sm font-medium text-gray-900">{child.title}</div>
                           <div className="text-sm text-gray-500">{child.description}</div>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -192,11 +188,7 @@ const navigation = [
               ) : (
                 <Link
                   href={item.href}
-                  className={ clsx (
-                    
-                    "py-1 px-3 rounded-xl block bg-green-600 text-base font-semibold leading-5 text-gray-900 uppercase",
-                    {'bg-red-500'  : pathname===item.href,}
-                  )}
+                  className="py-1 px-3 rounded-xl block bg-green-600 text-base font-semibold leading-5 text-gray-900 uppercase"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.title}
@@ -206,7 +198,15 @@ const navigation = [
           ))}
         </div>
         <div className="border-t border-gray-200 px-4 py-6">
-        <Link href="/admin" className="text-xl text-white bg-white-800 rounded-lg px-3 py-1 hover:bg-red-500">{t("Admin")}</Link>
+        <Link href="/admin" className={clsx(
+          "text-sm md:text-xl text-white bg-slate-500 rounded-lg px-3 py-1 hover:bg-red-500",
+          { "bg-blue-400": pathname === "/admin" }
+        )}
+
+
+        
+        
+        >{t("Admin")}</Link>
 
 
         </div>
