@@ -1,5 +1,3 @@
-
-
 "use client"
 
 import { useState } from "react"
@@ -33,7 +31,7 @@ const navigation = [
         { title: t("whoweare"), href: "/werwirsind", description: "Track and visualize your data" },
         { title: t("whatwedo"), href: "/waswirtun", description: "Einblicke in unser kreatives Schaffen" },
         { title: t("cv"), href: "/curriculum", description: "Curriculum Fernanda Perreira" },
-        { title: "frei", href: "#", description: "zur freien Verfügumg  " },
+        { title: "frei", href: "#", description: "zur freien Verfügung  " },
       ],
     },
     {
@@ -43,11 +41,11 @@ const navigation = [
         { title: t("impressum"), href: "/impressum", description: "Infos die laut Gesetzgeber zur Verfügung gstellt werden müssen" },
         { title: t("datenschutz"), href: "datenschutz", description: "Alles zum Datenschutz " },
         { title: t("cookies"), href: "/cookies", description: "Sell products online" },
-        { title: t("agb"), href: "/agb", description: "zur freien Verfügumg  " },
+        { title: t("agb"), href: "/agb", description: "zur freien Verfügung  " },
       ],
     },
     { title: "kurse", href: "/kurse" },
-    { title: "iinfo", href: "/info" },
+    { title: "info", href: "/info" },
     { title: "contact", href: "/contact" },
 
   ]
@@ -68,7 +66,7 @@ const navigation = [
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-stone-700 hover:bg-stone-300"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-stone-700"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Toggle menu</span>
@@ -83,7 +81,10 @@ const navigation = [
         {/* Desktop menu */}
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <div key={item.title} className="relative">
+            <div key={item.title} className={clsx("relative bg-orange-600/20 hover:bg-amber-700/30 rounded-lg px-1 py-1 hover:transform hover:translatex-1 hover:transform hover:-translate-y-1 hover:bg-stone-300",
+              {"bg-amber-900": pathname === item.href}
+            )}      
+              >
               {item.children ? (
                 <div>
                   <button
@@ -136,8 +137,10 @@ const navigation = [
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <Link href="/admin" className="text-xl text-white bg-red-800 rounded-lg px-3 py-1 hover:bg-lime-500">{t("Admin")}</Link>
+        <Link href="/admin" className={clsx("px-2 py-1 rounded-xl text-[10px] text-white text-center",
+                { "bg-gray-300": pathname === "/admin" })}>
 
+                </Link>
 
         </div>
       </nav>
@@ -146,12 +149,12 @@ const navigation = [
       <div className={cn("lg:hidden", mobileMenuOpen ? "block" : "hidden")}>
         <div className="space-y-2 px-4 py-3">
           {navigation.map((item) => (
-            <div key={item.title} className="py-2">
+            <div key={item.title} className="  py-2">
               {item.children ? (
                 <div>
                   <button
                     onClick={() => toggleDropdown(item.title)}
-                    className="flex w-full items-center justify-between text-base font-semibold leading-7 text-gray-900"
+                    className="flex w-full items-center justify-between text-base font-semibold leading-7 text-gray-900 uppercase"
                     aria-expanded={activeDropdown === item.title}
                   >
                     {item.title}
@@ -174,7 +177,7 @@ const navigation = [
                           className="block py-2"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <div className={clsx('bg-cyan-400', 
+                          <div className={clsx('text-sm', 
                             { 'bg-amber-400': pathname === child.href }
                           )}>
                           <div className="uppercase text-sm font-medium text-gray-900">{child.title}</div>
@@ -188,18 +191,18 @@ const navigation = [
               ) : (
                 <Link
                   href={item.href}
-                  className="py-1 px-3 rounded-xl block bg-green-600 text-base font-semibold leading-5 text-gray-900 uppercase"
+                  className="py-3 px-3 rounded-xl block bg-gr600 text-base font-semibold leading-5 text-gray-900 uppercase"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.title}
-                </Link>
-              )}
-            </div>
+        
+                    </Link>
+              )}</div>
           ))}
         </div>
-        <div className="border-t border-gray-200 px-4 py-6">
+        <div className="border-t border-gray-700 px-4 py-6">
         <Link href="/admin" className={clsx(
-          "text-sm md:text-xl text-white bg-slate-500 rounded-lg px-3 py-1 hover:bg-red-500",
+          "text-sm md:text-xl text-white bg-slate-400 rounded-lg px-3 py-1 hover:bg-red-700",
           { "bg-blue-400": pathname === "/admin" }
         )}
 

@@ -43,12 +43,12 @@ const Navbar = async () => {
           </div>
         </div>
         <div className="flex flex-col">
-          <span className="text-sm font-semibold text-gray-600">
+          <span className="text-[.4rem] md:text-[.5rem] font-semibold text-gray-600">
             {user?.firstName} {user?.lastName}{" "}
           </span>
           {typeof user?.publicMetadata?.role === "string" && (
             <span
-              className={clsx("px-2 py-1 rounded-xl text-[10px] text-white text-center ",
+              className={clsx("px-2 py-1 rounded-xl text-[8px] text-white text-center ",
                 {
                   "bg-gray-300": user.publicMetadata.role === "admin",
                   "bg-blue-500": user.publicMetadata.role === "teacher",
