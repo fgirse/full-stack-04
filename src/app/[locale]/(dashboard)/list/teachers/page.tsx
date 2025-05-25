@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import Header from "@/components/header";
 import { auth } from "@clerk/nextjs/server";
 import { Class, Prisma, Subject, Teacher } from "@prisma/client";
 

@@ -87,7 +87,7 @@ const EventForm = ({
         <button 
           type="button" 
           onClick={() => setOpen(false)} 
-          className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md"
+          className="px-4 py-2 bg-gray-200 text-gray rounded-md"
         >
           Cancel
         </button>
@@ -153,7 +153,7 @@ const AnnouncementForm = ({
         <button 
           type="button" 
           onClick={() => setOpen(false)} 
-          className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md"
+          className="px-4 py-2 bg-gray-200 text-gray rounded-md"
         >
           Cancel
         </button>

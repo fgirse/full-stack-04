@@ -53,13 +53,14 @@ const navigation = [
   return (
     <header className="bg:slate-800 lg:bg-amber-500 shadow-sm ">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-5" aria-label="Global">
-        <div className="flex lg:flex-1">
+        <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
-            <div className="h-8 w-auto font-bold text-xl">
-              {/*<Image src="/LogoDms.png" alt="Logo" width={180} height={70} />*/}
+            <div className="mt-2 w-auto font-bold text-xl mb-3">
+              <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-300 rounded-full" />
             </div>
           </Link>
+          <h1 className="text-[898989] text-[.4rem] font-bold ml-4 hidden lg:block"> {t("telephone")}: +49 761 606060</h1> 
         </div>
 
         {/* Mobile menu button */}
@@ -81,7 +82,7 @@ const navigation = [
         {/* Desktop menu */}
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <div key={item.title} className={clsx("relative bg-orange-600/20 hover:bg-amber-700/30 rounded-lg px-1 py-1 hover:transform hover:translatex-1 hover:transform hover:-translate-y-1 hover:bg-stone-300",
+            <div key={item.title} className={clsx("relative bg-orange-600/20 hover:bg-amber-700/30 rounded-lg px-1 py-1 hover:transform hover:translatex-1 hover:transform hover:-translate-y-1",
               {"bg-amber-900": pathname === item.href}
             )}      
               >
@@ -115,9 +116,9 @@ const navigation = [
                               onClick={() => setActiveDropdown(null)}
                             >
                               <div className={cn(
-                                `bg-neutral-600 ${pathname === child.href ? "active-class" : ""}`
+                                ` ${pathname === child.href ? "active-class" : ""}`
                               )}>
-                                <p className="text-sm font-medium text-gray-900">{child.title}</p>
+                                <p className="uppercase text-sm font-medium text-gray-900">{child.title}</p>
                                 <p className="mt-1 text-sm text-gray-500">{child.description}</p>
                               </div>
                             </Link>
@@ -191,7 +192,7 @@ const navigation = [
               ) : (
                 <Link
                   href={item.href}
-                  className="py-3 px-3 rounded-xl block bg-gr600 text-base font-semibold leading-5 text-gray-900 uppercase"
+                  className="py-3 px-3 rounded-xl block text-base font-semibold leading-5 text-gray-900 uppercase"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.title}
@@ -217,7 +218,6 @@ const navigation = [
     </header>
   )
 }
-
 
 
 

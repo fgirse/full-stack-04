@@ -35,7 +35,7 @@ export default function RootLayout({
           <meta name="keywords" content="Online School, Education, HealhCare" />
           </head>
         <body className={jakarta.className}>
-          <Header />
+          <Header/>
           <Navbar/>
           {children} <main className="content"/> <ToastContainer position="bottom-right" theme="dark" />
           <ScrollToTopButton/>

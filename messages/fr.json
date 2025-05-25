@@ -131,7 +131,6 @@
       "cv": "Curriculum",
       "whatwedo": "Questque fait?",
       "whoweare": "Qui nous sommes?",
-      
       "services": "Accesoires",
       "contact": "Contacte",
       "impressum": "Imprimer",
@@ -139,7 +138,8 @@
       "rechtliches": "point du juristement",
       "cookies": "Cookies",
       "agb": "conditions generales",
-      "Admin": "Adminboard"
+      "Admin": "Adminboard",
+      "telephone": "Téléphone"           
     },
   
     "NotFoundPage": {
