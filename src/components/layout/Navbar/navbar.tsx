@@ -56,7 +56,7 @@ const navigation = [
         <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
-            <div className="mt-2 w-16 font-bold text-xl mb-3">
+            <div className="mt-2 w-12 font-bold text-xl mb-3">
               <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-700/60 rounded-lg shadow-xl" />
             </div>
           </Link>
@@ -140,10 +140,10 @@ const navigation = [
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-
-<Link href="/admin" className="border-4 px-3 py-1 "><AdminBoard/></Link>
-
-
+<div className="flex flex-col items-center gap-1">
+<Link href="/admin" className=" px-3 py-1 "><AdminBoard/></Link>
+<h1 className="text-center text-neutral-100 text-[.75rem] font-bold ml-4 hidden lg:block"> ↗️ Administration</h1>
+</div>
 
 </div>
       </nav>
@@ -204,11 +204,13 @@ const navigation = [
           ))}
         </div>
         <div className="mt-3 mb-3 border-t-2">
+          <div className="flex flex items-center gap-1">
         <Link href="/admin" className="py-2">
         
         <AdminBoard/>
         </Link>
-
+        <h1  className="mt-12 mb-5 text-center text-neutral-700 text-[.75rem] font-bold ml-4  lg:hidden"> ⬅️ Administration</h1>
+        </div>
 
         </div>
       </div>

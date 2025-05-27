@@ -3,10 +3,10 @@ import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {clsx} from 'clsx';
-import { Raleway} from 'next/font/google';
+import { Roboto,} from 'next/font/google';
 import {routing} from '@/i18n/routing';
 import { Navbar } from '@/components/layout/Navbar/navbar';
-import './styles.css';
+import '../globals.css';
 import Header from '@/components/header';
 import { ClerkProvider } from '@clerk/nextjs';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
@@ -17,7 +17,10 @@ type Props = {
   params: Promise<{locale: Locale}>;
 };
 
-const raleway = Raleway({subsets: ['latin']});
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: '100'
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -46,12 +49,12 @@ export default async function LocaleLayout({children, params}: Props) {
   return (
     <ClerkProvider>
     <html className="h-full" lang={locale}>
-      <body className={clsx(raleway.className, 'flex h-full flex-col')}>
+      <body className={clsx(roboto.className, 'flex h-full flex-col')}>
         <NextIntlClientProvider>
           <Header/>
          <Navbar />
 
-         <main className="min-h-[100vh] overflow-hidden h-[100vh]">
+         <main className="min-h-[100vh] flex justify-center overflow-hidden h-screen">
           {children}
           </main>
           <ScrollToTopButton />
