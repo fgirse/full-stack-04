@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Cloudinary} from "@cloudinary/url-gen";
+import {Cloudinary, Transformation} from "@cloudinary/url-gen";
 
 // Import required actions.
 
@@ -8,12 +8,12 @@ import {byAngle} from "@cloudinary/url-gen/actions/rotate"
 
 
   // Import the required actions and qualifiers.
-  import {fill} from "@cloudinary/url-gen/actions/resize";
+  import {fill, scale} from "@cloudinary/url-gen/actions/resize";
   import {source} from "@cloudinary/url-gen/actions/overlay";
   import {byRadius, max} from "@cloudinary/url-gen/actions/roundCorners";
 
   // Import required values.
-  import {text} from "@cloudinary/url-gen/qualifiers/source";
+  import {image, text} from "@cloudinary/url-gen/qualifiers/source";
   import {Position} from "@cloudinary/url-gen/qualifiers/position";
   import { useTranslations } from "next-intl";
   import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
@@ -25,6 +25,7 @@ import { effect } from "zod";
 import { LayerAction } from "@cloudinary/transformation-builder-sdk/actions/layer/LayerAction";
 import { format } from "@cloudinary/url-gen/actions/delivery";
 import { videoMp4 } from "@cloudinary/url-gen/qualifiers/format";
+import { hue } from "@cloudinary/transformation-builder-sdk/actions/adjust";
 
 // Create and configure your Cloudinary instance.
 
@@ -81,6 +82,18 @@ myImage
           .textColor('#898989')       
         )
         .position(new Position().gravity(compass('west')).offsetY(2338).offsetX(110))
+      )
+
+      .overlay(
+        source(
+          image('LogoDms_czdjvn')
+            .transformation(new Transformation()
+            .resize(scale().height(750))
+            .adjust(hue(5))
+            .rotate(byAngle(0))
+            )
+          )
+          .position(new Position().gravity(compass('north')).offsetX(330).offsetY(220)) 
       )
   
   // Return the delivery URL
