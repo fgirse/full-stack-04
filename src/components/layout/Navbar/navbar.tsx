@@ -28,10 +28,10 @@ const navigation = [
       title: t("about"),
       href: "#",
       children: [
-        { title: t("whoweare"), href: "/werwirsind", description: "Track and visualize your data" },
-        { title: t("whatwedo"), href: "/waswirtun", description: "Einblicke in unser kreatives Schaffen" },
-        { title: t("cv"), href: "/curriculum", description: "Curriculum Fernanda Perreira" },
-        { title: "frei", href: "#", description: "zur freien Verfügung  " },
+        { title: t("whoweare"), href: "/werwirsind", description: t("descriptionA") },
+        { title: t("whatwedo"), href: "/waswirtun", description: t("descriptionB")},
+        { title: t("cv"), href: "/curriculum", description: t("descriptionC") },
+        { title: "frei", href: "#", description: t("descriptionD") },
       ],
     },
     {
@@ -56,11 +56,14 @@ const navigation = [
         <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
-            <div className="mt-2 w-36 font-bold text-xl mb-3">
+            <div className="mt-2 w-16 font-bold text-xl mb-3">
               <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-700/60 rounded-lg shadow-xl" />
             </div>
           </Link>
-          <h1 className="text-neutral-100 text-[.4rem] font-bold ml-4 hidden lg:block"> {t("telephone")}: +49 761 606060</h1> 
+          <div className="flex flex-col items-start">
+          <h1 className="text-neutral-100 text-[.4rem] font-bold ml-4 hidden lg:block"> ☎: +49 761 606060</h1> 
+          <h1 className="text-neutral-100 text-[.4rem] font-bold ml-4 hidden lg:block"> 📩: online-pflegeschule-freiburg</h1> 
+          </div>
         </div>
 
         {/* Mobile menu button */}

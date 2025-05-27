@@ -161,7 +161,11 @@
       "rechtliches": "items of right",
       "cookies": "Cookies",
       "agb": "General Terms and Conditions",
-       "Admin": "Dashboard"
+       "telephone": "Phone",
+       "descriptionA": "We introduce ourselves!",
+       "descriptionB": "Here you will find all information about our services.",
+       "descriptionC": "Further Information aboout our school management and the teachers",
+       "descriptionD": "freely available"
     },
   
     "NotFoundPage": {

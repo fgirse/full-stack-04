@@ -49,7 +49,7 @@ myImage
     
     <div className="w-60 flex flex-col items-center lg:w-16">
     
-      <Image src={myUrl} width={190} height={190} alt="Transformed Image" className="bg-neutral-300 lg:border-2 border-neutral-300 hover:bg-amber-500/30 shadow-xl lg:hover:bg-yellow-100/50" />
+      <Image src={myUrl} width={190} height={190} alt="Transformed Image" className="rounded-lg bg-neutral-300 hover:bg-amber-500/30 shadow-xl lg:hover:bg-yellow-100/50" />
     </div>
     
     

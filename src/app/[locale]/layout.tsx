@@ -3,19 +3,21 @@ import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {clsx} from 'clsx';
-import {Inter} from 'next/font/google';
+import { Raleway} from 'next/font/google';
 import {routing} from '@/i18n/routing';
 import { Navbar } from '@/components/layout/Navbar/navbar';
 import './styles.css';
 import Header from '@/components/header';
 import { ClerkProvider } from '@clerk/nextjs';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+import Footer from '@/components/layout/Footer';
 
 type Props = {
   children: ReactNode;
   params: Promise<{locale: Locale}>;
 };
 
-const inter = Inter({subsets: ['latin']});
+const raleway = Raleway({subsets: ['latin']});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -44,12 +46,16 @@ export default async function LocaleLayout({children, params}: Props) {
   return (
     <ClerkProvider>
     <html className="h-full" lang={locale}>
-      <body className={clsx(inter.className, 'flex h-full flex-col')}>
+      <body className={clsx(raleway.className, 'flex h-full flex-col')}>
         <NextIntlClientProvider>
           <Header/>
-            
-                      <Navbar />
+         <Navbar />
+
+         <main className="min-h-[100vh] overflow-hidden h-[100vh]">
           {children}
+          </main>
+          <ScrollToTopButton />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -14,17 +14,17 @@ const Header = () => {
 
     <section className=" bg-transparent">
       
-        <div className=" left-0 bg-neutral-800/20 w-[100vw] flex flex-row items-center justify-between gap-x-12 ">
+        <div className="bg-neutral-800/20 w-[100vw] flex flex-row items-center justify-between gap-x-16 ">
             {/*<div className="w-1/3 mb-3">
                 <Image src="/LogoDms.png" alt="Logo" width={90} height={44} className=" ml-3 mt-3" />
             </div>*/}
-        <div className="ml-5 w-1/3 bg-zinc-....600 rounded-lg ">
+        <div className="ml-5 w-1/3 rounded-lg ">
             <LocaleSwitcher/>
        </div>
        <div className="w-1/3"> 
         <SignedOut>
             <SignInButton>
-              <button  className="rounded-lg py-2 px-3 bg-slate-600 text-center text-white w-36 hover:bg-orange-400">{t("signin")}</button>
+              <button  className="rounded-lg py-1 px-1 bg-slate-600 text-center text-white hover:bg-orange-400">{t("signin")}</button>
             </SignInButton>
           </SignedOut>
           <SignedIn>

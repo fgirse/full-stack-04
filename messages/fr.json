@@ -140,7 +140,11 @@
       "cookies": "Cookies",
       "agb": "conditions generales",
       "Admin": "Adminboard",
-      "telephone": "Téléphone"           
+      "telephone": "Téléphone",  
+      "descriptionA": "Nous nous presentons!",
+      "descriptionB": "Vous trouverez ici toutes les informations sur nos services et offres.",
+      "descriptionC": "FInformations complémentaires sur la direction de notre école et les enseignants",
+      "descriptionD": "disponible gratuitement"        
     },
   
     "NotFoundPage": {
