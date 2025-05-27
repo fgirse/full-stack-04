@@ -1,31 +1,11 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+import {ReactNode} from 'react';
 
-import { ToastContainer } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
-import "./globals.css";
-
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "EduSphere",
-  description: "EduSphere | Empowering Education, Simplifying Management.",
+type Props = {
+  children: ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    
-      <html lang="en">
-        <body className={jakarta.className}>
-          {children} <ToastContainer position="bottom-right" theme="dark" />
-        </body>
-      </html>
-  
-  );
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({children}: Props) {
+  return children;
 }

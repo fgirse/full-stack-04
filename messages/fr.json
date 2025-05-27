@@ -61,7 +61,7 @@
     },
 
     "Header": {
-      "signin": "Connectez-vous"
+      "signin": "Connectez"
     },
   
     "Hero": {
@@ -76,6 +76,7 @@
     "HeroMobil": {
       "Headline": "ecole online freiburg",
       "Jahr": "2025",
+      "Slogan": "fait ton chef d'oeuvrey¥¥ !",
       "präTitle": "Adapté au système de gestion allemand",
       "Title": "digitale\nonline\nkrankenpflege",
       "postTitle": "online schule für internationale krankenpflege studenten"
@@ -110,8 +111,8 @@
 
 
     "LocaleLayout":{
-        "title": "8zense.com",
-        "description": "Landingpage de Startup 8zense.com developez avec Next.js et next-intl und Supabase"  
+        "title": "Online Ecole du care Freiburg",
+        "description": "Digital Online School Freiburg | Empowering Education, Simplifying Management."  
       },
   
     "": {

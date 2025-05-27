@@ -18,7 +18,7 @@ export default function Home() {
         <div className="block md:hidden"> 
             <Hero_mobile/>
         </div>
-        <div className=" hidden md:block ">
+        <div className=" hidden md:block mt-[12vH]">
       <HeroImageB/> 
         </div>                                                
          <div className="flex flex-col items-center bg-gradient-to-b from-[#938d7d] lg:bg-gradient-to-b via-transparent  to-transparent lg:mt-[50vh]">

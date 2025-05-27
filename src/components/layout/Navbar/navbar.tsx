@@ -1,8 +1,8 @@
 "use client"
-
+import AdminBoard from "@/components/Adminboard/AdminBoard"
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { ChevronDown, LogOut, Menu, X } from "lucide-react"
 import Image from "next/image"
 import { cn } from "../../../../lib/lib/utils"
 import { useTranslations } from "next-intl";
@@ -52,15 +52,15 @@ const navigation = [
 
   return (
     <header className="bg:slate-800 lg:bg-amber-500 shadow-sm ">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-5" aria-label="Global">
+      <nav className="mx-auto flex max-w-8xl items-center justify-between p-4 lg:px-5" aria-label="Global">
         <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
-            <div className="mt-2 w-auto font-bold text-xl mb-3">
-              <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-300 rounded-full" />
+            <div className="mt-2 w-36 font-bold text-xl mb-3">
+              <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-700/60 rounded-lg shadow-xl" />
             </div>
           </Link>
-          <h1 className="text-[898989] text-[.4rem] font-bold ml-4 hidden lg:block"> {t("telephone")}: +49 761 606060</h1> 
+          <h1 className="text-neutral-100 text-[.4rem] font-bold ml-4 hidden lg:block"> {t("telephone")}: +49 761 606060</h1> 
         </div>
 
         {/* Mobile menu button */}
@@ -82,10 +82,9 @@ const navigation = [
         {/* Desktop menu */}
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <div key={item.title} className={clsx("relative bg-orange-600/20 hover:bg-amber-700/30 rounded-lg px-1 py-1 hover:transform hover:translatex-1 hover:transform hover:-translate-y-1",
-              {"bg-amber-900": pathname === item.href}
-            )}      
-              >
+            <div key={item.title} className="relative bg-orange-600/20 hover:bg-amber-900/30 rounded-lg px-2 py-1 hover:translate-x-2 hover:-translate-y-2 hover:scale-110"     
+             >
+
               {item.children ? (
                 <div>
                   <button
@@ -138,12 +137,12 @@ const navigation = [
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <Link href="/admin" className={clsx("px-2 py-1 rounded-xl text-[10px] text-white text-center",
-                { "bg-gray-300": pathname === "/admin" })}>
 
-                </Link>
+<Link href="/admin" className="border-4 px-3 py-1 "><AdminBoard/></Link>
 
-        </div>
+
+
+</div>
       </nav>
 
       {/* Mobile menu */}
@@ -201,16 +200,11 @@ const navigation = [
               )}</div>
           ))}
         </div>
-        <div className="border-t border-gray-700 px-4 py-6">
-        <Link href="/admin" className={clsx(
-          "text-sm md:text-xl text-white bg-slate-400 rounded-lg px-3 py-1 hover:bg-red-700",
-          { "bg-blue-400": pathname === "/admin" }
-        )}
-
-
+        <div className="mt-3 mb-3 border-t-2">
+        <Link href="/admin" className="py-2">
         
-        
-        >{t("Admin")}</Link>
+        <AdminBoard/>
+        </Link>
 
 
         </div>

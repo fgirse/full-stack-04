@@ -1,48 +1,58 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
-import { NextIntlClientProvider } from "next-intl";
-import { ToastContainer } from "react-toastify";
+import {notFound} from 'next/navigation';
+import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {ReactNode} from 'react';
+import {clsx} from 'clsx';
+import {Inter} from 'next/font/google';
+import {routing} from '@/i18n/routing';
+import { Navbar } from '@/components/layout/Navbar/navbar';
+import './styles.css';
+import Header from '@/components/header';
+import { ClerkProvider } from '@clerk/nextjs';
 
-import "react-toastify/dist/ReactToastify.css";
-import "../globals.css";
-import Header from "@/components/header";
-import { Navbar } from "@/components/layout/Navbar/navbar";
-import Footer from "@/components/layout/Footer/index";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Digitale Online School Freiburg",
-  description: "Digital Online School Freiburg | Empowering Education, Simplifying Management.",
+type Props = {
+  children: ReactNode;
+  params: Promise<{locale: Locale}>;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const inter = Inter({subsets: ['latin']});
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
+export async function generateMetadata(props: Omit<Props, 'children'>) {
+  const {locale} = await props.params;
+
+  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
+
+  return {
+    title: t('title')
+  };
+}
+
+export default async function LocaleLayout({children, params}: Props) {
+  // Ensure that the incoming `locale` is valid
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
   return (
     <ClerkProvider>
-      <NextIntlClientProvider locale="en">
-      <html lang="en" suppressHydrationWarning>
-        <head>
-          <link rel="icon" href="/favicon.ico" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="theme-color" content="#000000" />
-          <meta name="description" content="EduSphere | Empowering Education, Simplifying Management." />
-          <meta name="keywords" content="Online School, Education, HealhCare" />
-          </head>
-        <body className={jakarta.className}>
+    <html className="h-full" lang={locale}>
+      <body className={clsx(inter.className, 'flex h-full flex-col')}>
+        <NextIntlClientProvider>
           <Header/>
-          <Navbar/>
-          {children} <main className="content"/> <ToastContainer position="bottom-right" theme="dark" />
-          <ScrollToTopButton/>
-          <Footer/>
-        </body>
-      </html>
-      </NextIntlClientProvider>
+            
+                      <Navbar />
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
     </ClerkProvider>
   );
 }

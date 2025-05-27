@@ -65,8 +65,7 @@
       "Dashboard_subtitle": "Ein Kompakter Überblick über Ihre aktuellen Projekte, Ihre Erfolge und Ihre Ziele",
       "LoginData": "Sie haben ein Konto und sind mit folgenden Daten angemeldet:",
       "Galery": "Galerie unserer verschiedenen Beton-Compositionen:"
-    
-    },
+        },
 
     "emailMessage": {
       "Email_Text01": "Deutschland",
@@ -90,6 +89,7 @@
 "HeroMobil": {
   "Headline": "online pflegeschule freiburg",
   "Jahr": "2025",
+  "Slogan": "mach dich fit !",
   "präTitle": "mach dich fit fürs deutsche gesundheitswesen",
    "Title": "digitale\nonline\npflege",  
   "postTitle": "online schule für internationale krankenpflege studenten"                                  
@@ -129,14 +129,15 @@
 
 
       "LocaleLayout":{
-        "title": "8zense.com",
-        "description": "Landingpage für Startup 8zense.com programmiert mit Next.js und next-intl und Supabase"  
+        "title": "Online Pflegeschule Freiburg",
+        "description": "Digital Online School Freiburg | Empowering Education, Simplifying Management."  
       },
 
-      "LocaleSwitcher": {
+    
+    "LocaleSwitcher": {
         "label": "Sprache ändern",
         "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} fr {🇫🇷 France} other {Unbekannt}}"
-      },
+    },
   
     "Metadata": {
       "title": "8zense.com",

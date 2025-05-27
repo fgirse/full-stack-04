@@ -76,6 +76,7 @@
       "Headline": "online school for healthcare freiburg",
 
       "Jahr": "2025",
+      "Slogan": "Make your Masterpiece !",
       "präTitle": "Make your masterpiece in German Healthcare",
   
       "Title": "digital online healthcare",
@@ -122,8 +123,8 @@
 
   
     "LocaleLayout":{
-        "title": "8zense.com",
-        "description": "Landingpage for Startup 8zense.com developed with Next.js and next-intl and Supabase"  
+        "title": "Online school of healthcare freiburg",
+        "description": "Digital Online School Freiburg | Empowering Education, Simplifying Management."  
       },
 
       "LocaleSwitcher": {

@@ -14,11 +14,11 @@ const Header = () => {
 
     <section className=" bg-transparent">
       
-        <div className=" left-0 bg-blue-300/50 w-[24vw] flex flex-row items-center justify-start gap-x-3 ">
-            <div className="w-1/3 mb-3">
+        <div className=" left-0 bg-neutral-800/20 w-[100vw] flex flex-row items-center justify-between gap-x-12 ">
+            {/*<div className="w-1/3 mb-3">
                 <Image src="/LogoDms.png" alt="Logo" width={90} height={44} className=" ml-3 mt-3" />
-            </div>
-        <div className="w-1/3 bg-zinc-....600 rounded-lg ">
+            </div>*/}
+        <div className="ml-5 w-1/3 bg-zinc-....600 rounded-lg ">
             <LocaleSwitcher/>
        </div>
        <div className="w-1/3"> 
