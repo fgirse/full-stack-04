@@ -2,12 +2,12 @@
 import AdminBoard from "@/components/Adminboard/AdminBoard"
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown, LogOut, Menu, X } from "lucide-react"
+import { ChevronDown, LogOut, Menu, X } from 'lucide-react'
 import Image from "next/image"
 import { cn } from "../../../../lib/lib/utils"
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation"
-import clsx from "clsx"
+
 
 
 export function Navbar() {
@@ -20,6 +20,13 @@ export function Navbar() {
 
   const t = useTranslations("Navbar")  
   const pathname = usePathname()
+
+  const isActiveLink = (href: string) => {
+    if (href === "/") {
+      return pathname === "/"
+    }
+    return pathname === href || pathname.startsWith(href + "/")
+  }
   // Navigation data
 const navigation = [
 
@@ -56,7 +63,7 @@ const navigation = [
         <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
-            <div className="mt-2 w-12 font-bold text-xl mb-3">
+            <div className="mt-2 w-8 font-bold text-xl mb-3">
               <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-700/60 rounded-lg shadow-xl" />
             </div>
           </Link>
@@ -114,13 +121,19 @@ const navigation = [
                             <Link
                               key={child.title}
                               href={child.href}
-                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-amber-200/50"
+                              className={cn(
+                                "-m-3 flex items-start rounded-lg p-3 hover:bg-stone-200 transition-colors",
+                                isActiveLink(child.href) ? "bg-white" : ""
+                              )}
                               onClick={() => setActiveDropdown(null)}
                             >
-                              <div className={cn(
-                                ` ${pathname === child.href ? "active-class" : ""}`
-                              )}>
-                                <p className="uppercase text-sm font-medium text-gray-900">{child.title}</p>
+                              <div>
+                                <p className={cn(
+                                  "uppercase text-sm font-medium",
+                                  isActiveLink(child.href) ? "text-red-700" : "text-gray-900"
+                                )}>
+                                  {child.title}
+                                </p>
                                 <p className="mt-1 text-sm text-gray-500">{child.description}</p>
                               </div>
                             </Link>
@@ -131,7 +144,15 @@ const navigation = [
                   )}
                 </div>
               ) : (
-                <Link href={item.href} className="lg:text-xl font-bold leading-6 text-stone-100 hover:border-b-2 border-stone-100 uppercase">
+                <Link 
+                  href={item.href} 
+                  className={cn(
+                    "lg:text-xl font-bold leading-6 hover:border-b-2 border-stone-100 uppercase transition-colors",
+                    isActiveLink(item.href) 
+                      ? "bg-white text-red-700 px-3 py-2 rounded-lg" 
+                      : "text-stone-100"
+                  )}
+                >
                   {item.title}
                 </Link>
               )}
@@ -150,9 +171,9 @@ const navigation = [
 
       {/* Mobile menu */}
       <div className={cn("lg:hidden", mobileMenuOpen ? "block" : "hidden")}>
-        <div className="space-y-2 px-4 py-3 ">
+        <div className="space-y-2 px-4 py-3">
           {navigation.map((item) => (
-            <div key={item.title} className=" border py-2 hover:bg-amber-200/50">
+            <div key={item.title} className="  py-2">
               {item.children ? (
                 <div>
                   <button
@@ -163,7 +184,7 @@ const navigation = [
                     {item.title}
                     <ChevronDown
                       className={cn(
-                        "border border-neutral-400 shadow-xlh-4 w-4 transition-transform duration-200",
+                        "h-4 w-4 transition-transform duration-200",
                         activeDropdown === item.title ? "rotate-180" : "",
                       )}
                       aria-hidden="true"
@@ -177,14 +198,23 @@ const navigation = [
                         <Link
                           key={child.title}
                           href={child.href}
-                          className="block py-2  hover:bg-amber-300/60"
+                          className={cn(
+                            "block py-2 px-3 rounded-lg transition-colors",
+                            isActiveLink(child.href) ? "bg-white" : ""
+                          )}
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <div className={clsx('text-sm', 
-                            { 'bg-amber-400': pathname === child.href }
+                          <div className={cn(
+                            "text-sm",
+                            isActiveLink(child.href) ? "text-red-700" : ""
                           )}>
-                          <div className="uppercase text-sm font-medium text-gray-900">{child.title}</div>
-                          <div className="text-sm text-gray-500">{child.description}</div>
+                            <div className={cn(
+                              "uppercase text-sm font-medium",
+                              isActiveLink(child.href) ? "text-red-700" : "text-gray-900"
+                            )}>
+                              {child.title}
+                            </div>
+                            <div className="text-sm text-gray-500">{child.description}</div>
                           </div>
                         </Link>
                       ))}
@@ -194,7 +224,12 @@ const navigation = [
               ) : (
                 <Link
                   href={item.href}
-                  className="py-3 px-3 rounded-xl block text-base font-semibold leading-5 text-gray-900 uppercase"
+                  className={cn(
+                    "py-3 px-3 rounded-xl block text-base font-semibold leading-5 uppercase transition-colors",
+                    isActiveLink(item.href) 
+                      ? "bg-white text-red-700" 
+                      : "text-gray-900"
+                  )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.title}
@@ -217,8 +252,3 @@ const navigation = [
     </header>
   )
 }
-
-
-
-
-
