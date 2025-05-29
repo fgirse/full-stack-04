@@ -49,12 +49,12 @@ export default async function LocaleLayout({children, params}: Props) {
   return (
     <ClerkProvider>
     <html className="h-full" lang={locale}>
-      <body className={clsx(roboto.className, 'flex h-full flex-col')}>
+      <body className={clsx(roboto.className, '<body className={`min-h-screen flex flex-col antialiased`}>')}>
         <NextIntlClientProvider>
           <Header/>
          <Navbar />
 
-         <main className="min-h-[100vh] flex justify-center overflow-hidden h-screen">
+         <main className=" overflow-hidden h-screen">
           {children}
           </main>
           <ScrollToTopButton />
