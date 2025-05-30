@@ -47,7 +47,7 @@ const myImage = cld.image(
 
 // Transform the image.
 myImage
-  .resize(fill(3500, 5200))
+  .resize(fill(3500, 5700))
   .roundCorners(byRadius(0))
 
   .overlay(
@@ -55,21 +55,21 @@ myImage
       text(t("Headline"), new TextStyle('bowlby one sc',240))
         .textColor('#ffffff')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(180))
+    .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(260))
   )
   .overlay(
     source(
       text(t("Jahr"), new TextStyle('bowlby one sc', 400))
         .textColor('orange')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(280).offsetX(180))
+    .position(new Position().gravity(compass('north_west')).offsetY(280).offsetX(260))
   )
   .overlay(   
     source(
       text(t("Slogan"), new TextStyle('bowlby one sc',200))
       .textColor('orange')       
     )    
-    .position(new Position().gravity(compass('west')).offsetY(1490).offsetX(180)))
+    .position(new Position().gravity(compass('west')).offsetY(2100).offsetX(260)))
 
 
     .overlay(   
@@ -81,7 +81,7 @@ myImage
           )
           .textColor('#ffffff')       
         )
-        .position(new Position().gravity(compass('west')).offsetY(1838).offsetX(180))
+        .position(new Position().gravity(compass('west')).offsetY(2438).offsetX(260))
       )
 
       .overlay(
