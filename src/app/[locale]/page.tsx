@@ -26,7 +26,7 @@ export default function Home() {
       <HeroImageC/> 
         </div>                                              
          <div className="mt-12 bg-gradient-to-b from-[#938d7d] lg:bg-gradient-to-b via-transparent  to-transparent lg:mt-[5vh]">
-         <h1 className=" ml-1 text-6xl font-bold tracking-tighter md:text-8xl">
+         <h1 className=" ml-1 text-6xl font-bold tracking-tighter text-center md:text-8xl">
               PRODUCT
               <br />
               DESIGNER &

@@ -5,7 +5,7 @@
 
 .content{
   --header-height: 60px;
-  --footer-height:120px;
+  --footer-height: 20px;
   --offset: calc(var(--footer-height) + var(--header-height));
   min-height: calc(100vh - var(--offset));
   display:flex;

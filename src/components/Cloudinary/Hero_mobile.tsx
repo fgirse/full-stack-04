@@ -62,14 +62,14 @@ myImage
       text(t("Jahr"), new TextStyle('bowlby one sc', 400))
         .textColor('orange')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(260).offsetX(180))
+    .position(new Position().gravity(compass('north_west')).offsetY(280).offsetX(180))
   )
   .overlay(   
     source(
       text(t("Slogan"), new TextStyle('bowlby one sc',200))
       .textColor('orange')       
     )    
-    .position(new Position().gravity(compass('west')).offsetY(1290).offsetX(180)))
+    .position(new Position().gravity(compass('west')).offsetY(1490).offsetX(180)))
 
 
     .overlay(   
@@ -81,7 +81,7 @@ myImage
           )
           .textColor('#ffffff')       
         )
-        .position(new Position().gravity(compass('west')).offsetY(1638).offsetX(180))
+        .position(new Position().gravity(compass('west')).offsetY(1838).offsetX(180))
       )
 
       .overlay(
@@ -93,7 +93,7 @@ myImage
             .rotate(byAngle(0))
             )
           )
-          .position(new Position().gravity(compass('north')).offsetX(750).offsetY(290)) 
+          .position(new Position().gravity(compass('north')).offsetX(950).offsetY(350)) 
       )
   
   // Return the delivery URL
@@ -101,7 +101,7 @@ myImage
   return(
     
     
-    <div className="w-[100vw] h-[100vh] flex flex-col justify-start items-center ">
+    <div className="w-[100vw] flex flex-col justify-between items-center ">
     
       <Image src={myUrl} width={880} height={1500} alt="Transformed Image" className="text-white text-left" />
     </div>
