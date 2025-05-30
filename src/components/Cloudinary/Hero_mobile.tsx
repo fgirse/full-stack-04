@@ -40,36 +40,36 @@ const t = useTranslations('HeroMobil');
 
 // Use the image with public ID, 'sample'.
 const myImage = cld.image(
-  'Screenshot_2025-05-30_at_02-54-04_Ein_vielfältiges_medizinisches_Team_lächelt_Premium_KI-generiertes_Bild_fpb6cs', // Replace with your image public ID  
+  'Bild_30.05.25_um_10.18_ztc4t8', // Replace with your image public ID  
    // Pass an empty object if no additional options are needed
 );
 
 
 // Transform the image.
 myImage
-  .resize(fill(3900, 6000))
+  .resize(fill(3500, 4100))
   .roundCorners(byRadius(0))
 
   .overlay(
     source(
-      text(t("Headline"), new TextStyle('bowlby one sc',180))
+      text(t("Headline"), new TextStyle('bowlby one sc',170))
         .textColor('#ffffff')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(80))
+    .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(180))
   )
   .overlay(
     source(
-      text(t("Jahr"), new TextStyle('bowlby one sc', 300))
+      text(t("Jahr"), new TextStyle('bowlby one sc', 400))
         .textColor('orange')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(250).offsetX(50))
+    .position(new Position().gravity(compass('north_west')).offsetY(250).offsetX(180))
   )
   .overlay(   
     source(
       text(t("Slogan"), new TextStyle('bowlby one sc',200))
       .textColor('orange')       
     )    
-    .position(new Position().gravity(compass('west')).offsetY(1760).offsetX(110)))
+    .position(new Position().gravity(compass('west')).offsetY(960).offsetX(180)))
 
 
     .overlay(   
@@ -79,9 +79,9 @@ myImage
               .fontWeight("bold")
               .lineSpacing(-150)
           )
-          .textColor('#898989')       
+          .textColor('#ffffff')       
         )
-        .position(new Position().gravity(compass('west')).offsetY(2338).offsetX(110))
+        .position(new Position().gravity(compass('west')).offsetY(1438).offsetX(180))
       )
 
       .overlay(
@@ -101,9 +101,9 @@ myImage
   return(
     
     
-    <div className="flex flex-col justify-start items-center ">
+    <div className="w-[100vw] h-[100vh] flex flex-col justify-start items-center ">
     
-      <Image src={myUrl} width={880} height={900} alt="Transformed Image" className="text-white text-left" />
+      <Image src={myUrl} width={880} height={1500} alt="Transformed Image" className="text-white text-left" />
     </div>
     
     
