@@ -1,5 +1,6 @@
 
 import HeroImageB from "@/components/Cloudinary/HeroImageB";
+import HeroImageC from "@/components/Cloudinary/HeroImageC";
 import Hero_mobile from "@/components/Cloudinary/Hero_mobile";
 import React from "react";
 //import HeroImage02 from "@/components/CldImage/HeroImage02";
@@ -12,32 +13,31 @@ import React from "react";
 export default function Home() {
   return (
     <>
-    <main>
-      <section className="min-h-screen flex flex-col items-center justify-center ">
+    <main className="content ">
+      <section className=" items-center justify-center ">
  
         <div className="block md:hidden"> 
             <Hero_mobile/>
         </div>
-        <div className=" hidden md:block mt-[12vH]">
+        <div className=" hidden lg:block mt-[12vH]">
       <HeroImageB/> 
-        </div>                                                
-         <div className="flex flex-col items-center bg-gradient-to-b from-[#938d7d] lg:bg-gradient-to-b via-transparent  to-transparent lg:mt-[50vh]">
-         
-         </div> 
-         
-        </section>
-
-         <section className="flex flex-col items-start justify-center px-4">
-          <div className="mt-12">
-            <h1 className="ml-12 text-6xl font-bold tracking-tighter md:text-8xl">
+        </div>    
+        <div className=" hidden md:block  lg:hidden">
+      <HeroImageC/> 
+        </div>                                              
+         <div className="mt-12 bg-gradient-to-b from-[#938d7d] lg:bg-gradient-to-b via-transparent  to-transparent lg:mt-[5vh]">
+         <h1 className=" ml-1 text-6xl font-bold tracking-tighter md:text-8xl">
               PRODUCT
               <br />
               DESIGNER &
               <br />
               ART DIRECTOR
             </h1>
-          </div>
+         </div> 
+         
         </section>
+
+       
         <section className="flex flex-col items-start justify-center px-4">
           <div className="flex flex-col items-center">
         {/*}    <Caroussel/>*/}

@@ -40,29 +40,29 @@ const t = useTranslations('HeroMobil');
 
 // Use the image with public ID, 'sample'.
 const myImage = cld.image(
-  'hero-mobile_j7qbne', // Replace with your image public ID  
+  'Screenshot_2025-05-30_at_02-54-04_Ein_vielfältiges_medizinisches_Team_lächelt_Premium_KI-generiertes_Bild_fpb6cs', // Replace with your image public ID  
    // Pass an empty object if no additional options are needed
 );
 
 
 // Transform the image.
 myImage
-  .resize(fill(2700, 5500))
+  .resize(fill(3900, 6000))
   .roundCorners(byRadius(0))
 
   .overlay(
     source(
-      text(t("Headline"), new TextStyle('bowlby one sc',130))
-        .textColor('#898989')
+      text(t("Headline"), new TextStyle('bowlby one sc',180))
+        .textColor('#ffffff')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(0).offsetX(50))
+    .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(80))
   )
   .overlay(
     source(
       text(t("Jahr"), new TextStyle('bowlby one sc', 300))
         .textColor('orange')
     )
-    .position(new Position().gravity(compass('north_west')).offsetY(150).offsetX(50))
+    .position(new Position().gravity(compass('north_west')).offsetY(250).offsetX(50))
   )
   .overlay(   
     source(
@@ -88,12 +88,12 @@ myImage
         source(
           image('LogoDms_czdjvn')
             .transformation(new Transformation()
-            .resize(scale().height(750))
+            .resize(scale().height(950))
             .adjust(hue(5))
             .rotate(byAngle(0))
             )
           )
-          .position(new Position().gravity(compass('north')).offsetX(330).offsetY(220)) 
+          .position(new Position().gravity(compass('north')).offsetX(750).offsetY(290)) 
       )
   
   // Return the delivery URL
@@ -103,7 +103,7 @@ myImage
     
     <div className="flex flex-col justify-start items-center ">
     
-      <Image src={myUrl} width={480} height={900} alt="Transformed Image" className="text-white text-left" />
+      <Image src={myUrl} width={880} height={900} alt="Transformed Image" className="text-white text-left" />
     </div>
     
     

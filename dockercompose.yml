@@ -1,0 +1,12 @@
+#The service
+services:
+  #The service name
+  nextjs:
+    #Build from where
+    build: .
+     #Exposed port
+    ports:
+      - "3002:3002"
+    #env vars if you need
+    environment:
+      NODE_ENV: production
