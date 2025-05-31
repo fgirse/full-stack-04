@@ -82,9 +82,9 @@ myImage
           .textColor('#ffffff')       
         )
         .position(new Position().gravity(compass('west')).offsetY(2438).offsetX(260))
-      )
+      )  
 
-      .overlay(
+    .overlay(
         source(
           image('LogoDms_czdjvn')
             .transformation(new Transformation()
