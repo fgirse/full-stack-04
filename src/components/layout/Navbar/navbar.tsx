@@ -51,8 +51,8 @@ const navigation = [
   ]
 
   return (
-    <header className="bg:slate-800 lg:bg-amber-500 shadow-sm ">
-      <nav className="mx-auto flex max-w-8xl items-center justify-between p-4 lg:px-5" aria-label="Global">
+    <header className="bg-[#414f4f] md:bg-amber-500 shadow-sm ">
+      <nav className="mx-auto  flex max-w-8xl items-center justify-between p-4 lg:px-5" aria-label="Global">
         <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
@@ -70,7 +70,7 @@ const navigation = [
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-stone-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-stone-100"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Toggle menu</span>
