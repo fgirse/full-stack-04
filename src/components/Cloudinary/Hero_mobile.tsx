@@ -26,7 +26,7 @@ import { LayerAction } from "@cloudinary/transformation-builder-sdk/actions/laye
 import { format } from "@cloudinary/url-gen/actions/delivery";
 import { videoMp4 } from "@cloudinary/url-gen/qualifiers/format";
 import { hue } from "@cloudinary/transformation-builder-sdk/actions/adjust";
-
+import { backgroundRemoval, generativeRestore } from "@cloudinary/url-gen/actions/effect";
 // Create and configure your Cloudinary instance.
 
 export default function HeroImage() {
@@ -47,6 +47,8 @@ const myImage = cld.image(
 
 // Transform the image.
 myImage
+.effect(backgroundRemoval())
+.backgroundColor('#414f4f')
   .resize(fill(3600, 5700))
   .roundCorners(byRadius(0))
   

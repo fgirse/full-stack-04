@@ -18,6 +18,7 @@ import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
 import {autoGravity, compass} from "@cloudinary/url-gen/qualifiers/gravity";
 import { TextAlignment } from "@cloudinary/url-gen/qualifiers";
 import { hue } from "@cloudinary/url-gen/actions/adjust";
+import { backgroundRemoval, generativeRestore } from "@cloudinary/url-gen/actions/effect";
 // Create and configure your Cloudinary instance.
 
 export default function HeroImage() {

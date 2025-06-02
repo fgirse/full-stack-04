@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {Cloudinary, Transformation} from "@cloudinary/url-gen";
-
+import { backgroundRemoval } from "@cloudinary/url-gen/actions/effect";
 // Import required actions.
 
 import {byAngle} from "@cloudinary/url-gen/actions/rotate"
@@ -35,8 +35,11 @@ const myImage = cld.image('hero-banner05-Photoroom_1_c0uw5q',);
 
 // Transform the image.
 myImage
+             
   .resize(fill(2400,850))
-  .roundCorners(byRadius(0)).overlay(   
+  .effect(backgroundRemoval())
+  .roundCorners(byRadius(0))
+  .overlay(   
     source(
       text(t("Headline"), new TextStyle('bowlby one sc',90))
       .textColor('#898989')       
