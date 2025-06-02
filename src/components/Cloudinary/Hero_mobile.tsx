@@ -49,7 +49,7 @@ const myImage = cld.image(
 myImage
   .resize(fill(3600, 5700))
   .roundCorners(byRadius(0))
-
+  
   .overlay(
     source(
       text(t("Headline"), new TextStyle('bowlby one sc',220))

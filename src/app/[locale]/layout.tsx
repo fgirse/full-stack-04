@@ -48,7 +48,7 @@ export default async function LocaleLayout({children, params}: Props) {
 
   return (
     <ClerkProvider>
-    <html className="overflow-hidden" lang={locale}>
+    <html className="h-full" lang={locale}>
       <body className="  roboto.className">
         <NextIntlClientProvider>
           <Header/>
