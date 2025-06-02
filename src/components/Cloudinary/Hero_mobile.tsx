@@ -52,7 +52,7 @@ myImage
 
   .overlay(
     source(
-      text(t("Headline"), new TextStyle('bowlby one sc',240))
+      text(t("Headline"), new TextStyle('bowlby one sc',220))
         .textColor('#ffffff')
     )
     .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(260))
@@ -75,7 +75,7 @@ myImage
     .overlay(   
       source(
           text(t("Title"),
-            new TextStyle("bowlby one sc", 250)
+            new TextStyle("bowlby one sc", 260)
               .fontWeight("bold")
               .lineSpacing(-150)
           )

@@ -51,8 +51,8 @@ const navigation = [
   ]
 
   return (
-    <header className="bg-[#414f4f] md:bg-amber-500 shadow-sm ">
-      <nav className="mx-auto  flex max-w-8xl items-center justify-between p-4 lg:px-5" aria-label="Global">
+    <header className="w-[97vw] lg:w-[100vw] bg-[#414f4f] md:bg-amber-500 shadow-sm ">
+      <nav className="mx-auto  flex lg:max-w-8xl items-center justify-between p-4 lg:px-5" aria-label="Global">
         <div className="flex lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
@@ -149,7 +149,7 @@ const navigation = [
       </nav>
 
       {/* Mobile menu */}
-      <div className={cn("lg:hidden", mobileMenuOpen ? "block" : "hidden")}>
+      <div className={cn("bg-white lg:hidden", mobileMenuOpen ? "block" : "hidden")}>
         <div className="space-y-2 px-4 py-3 ">
           {navigation.map((item) => (
             <div key={item.title} className=" border py-2 hover:bg-amber-200/50">
