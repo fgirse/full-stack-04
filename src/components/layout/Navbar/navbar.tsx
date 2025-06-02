@@ -75,9 +75,9 @@ const navigation = [
           >
             <span className="sr-only">Toggle menu</span>
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
+              <X className="mr-3 h-6 w-6" aria-hidden="true" />
             ) : (
-              <Menu className="h-6 " aria-hidden="true" />
+              <Menu className="mr-3 h-6 " aria-hidden="true" />
             )}
           </button>
         </div>
