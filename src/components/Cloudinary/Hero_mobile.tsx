@@ -47,7 +47,7 @@ const myImage = cld.image(
 
 // Transform the image.
 myImage
-  .resize(fill(3500, 5700))
+  .resize(fill(3600, 5700))
   .roundCorners(byRadius(0))
 
   .overlay(

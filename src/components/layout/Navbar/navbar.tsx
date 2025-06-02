@@ -51,9 +51,9 @@ const navigation = [
   ]
 
   return (
-    <header className="w-[97vw] lg:w-[100vw] bg-[#414f4f] md:bg-amber-500 shadow-sm ">
-      <nav className="mx-auto  flex lg:max-w-8xl items-center justify-between p-4 lg:px-5" aria-label="Global">
-        <div className="flex lg: flex-col flex">
+    <header className="w-full lg:w-[100vw] bg-[#414f4f] md:bg-amber-500 shadow-sm ">
+      <nav className="mx-auto   flex lg:max-w-8xl items-center justify-between lg:px-5" aria-label="Global">
+        <div className="flex overflow-hidden lg: flex-col flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
             <div className="mt-2 w-12 font-bold text-xl mb-3">
