@@ -20,6 +20,21 @@ async function main() {
     },
   });
 
+ // USER
+ await prisma.user.create({
+  data: {
+    id: 1,
+    email: "user1@example.com",
+  },
+});
+await prisma.user.create({
+  data: {
+    id: 2,
+    email: "user2eample.com",
+  },
+});
+
+
   // GRADE
   for (let i = 1; i <= 6; i++) {
     await prisma.grade.create({
@@ -244,6 +259,8 @@ async function main() {
       },
     });
   }
+
+
 
   console.log("Seeding completed successfully.");
 }
