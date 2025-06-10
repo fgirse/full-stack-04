@@ -10,9 +10,10 @@ const Header = () => {
 
   const HEADER_NAMESPACE = "Header";
   const t = useTranslations(HEADER_NAMESPACE);
+  const newLocal = " lg:........................................................................................................................................bg-transparent";
   return (
 
-    <section className=" bg-transparent">
+    <section className={newLocal}>
       
         <div className="bg-neutral-800/20 w-[100vw] flex flex-row items-center justify-between gap-x-16 ">
             {/*<div className="w-1/3 mb-3">
@@ -40,4 +41,4 @@ const Header = () => {
       </section>
   );
 };
-export default Header;
+export default Header;-------
