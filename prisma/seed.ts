@@ -7,32 +7,24 @@ async function main() {
   const hashedPassword = await bcrypt.hash("securepassword123", 10);
 
   // ADMIN
-  await prisma.admin.create({
-    data: {
-      id: "admin1",
-      username: "admin1",
-    },
-  });
-  await prisma.admin.create({
-    data: {
-      id: "admin2",
-      username: "admin2",
-    },
+  await prisma.admin.createMany({
+    data: [
+      {
+        id: "admin1",
+        username: "admin1",
+        name: "Admin One",
+        surname: "admin1",
+      },
+      {
+        id: "admin2",
+        username: "admin2",
+        name: "Admin Two",
+        surname: "admin2",
+      },
+    ],
   });
 
- // USER
- await prisma.user.create({
-  data: {
-    id: 1,
-    email: "user1@example.com",
-  },
-});
-await prisma.user.create({
-  data: {
-    id: 2,
-    email: "user2eample.com",
-  },
-});
+
 
 
   // GRADE

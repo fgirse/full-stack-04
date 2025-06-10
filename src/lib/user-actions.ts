@@ -82,8 +82,8 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
             username: data.username,
             name: data.firstName,
             surname: data.lastName,
-            email: data.email,
-            phone: data.phone || null,
+            // Removed email as it is not a valid property for AdminCreateInput
+            phone: data.phone || undefined,
             address: data.address || "",
             img: data.img || null,
             bloodType: data.bloodType || "O+",
@@ -123,8 +123,8 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
             username: data.username,
             name: data.firstName,
             surname: data.lastName,
-            email: data.email,
-            phone: data.phone || null,
+            // Removed email as it is not a valid property for AdminCreateInput
+            phone: data.phone || "",
             address: data.address || "",
             img: data.img || null,
             bloodType: data.bloodType || "O+",
@@ -144,8 +144,8 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
             username: data.username,
             name: data.firstName,
             surname: data.lastName,
-            email: data.email,
-            phone: data.phone || null,
+            // Removed email as it is not a valid property for AdminCreateInput
+            phone: data.phone || "",
             address: data.address || "",
           },
         })
@@ -158,7 +158,7 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
             username: data.username,
             name: data.firstName,
             surname: data.lastName,
-            email: data.email,
+            // Removed email as it is not a valid property for AdminCreateInput
           },
         })
         break
@@ -250,8 +250,8 @@ export const updateUser = async (prevState: ActionState, data: UserSchema): Prom
       username: data.username,
       name: data.firstName,
       surname: data.lastName,
-      email: data.email,
-      phone: data.phone || null,
+      // Removed email as it is not a valid property for AdminUpdateInput
+      phone: data.phone || undefined,
       address: data.address || "",
       img: data.img || null,
       ...(data.bloodType && { bloodType: data.bloodType }),
@@ -293,8 +293,8 @@ export const updateUser = async (prevState: ActionState, data: UserSchema): Prom
             username: data.username,
             name: data.firstName,
             surname: data.lastName,
-            email: data.email,
-            phone: data.phone || null,
+            // Removed email as it is not a valid property for AdminUpdateInput
+            phone: data.phone || undefined,
             address: data.address || "",
           },
         })
@@ -307,7 +307,7 @@ export const updateUser = async (prevState: ActionState, data: UserSchema): Prom
             username: data.username,
             name: data.firstName,
             surname: data.lastName,
-            email: data.email,
+            // Removed email as it is not a valid property for AdminUpdateInput
           },
         })
         break

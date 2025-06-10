@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { adjustScheduleToCurrentWeek } from "@/lib/utils";
+import { adjustScheduleToCurrentWeek } from "../../lib/utils";
 
 import BigCalendar from "./BigCalender";
 
