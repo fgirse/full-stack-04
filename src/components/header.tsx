@@ -10,12 +10,11 @@ const Header = () => {
 
   const HEADER_NAMESPACE = "Header";
   const t = useTranslations(HEADER_NAMESPACE);
-  const newLocal = "bg- lg:bg-transparent";
   return (
 
-    <section className={newLocal}>
+    <section className=" padding-right: 0.5rem">
       
-        <div className="bg-neutral-800/20 w-[100vw] flex flex-row items-center justify-between gap-x-16 ">
+        <div className="padding-right: 0.5rem w-[100vw] flex flex-row items-center justify-between gap-x-16 ">
             {/*<div className="w-1/3 mb-3">
                 <Image src="/LogoDms.png" alt="Logo" width={90} height={44} className=" ml-3 mt-3" />
             </div>*/}

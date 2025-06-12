@@ -8,10 +8,8 @@ datasource db {
 }
 
 model Admin {
-  id       Int    @id @default(autoincrement())
-  username String
-  email    String
-  surname  String // Add the surname field
+  id       String @id
+  username String @unique
 }
 
 model Student {
@@ -24,7 +22,7 @@ model Student {
   address     String
   img         String?
   bloodType   String
-  sex         UserSex
+  sex         String?
   createdAt   DateTime     @default(now())
   parentId    String
   parent      Parent       @relation(fields: [parentId], references: [id])
@@ -39,7 +37,6 @@ model Student {
 
 model Teacher {
   id        String    @id
-  password  String?
   username  String    @unique
   name      String
   surname   String
@@ -67,7 +64,6 @@ model Parent {
   createdAt DateTime  @default(now())
   students  Student[]
 }
-
 
 model Grade {
   id    Int @id @default(autoincrement())

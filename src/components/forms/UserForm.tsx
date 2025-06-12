@@ -20,7 +20,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 
-import { createUser, updateUser } from "@/lib/user-actions"
+import { createUser } from "@/lib/user-actions"
 import { userSchema, type UserSchema } from "@/lib/user-validation-schema"
 
 interface UserFormProps {
@@ -66,11 +66,7 @@ export default function UserForm({ type, data, onClose, relatedData }: UserFormP
   const onSubmit = handleSubmit(async (formData) => {
     setIsSubmitting(true)
     try {
-      formAction({
-            ...formData,
-            img: profileImage ?? undefined,
-            id: type === "update" ? data?.id : undefined,
-        })
+      formAction(formData)
     } catch (error) {
       console.error("Form submission error:", error)
     } finally {
@@ -431,3 +427,7 @@ export default function UserForm({ type, data, onClose, relatedData }: UserFormP
     </Card>
   )
 }
+function updateUser(state: { success: boolean; error: boolean; message: string }): { success: boolean; error: boolean; message: string } | Promise<{ success: boolean; error: boolean; message: string }> {
+  throw new Error("Function not implemented.")
+}
+
