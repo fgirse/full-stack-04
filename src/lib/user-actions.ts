@@ -109,11 +109,21 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
             bloodType: data.bloodType || "",
             sex: data.sex || "MALE",
             birthday: data.birthday ? new Date(data.birthday) : new Date(),
-            ...(data.parentId ? {
-              parent: {
-                connect: { id: data.parentId },
-              },
-            } : {}),
+            parent: data.parentId
+              ? {
+                  connect: { id: data.parentId },
+                }
+              : {
+                  create: {
+                    id: "default-parent-id",
+                    username: "defaultParentUsername",
+                    name: "Default Parent Name",
+                    surname: "Default Parent Surname",
+                    email: "default@example.com",
+                    phone: "000-000-0000",
+                    address: "Default Address",
+                  },
+                },
             class: data.classId
               ? {
                   connect: { id: Number(data.classId) }, // Convert id to a number
@@ -121,9 +131,9 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
               : {}, // Provide an empty object as a valid default
             grade: {
               create: {
-       
-                name: "Grade 1", // Adjusted to use a valid property
-                level: 1, // Adjusted to use a valid number value
+                description: "First grade",
+                level: 1,
+                gradeLevel: 1, // Add the required gradeLevel property
               },
             },
           },
