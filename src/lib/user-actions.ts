@@ -133,7 +133,7 @@ export const createUser = async (prevState: ActionState, data: UserSchema): Prom
               create: {
                 description: "First grade",
                 level: 1,
-                gradeLevel: 1, // Ensure this property exists in the Prisma schema and matches its type
+                gradeLevel: 1, // Add the required gradeLevel property
               },
             },
           },
