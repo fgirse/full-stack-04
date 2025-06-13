@@ -70,7 +70,7 @@ model Grade {
   level Int @unique
   description String
    gradeLevel  Int      @unique //
-   name String
+
   students Student[]
   classess Class[]
 }
