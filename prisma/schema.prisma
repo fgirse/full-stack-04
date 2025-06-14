@@ -7,8 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String?  @unique
+  createdAt DateTime @default(now())
+}
+
 model Admin {
-  id       String @id
+   id        String   @id @default(cuid())
   username String @unique
 }
 
@@ -66,14 +73,14 @@ model Parent {
 }
 
 model Grade {
-  id    Int @id @default(autoincrement())
-  level Int @unique
-  description String
-   gradeLevel  Int      @unique //
-
-  students Student[]
+  id          Int      @id @default(autoincrement())
+  level       Int
+  description String   // Required field
+  gradeLevel  Int      // Required field
+  students    Student[]
   classess Class[]
 }
+ 
 
 model Class {
   id       Int    @id @default(autoincrement())
@@ -193,3 +200,5 @@ enum Day {
   THURSDAY
   FRIDAY
 }
+
+
