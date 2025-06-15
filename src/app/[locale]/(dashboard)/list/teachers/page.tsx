@@ -64,7 +64,7 @@ const TeacherListPage = async ({
   const renderRow = (item: TeacherList) => (
     <tr
       key={item.id}
-      className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-plPurpleLight"
+      className="border-b border-gray-200 even:bg-slate-300 text-sm hover:bg-plPurpleLight"
     >
       <td className="flex items-center gap-4 p-4">
         <Image
