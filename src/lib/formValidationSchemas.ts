@@ -87,3 +87,10 @@ export const examSchema = z.object({
 });
 
 export type ExamSchema = z.infer<typeof examSchema>;
+
+export type UserSchema = {
+  username: string;
+  email: string;
+  password?: string;
+  role: "admin" | "teacher" | "student" | "parent";
+};
