@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useToast } from "../../../../../../hooks/use-toast.jsx";
+import { useToast } from "../../../../../../hooks/use-toast";
+
 interface RoleSelectorProps {
   userId: string
   currentRole: string

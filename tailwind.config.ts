@@ -16,10 +16,10 @@ const config: Config = {
   		colors: {
   			plSky: '#999999',
   			plSkyLight: '#00bc7d',
-  			plPurple: '#a6a09b',
+  			plPurple: '#             ',
   			plPurpleLight: '#D6D3D1',
   			plYellow: '#E79959',
-  			plYellowLight: '#f5d6b3',
+  			plYellowLight: '#CDFFE9',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
