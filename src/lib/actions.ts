@@ -11,7 +11,7 @@ import {
   TeacherSchema,
 } from "./formValidationSchemas";
 
-import prisma from "./prisma";
+import {prisma} from "./prisma";
 
 type CurrentState = { success: boolean; error: boolean };
 

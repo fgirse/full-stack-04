@@ -8,11 +8,33 @@ datasource db {
 }
 
 model User {
-   id          String       @id
-  username  String   @unique
-  email     String?  @unique
-  createdAt DateTime @default(now())
+  id          Int      UserUncheckedCreateInput)
+  clerkId     String   @unique
+  email       String   @unique
+  firstName   String?
+  lastName    String?
+  username    String?
+  imageUrl    String?
+  role        Role     @default(STUDENT)
+  banned      Boolean  @default(false)
+  lastSignInAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  teacherClasses    Class[]       @relation("TeacherClasses")
+  studentClasses    Class[]       @relation("StudentClasses")
+  parentChildren    User[]        @relation("ParentChild")
+  childrenParents   User[]        @relation("ParentChild")
+  assignments       Assignment[]
+  results           Result[]
+  attendance        Attendance[]
+  messages          Message[]
+  announcements     Announcement[]
+
+  @@map("users")
 }
+
 
 model Admin {
   id          String       @id

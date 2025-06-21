@@ -211,7 +211,14 @@
       "welcome": "Willkommen bei 8zense.com",
       "signin": "Bitte melden Sie sich an um fortzufahren"  
 
+    },
+    
+    "Users": {
+      "titleUsers": "Management der Anwender",
+      "subtiteelUsers": "Bitte melden Sie sich an um fortzufahren"  
+
     },  
+    
     
     
 

@@ -194,6 +194,12 @@
       "signin": "connecter a cuntinuer!"   
       
     },
+
+    "Users": {
+      "titleUsers": "Gestion des utilisateurs",
+      "subtiteelUsers": "Organisez vos utilisateurs et leurs rôles pour une gestion efficace de votre plateforme."  
+
+    }, 
     
     "Whoweare": {
       "präTitle": "da 8zense.com",

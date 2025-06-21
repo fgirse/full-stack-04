@@ -1,6 +1,6 @@
 "use server"
 
-import { sql } from "@/lib/database"
+import { sql } from "../lib/database"
 import { createClerkUser } from "@/lib/clerk-admin"
 import { revalidatePath } from "next/cache"
 

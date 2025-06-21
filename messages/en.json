@@ -210,6 +210,12 @@
       "signin": "Please sign in to your account"  
       
     },
+
+    "Users": {
+      "titleUsers": "User Management",
+      "subtiteelUsers": "Manage Users and their roles"  
+
+    }, 
   
     "Whoweare": {
       "präTitle": "about 8zense.com",

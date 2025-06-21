@@ -62,9 +62,12 @@ export async function deleteUser(userId: string) {
 // Test connection function
 export async function testSupabaseConnection() {
   try {
-    const { data, error } = await supabase.from("users").select("id").limit(1);
-    return { success: !error, error: error?.message };
+    const { data, error } = await supabase.from("users").select("id");
+    if (error) {
+      throw new Error(`Supabase connection error: ${error.message}`);
+    }
+    return data;
   } catch (err) {
-    return { success: false, error: (err as Error).message };
+    throw new Error(`Failed to connect to Supabase: ${err instanceof Error ? err.message : String(err)}`);
   }
 }
