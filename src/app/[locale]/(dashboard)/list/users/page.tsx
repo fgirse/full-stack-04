@@ -1,5 +1,9 @@
 import { clerkClient } from "@clerk/nextjs/server"
 import { UserTable } from "./user-table"
+import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
+
+ 
 
 export default async function UsersPage() {
   try {
@@ -20,12 +24,17 @@ export default async function UsersPage() {
       lastSignInAt: user.lastSignInAt,
       imageUrl: user.imageUrl,
     }))
+    // Load translations
+  
+    const t = await getTranslations( "Users")
+
+   
 
     return (
       <div className="container mx-auto py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold">User Management</h1>
-          <p className="text-muted-foreground mt-2">Manage users and their roles in your application</p>
+          <h1 className="text-3xl font-bold">{t("titleUsers")}</h1>
+          <p className="text-muted-foreground mt-2">{t("subtitleUsers")}</p>
         </div>
 
         <UserTable users={usersWithRoles} />
