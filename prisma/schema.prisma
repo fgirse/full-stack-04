@@ -8,36 +8,14 @@ datasource db {
 }
 
 model User {
-  id          Int      UserUncheckedCreateInput)
-  clerkId     String   @unique
-  email       String   @unique
-  firstName   String?
-  lastName    String?
-  username    String?
-  imageUrl    String?
-  role        Role     @default(STUDENT)
-  banned      Boolean  @default(false)
-  lastSignInAt DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  // Relations
-  teacherClasses    Class[]       @relation("TeacherClasses")
-  studentClasses    Class[]       @relation("StudentClasses")
-  parentChildren    User[]        @relation("ParentChild")
-  childrenParents   User[]        @relation("ParentChild")
-  assignments       Assignment[]
-  results           Result[]
-  attendance        Attendance[]
-  messages          Message[]
-  announcements     Announcement[]
-
-  @@map("users")
+  id        String   @id
+  username  String   @unique
+  email     String?  @unique
+  createdAt DateTime @default(now())
 }
 
-
 model Admin {
-  id          String       @id
+  id       String @id
   username String @unique
 }
 
@@ -95,14 +73,13 @@ model Parent {
 }
 
 model Grade {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   level       Int
-  description String   // Required field
-  gradeLevel  Int      // Required field
+  description String // Required field
+  gradeLevel  Int // Required field
   students    Student[]
-  classess Class[]
+  classess    Class[]
 }
- 
 
 model Class {
   id       Int    @id @default(autoincrement())
@@ -210,6 +187,13 @@ model Announcement {
   class   Class? @relation(fields: [classId], references: [id])
 }
 
+enum Role {
+  ADMIN
+  TEACHER
+  STUDENT
+  PARENT
+}
+
 enum UserSex {
   MALE
   FEMALE
@@ -222,5 +206,3 @@ enum Day {
   THURSDAY
   FRIDAY
 }
-
-
