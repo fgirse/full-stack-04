@@ -12,6 +12,8 @@ import { ClerkProvider } from '@clerk/nextjs';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import Footer from '@/components/layout/Footer';
 
+import { Toaster } from "@/components/ui/sonner"
+
 type Props = {
   children: ReactNode;
   params: Promise<{locale: Locale}>;
@@ -57,6 +59,7 @@ export default async function LocaleLayout({children, params}: Props) {
          <main className="flex-grow overflow-hidden  flex flex-col">
           {children}
           </main>
+          <Toaster/>
           <ScrollToTopButton />
           <Footer />
         </NextIntlClientProvider>

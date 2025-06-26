@@ -9,6 +9,7 @@ import TableSearch from "@/components/TableSearch";
 
 import {prisma} from "@/lib/prisma";
 import { ITEM_PER_PAGE } from "@/lib/settings";
+import { auth } from "@clerk/nextjs/server"; // or the correct path for your project
 
 import { Announcement, Class, Prisma } from "@prisma/client";
 
@@ -21,7 +22,14 @@ const AnnouncementListPage = async ({
 }) => {
   
   const { userId, sessionClaims } = auth();
-  const role = (sessionClaims?.metadata as { role?: string })?.role;
+  if (!userId) {
+    // Optionally, you can redirect or return an error UI here
+    return <div className="p-4">You must be signed in to view announcements.</div>;
+  }
+  const role =
+    sessionClaims && typeof sessionClaims === "object" && "metadata" in sessionClaims
+      ? ((sessionClaims as { metadata?: { role?: string } }).metadata?.role)
+      : undefined;
   const currentUserId = userId;
   
   const columns = [
@@ -148,9 +156,6 @@ const AnnouncementListPage = async ({
     </div>
   );
 };
-
 export default AnnouncementListPage;
-function auth(): { userId: any; sessionClaims: any; } {
-  throw new Error("Function not implemented.");
-}
+
 

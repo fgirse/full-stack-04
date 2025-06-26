@@ -15,6 +15,7 @@ const nextConfig = {
         pathname: "/**", // Allows all paths under this hostname
       },
     ],
+    domains: ["img.clerk.com"],
   },
 };
 const withNextIntl = createNextIntlPlugin();
