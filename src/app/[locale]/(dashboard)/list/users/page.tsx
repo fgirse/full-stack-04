@@ -182,7 +182,7 @@ export default async function UsersPage() {
           <h1 className="hidden md:block text-lg font-semibold">All Users</h1>
           <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
             <div className="flex items-center gap-4 self-end">
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400">
+              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-magenta-400">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                 </svg>

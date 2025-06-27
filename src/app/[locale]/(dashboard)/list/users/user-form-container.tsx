@@ -17,7 +17,7 @@ export const UserFormContainer = ({ table, type, data, id }: FormContainerProps)
   const [open, setOpen] = useState(false)
 
   const size = type === "create" ? "w-8 h-8" : "w-7 h-7"
-  const bgColor = type === "create" ? "bg-yellow-400" : type === "update" ? "bg-sky-200" : "bg-purple-200"
+  const bgColor = type === "create" ? "bg-green-400" : type === "update" ? "bg-sky-200" : "bg-purple-200"
 
   const Form = () => {
     if (type === "delete" && id) {
