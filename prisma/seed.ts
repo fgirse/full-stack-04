@@ -4,17 +4,26 @@ const prisma = new PrismaClient();
 async function main() {
  
 
-  // GRADE
+ // GRADE
+
   for (let i = 1; i <= 6; i++) {
+
     await prisma.grade.create({
+
       data: {
 
-        id: i, // Unique ID for the grade
+
+        
         level: i, // Level of the grade
+
         description: `Grade ${i}`, // Description of the grade
+
         gradeLevel: i, // Grade level, can be the same as level
+
       },
+
     });
+
   }
 
   // CLASS
@@ -117,6 +126,22 @@ async function main() {
         gradeId: (i % 6) + 1, 
         classId: (i % 6) + 1, 
         birthday: new Date(new Date().setFullYear(new Date().getFullYear() - 10)),
+      },
+    });
+  }
+
+// USER
+  for (let i = 1; i <= 50; i++) {
+    await prisma.users.create({
+      data: {
+        id: i,  
+        name: `UName${i}`,
+        password: `Basel_2024`,
+        email: `student${i}@example.com`,
+        imageUrl: `https://api.dicebear.com/7.x/identicon/svg?seed=student${i}`,
+        clerkUserId: `student${i}`,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     });
   }
