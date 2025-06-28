@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
 import { auth,  } from "@clerk/nextjs/server";
-import { Class, Prisma, Subject, Users } from "@prisma/client";
+import { Class, Prisma, Subject, User as PrismaUser } from "@prisma/client";
 
 import FormContainer from "@/components/FormContainer";
 import Pagination from "@/components/Pagination";
@@ -12,7 +12,7 @@ import TableSearch from "@/components/TableSearch";
 import {prisma} from "@/lib/prisma";
 import { ITEM_PER_PAGE } from "@/lib/settings";
 
-type UserList = Users & { subjects: Subject[] } & { classes: Class[] } & { phone?: string; address?: string };
+type UserList = User & { subjects: Subject[] } & { classes: Class[] } & { phone?: string; address?: string };
 
 interface User {
   id: string;
@@ -122,21 +122,21 @@ const userListPage = async ({
 
   // URL PARAMS CONDITION
 
-  const query: Prisma.UsersWhereInput = {};
+  const query: Prisma.UserWhereInput = {};
 
   if (queryParams) {
     for (const [key, value] of Object.entries(queryParams)) {
       if (value !== undefined) {
         switch (key) {
           case "classId":
-            query.lessons = {
+            query.classes = {
               some: {
-                classId: parseInt(value),
+                id: Number(value),
               },
             };
             break;
           case "search":
-            query.name = { contains: value, mode: "insensitive" };
+            query.username = { contains: value, mode: "insensitive" };
             break;
           default:
             break;
@@ -146,17 +146,17 @@ const userListPage = async ({
   }
 
   const [data, count] = await prisma.$transaction([
-    prisma.users.findMany({
+    prisma.user.findMany({
       where: query,
-      include: {
-        subjects: true,
-        classes: true,
-      },
+      // Remove or adjust the include if 'subjects' and 'classes' are not relations in your Prisma schema
       take: ITEM_PER_PAGE,
       skip: ITEM_PER_PAGE * (p - 1),
     }),
     prisma.user.count({ where: query }),
   ]);
+
+  // Example: If you want to filter users by classId, use the queryParams logic above.
+  // Remove this block as it causes a type error and is not used in the component.
 
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
@@ -173,7 +173,7 @@ const userListPage = async ({
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
             {role === "admin" && (
-              <FormContainer table="user" type="create" />
+              <FormContainer table="student" type={"create"} />
             )}
           </div>
         </div>
@@ -187,5 +187,4 @@ const userListPage = async ({
   );
 };
 
-export default UsersListPage;
-
+export default userListPage;

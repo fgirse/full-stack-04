@@ -132,10 +132,10 @@ async function main() {
 
 // USER
   for (let i = 1; i <= 50; i++) {
-    await prisma.users.create({
+    await prisma.user.create({
       data: {
         id: i,  
-        name: `UName${i}`,
+        username: `student${i}`,
         password: `Basel_2024`,
         email: `student${i}@example.com`,
         imageUrl: `https://api.dicebear.com/7.x/identicon/svg?seed=student${i}`,
