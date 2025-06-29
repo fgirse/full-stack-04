@@ -10,8 +10,8 @@ import { toast } from "react-toastify";
 import InputField from "../InputField";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { subjectSchema, SubjectSchema } from "@/lib/formValidationSchemas";
-import { createSubject, updateSubject } from "@/lib/actions";
+import { subjectSchema, SubjectSchema } from "../../lib/formValidationSchemas";
+import { createSubject, updateSubject } from "../../lib/action";
 
 const SubjectForm = ({
   type,

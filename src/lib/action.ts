@@ -1,8 +1,6 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { clerkClient } from "@clerk/nextjs/server";
-
 import {
   ClassSchema,
   ExamSchema,
@@ -10,8 +8,8 @@ import {
   SubjectSchema,
   TeacherSchema,
 } from "./formValidationSchemas";
-
-import {prisma} from "./prisma";
+import prisma from "./prisma";
+import { clerkClient } from "@clerk/nextjs/server";
 
 type CurrentState = { success: boolean; error: boolean };
 
@@ -158,8 +156,8 @@ export const createTeacher = async (
         username: data.username,
         name: data.name,
         surname: data.surname,
-        email: data.email || "",
-        phone: data.phone || "",
+        email: data.email || null,
+        phone: data.phone || null,
         address: data.address,
         img: data.img || null,
         bloodType: data.bloodType,
@@ -205,8 +203,8 @@ export const updateTeacher = async (
         username: data.username,
         name: data.name,
         surname: data.surname,
-        email: data.email || "",
-        phone: data.phone || "",
+        email: data.email || null,
+        phone: data.phone || null,
         address: data.address,
         img: data.img || null,
         bloodType: data.bloodType,
@@ -278,8 +276,8 @@ export const createStudent = async (
         username: data.username,
         name: data.name,
         surname: data.surname,
-        email: data.email || "",
-        phone: data.phone || "",
+        email: data.email || null,
+        phone: data.phone || null,
         address: data.address,
         img: data.img || null,
         bloodType: data.bloodType,
@@ -323,8 +321,8 @@ export const updateStudent = async (
         username: data.username,
         name: data.name,
         surname: data.surname,
-        ...(data.email ? { email: data.email } : {}),
-        phone: data.phone || undefined,
+        email: data.email || null,
+        phone: data.phone || null,
         address: data.address,
         img: data.img || null,
         bloodType: data.bloodType,

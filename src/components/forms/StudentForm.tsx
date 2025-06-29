@@ -18,13 +18,13 @@ import {
   StudentSchema,
   teacherSchema,
   TeacherSchema,
-} from "@/lib/formValidationSchemas";
+} from "../../lib/formValidationSchemas";
 import {
   createStudent,
   createTeacher,
   updateStudent,
   updateTeacher,
-} from "@/lib/actions";
+} from "../../lib/action";
 
 const StudentForm = ({
   type,

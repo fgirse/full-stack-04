@@ -14,13 +14,13 @@ import {
   ExamSchema,
   subjectSchema,
   SubjectSchema,
-} from "@/lib/formValidationSchemas";
+} from "../../lib/formValidationSchemas";
 import {
   createExam,
   createSubject,
   updateExam,
   updateSubject,
-} from "@/lib/actions";
+} from "../../lib/action";
 
 const ExamForm = ({
   type,

@@ -13,7 +13,7 @@ import InputField from "../InputField";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { teacherSchema, TeacherSchema } from "@/lib/formValidationSchemas";
-import { createTeacher, updateTeacher } from "@/lib/actions";
+import { createTeacher, updateTeacher } from "@/lib/action";
 
 const TeacherForm = ({
   type,

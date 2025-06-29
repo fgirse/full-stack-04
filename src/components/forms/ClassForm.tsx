@@ -14,13 +14,13 @@ import {
   ClassSchema,
   subjectSchema,
   SubjectSchema,
-} from "@/lib/formValidationSchemas";
+} from "../../lib/formValidationSchemas";
 import {
   createClass,
   createSubject,
   updateClass,
   updateSubject,
-} from "@/lib/actions";
+} from "../../lib/action";
 
 const ClassForm = ({
   type,

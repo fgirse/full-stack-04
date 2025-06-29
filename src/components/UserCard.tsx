@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {prisma} from "@/lib/prisma";
+import  prisma from "@/lib/prisma";
 
 const UserCard = async ({
   type,

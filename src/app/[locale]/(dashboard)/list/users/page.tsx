@@ -9,20 +9,21 @@ import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
 
-import {prisma} from "@/lib/prisma";
-import { ITEM_PER_PAGE } from "@/lib/settings";
+import prisma from "../../../../../lib/prisma";
+import { ITEM_PER_PAGE } from "@/lib/settings"
 
 type UserList = User & { subjects: Subject[] } & { classes: Class[] } & { phone?: string; address?: string };
 
 interface User {
   id: string;
-  name: string;
+  username: string;
   email: string;
+  clerkUserId: string;
+  createdAt: Date;
+  updatedAt?: Date;
   imageUrl: string; // <-- add this if you want to use 'img'
   address?: string; // <-- add this if you want to use 'address'
   phone?: string; // <-- add this if you want to use 'phone'
-  subjects: Subject[];
-  classes: Class[];
 }
 
 const userListPage = async ({
@@ -40,7 +41,7 @@ const userListPage = async ({
     {
       header: "User ID",
       accessor: "userId",
-      className: "hidden md:table-cell",
+      className: " md:table-cell",
     },
     {
       header: "Subjects",
@@ -48,9 +49,9 @@ const userListPage = async ({
       className: "hidden md:table-cell",
     },
     {
-      header: "Classes",
-      accessor: "classes",
-      className: "hidden md:table-cell",
+      header: "Username",
+      accessor: "username",
+      className: " md:table-cell",
     },
     {
       header: "Phone",
@@ -83,22 +84,20 @@ const userListPage = async ({
           alt=""
           width={40}
           height={40}
-          className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
-        />
+          className="md:hidden xl:block w-10 h-10 rounded-full object-cover" />
         <div className="flex flex-col">
-          <h3 className="font-semibold">{item.name}</h3>
+          <h3 className="font-semibold">{item.username}</h3>
           <p className="text-xs text-gray-500">{item?.email}</p>
         </div>
       </td>
-      <td className="hidden md:table-cell">{item.id}</td>
+      <td className="hidden md:table-cell">{item.clerkUserId}</td>
       <td className="hidden md:table-cell">
-        {item.subjects.map((subject: { name: any; }) => subject.name).join(",")}
+
       </td>
       <td className="hidden md:table-cell">
-        {item.classes.map((classItem: { name: any; }) => classItem.name).join(",")}
+
       </td>
-      <td className="hidden md:table-cell">{item.phone}</td>
-      <td className="hidden md:table-cell">{item.address}</td>
+      <td className="hidden md:table-cell"></td>
       <td>
         <div className="flex items-center gap-2">
           <Link href={`/list/users/${item.id}`}>
@@ -107,10 +106,12 @@ const userListPage = async ({
             </button>
           </Link>
           {role === "admin" && (
-            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-plPurple">
-            //   <Image src="/delete.png" alt="" width={16} height={16} />
-            // </button>
+             <>
+             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-plPurple">
+               <Image src="/delete.png" alt="" width={16} height={16} />
+             </button>
             <FormContainer table="student" type="delete" id={item.id} />
+            </>
           )}
         </div>
       </td>

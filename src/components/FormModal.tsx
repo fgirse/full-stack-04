@@ -6,7 +6,7 @@ import {
   deleteStudent,
   deleteSubject,
   deleteTeacher,
-} from "@/lib/actions";
+} from "../lib/action";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,10 @@ import { useFormState } from "react-dom";
 import { toast } from "react-toastify";
 import { FormContainerProps } from "./FormContainer";
 
-const deleteActionMap = {
+const deleteActionMap: Partial<Record<
+  "subject" | "class" | "teacher" | "student" | "exam" | "parent" | "lesson" | "assignment" | "result" | "attendance" | "event" | "announcement",
+  (currentState: any, data: FormData) => Promise<{ success: boolean; error: boolean; }>
+>> = {
   subject: deleteSubject,
   class: deleteClass,
   teacher: deleteTeacher,
@@ -256,13 +259,14 @@ const FormModal = ({
       ? "bg-plSky"
       : "bg-plPurple";
 
-  const [open, setOpen] = useState(false);
-
-  const Form = () => {
-    const [state, formAction] = useFormState(deleteActionMap[table], {
-      success: false,
-      error: false,
-    });
+    const deleteAction = deleteActionMap[table as keyof typeof deleteActionMap];
+    const [state, formAction] = useFormState(
+      deleteAction ? deleteAction : async () => ({ success: false, error: true }),
+      {
+        success: false,
+        error: false,
+      }
+    );
 
     const router = useRouter();
 
@@ -304,16 +308,6 @@ const FormModal = ({
           <div className="bg-white p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">
             <Form />
             <div
-              className="absolute top-4 right-4 cursor-pointer"
-              onClick={() => setOpen(false)}
-            >
-              <Image src="/close.png" alt="" width={14} height={14} />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+              className=";
 
 export default FormModal;
