@@ -81,7 +81,7 @@ const FormContainer = async ({ table, type, data, id }: FormContainerProps) => {
   return (
     <div className="">
       <FormModal
-        table={table}    vvvffv v                                                                                  
+        table={table}
         type={type}
         data={data}
         id={id}

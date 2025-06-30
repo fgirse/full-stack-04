@@ -15,10 +15,7 @@ import { useFormState } from "react-dom";
 import { toast } from "react-toastify";
 import { FormContainerProps } from "./FormContainer";
 
-const deleteActionMap: Partial<Record<
-  "subject" | "class" | "teacher" | "student" | "exam" | "parent" | "lesson" | "assignment" | "result" | "attendance" | "event" | "announcement",
-  (currentState: any, data: FormData) => Promise<{ success: boolean; error: boolean; }>
->> = {
+const deleteActionMap = {
   subject: deleteSubject,
   class: deleteClass,
   teacher: deleteTeacher,
@@ -31,6 +28,7 @@ const deleteActionMap: Partial<Record<
   attendance: deleteSubject,
   event: deleteSubject,
   announcement: deleteSubject,
+  user: deleteSubject, // Add this if needed
 };
 
 // Implementation of Lazy Loading
@@ -39,6 +37,9 @@ const deleteActionMap: Partial<Record<
 // Import StudentForm from "./forms/StudentForm";
 
 const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
+const UserForm = dynamic(() => import("./forms/UserForm"), {
   loading: () => <h1>Loading...</h1>,
 });
 const StudentForm = dynamic(() => import("./forms/StudentForm"), {
@@ -259,14 +260,13 @@ const FormModal = ({
       ? "bg-plSky"
       : "bg-plPurple";
 
-    const deleteAction = deleteActionMap[table as keyof typeof deleteActionMap];
-    const [state, formAction] = useFormState(
-      deleteAction ? deleteAction : async () => ({ success: false, error: true }),
-      {
-        success: false,
-        error: false,
-      }
-    );
+  const [open, setOpen] = useState(false);
+
+  const Form = () => {
+    const [state, formAction] = useFormState(deleteActionMap[table], {
+      success: false,
+      error: false,
+    });
 
     const router = useRouter();
 
@@ -302,12 +302,22 @@ const FormModal = ({
         onClick={() => setOpen(true)}
       >
         <Image src={`/${type}.png`} alt="" width={16} height={16} />
-      </button>
+      </button>,
       {open && (
         <div className="w-screen h-screen absolute left-0 top-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
           <div className="bg-white p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">
             <Form />
             <div
-              className=";
+              className="absolute top-4 right-4 cursor-pointer"
+              onClick={() => setOpen(false)}
+            >
+              <Image src="/close.png" alt="" width={14} height={14} />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default FormModal;

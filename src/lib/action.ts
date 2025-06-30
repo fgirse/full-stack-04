@@ -7,8 +7,9 @@ import {
   StudentSchema,
   SubjectSchema,
   TeacherSchema,
+  UserSchema
 } from "./formValidationSchemas";
-import prisma from "./prisma";
+import prisma from "@/lib/prisma";
 import { clerkClient } from "@clerk/nextjs/server";
 
 type CurrentState = { success: boolean; error: boolean };
@@ -156,7 +157,7 @@ export const createTeacher = async (
         username: data.username,
         name: data.name,
         surname: data.surname,
-        email: data.email || null,
+        email: data.email || "",
         phone: data.phone || null,
         address: data.address,
         img: data.img || null,
@@ -203,7 +204,7 @@ export const updateTeacher = async (
         username: data.username,
         name: data.name,
         surname: data.surname,
-        email: data.email || null,
+        email: data.email || undefined,
         phone: data.phone || null,
         address: data.address,
         img: data.img || null,
@@ -246,6 +247,104 @@ export const deleteTeacher = async (
     return { success: false, error: true };
   }
 };
+
+
+export const createUser = async (
+  currentState: CurrentState,
+  data: TeacherSchema
+) => {
+  try {
+    const user = await clerkClient.users.createUser({
+      username: data.username,
+      password: data.password,
+      publicMetadata:{role:"teacher"}
+    });
+
+    await prisma.user.create({
+      data: {
+        id: Number(user.id),
+        username: data.username,
+        email: data.email || "",
+        password: data.password || "", // Add password field
+        clerkUserId: user.id,    // Add clerkUserId field
+        subjects: {
+          connect: data.subjects?.map((subjectId: string) => ({
+            id: parseInt(subjectId),
+          })),
+        },
+      },
+    });
+
+    // revalidatePath("/list/users");
+    return { success: true, error: false };
+  } catch (err) {
+    console.log(err);
+    return { success: false, error: true };
+  }
+};
+
+export const updateUser = async (
+  currentState: CurrentState,
+  data: TeacherSchema
+) => {
+  if (!data.id) {
+    return { success: false, error: true };
+  }
+  try {
+    const user = await clerkClient.users.updateUser(data.id, {
+      username: data.username,
+      ...(data.password !== "" && { password: data.password }),
+      firstName: data.name,
+      lastName: data.surname,
+    });
+
+    await prisma.user.update({
+      where: {
+        id: Number(data.id),
+      },
+      data: {
+        ...(data.password !== "" && { password: data.password }),
+        username: data.username,
+  
+        email: data.email || undefined,
+        subjects: {
+          set: data.subjects?.map((subjectId: string) => ({
+            id: parseInt(subjectId),
+          })),
+        },
+      },
+    });
+    // revalidatePath("/list/users");
+    return { success: true, error: false };
+  } catch (err) {
+    console.log(err);
+    return { success: false, error: true };
+  }
+};
+
+export const deleteUser = async (
+  currentState: CurrentState,
+  data: FormData
+) => {
+  const id = data.get("id") as string;
+  try {
+    await clerkClient.users.deleteUser(id);
+
+    await prisma.user.delete({
+      where: {
+        id: Number(id) ,
+      },
+    });
+
+    // revalidatePath("/list/users");
+    return { success: true, error: false };
+  } catch (err) {
+    console.log(err);
+    return { success: false, error: true };
+  }
+};
+
+
 
 export const createStudent = async (
   currentState: CurrentState,

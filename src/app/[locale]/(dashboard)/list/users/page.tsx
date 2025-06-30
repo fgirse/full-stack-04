@@ -12,7 +12,7 @@ import TableSearch from "@/components/TableSearch";
 import prisma from "../../../../../lib/prisma";
 import { ITEM_PER_PAGE } from "@/lib/settings"
 
-type UserList = User & { subjects: Subject[] } & { classes: Class[] } & { phone?: string; address?: string };
+type UserList = User & { subjects: Subject[] } & { classes: Class[] } & { phone?: string; address?: string; imageUrl?: string; userId?: string; clerkUserId?: string; };
 
 interface User {
   id: string;
@@ -33,45 +33,6 @@ const userListPage = async ({
 } ) => {
   const { sessionClaims } = auth();
   const role = (sessionClaims?.metadata as { role?: string })?.role;
-  const columns = [
-    {
-      header: "Info",
-      accessor: "info",
-    },
-    {
-      header: "User ID",
-      accessor: "userId",
-      className: " md:table-cell",
-    },
-    {
-      header: "Subjects",
-      accessor: "subjects",
-      className: "hidden md:table-cell",
-    },
-    {
-      header: "Username",
-      accessor: "username",
-      className: " md:table-cell",
-    },
-    {
-      header: "Phone",
-      accessor: "phone",
-      className: "hidden lg:table-cell",
-    },
-    {
-      header: "Address",
-      accessor: "address",
-      className: "hidden lg:table-cell",
-    },
-    ...(role === "admin"
-      ? [
-          {
-            header: "Actions",
-            accessor: "action",
-          },
-        ]
-      : []),
-  ];
 
   const renderRow = (item: UserList) => (
     <tr
@@ -118,6 +79,14 @@ const userListPage = async ({
     </tr>
   );
   const { page, ...queryParams } = searchParams;
+
+  const columns = [
+    { header: "User", accessor: "username", className: "text-left" },
+    { header: "Clerk User ID", accessor: "clerkUserId", className: "hidden md:table-cell" },
+    { header: "Username", accessor: "username", className: "hidden md:table-cell" },
+    { header: "Phone", accessor: "phone", className: "hidden md:table-cell" },
+    { header: "Actions", accessor: "actions", className: "" },
+  ];
 
   const p = page ? parseInt(page) : 1;
 
