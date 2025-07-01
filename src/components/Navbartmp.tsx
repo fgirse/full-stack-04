@@ -5,11 +5,11 @@ import Image from "next/image";
 const getRoleClass = (role: string) => {
   switch (role) {
     case "admin":
-      return "bg-red-400";
-    case "teacher":
-      return "bg-blue-500";
-    case "student":
       return "bg-amber-400";
+    case "teacher":
+      return "bg-grey-500";
+    case "student":
+      return "bg-slate-400";
     case "parent":
       return "bg-stone-400";
     default:

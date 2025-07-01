@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Users, GraduationCap, BookOpen } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useTranslations } from "i18next"
 
 interface AdminDashboardProps {
   user: any
@@ -24,6 +25,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
   const [stats, setStats] = useState<SystemStats | null>(null)
   const [loading, setLoading] = useState(true)
 
+  const t = useTranslations("AdminDashboard")
   useEffect(() => {
     const fetchStats = async () => {
       try {
@@ -33,7 +35,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
           setStats(data)
         }
       } catch (error) {
-        console.error("Error fetching admin stats:", error)
+        console.error("{t("Error fetching admin stats:")}, error)
       } finally {
         setLoading(false)
       }
@@ -43,7 +45,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
   }, [])
 
   if (loading) {
-    return <div>Loading dashboard...</div>
+    return <div>{t("Loading dashboard...")}   </div>
   }
 
   return (
@@ -52,45 +54,45 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("Total Users")}</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats?.totalUsers || 0}</div>
-            <p className="text-xs text-muted-foreground">All system users</p>
+            <p className="text-xs text-muted-foreground">{t("All system users")}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Students</CardTitle>
+            <CardTitle className="text-sm font-medium">{tStudents</CardTitle>
             <GraduationCap className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats?.totalStudents || 0}</div>
-            <p className="text-xs text-muted-foreground">Active students</p>
+            <p className="text-xs text-muted-foreground">{t("Active students")}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Teachers</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("Teachers")}</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats?.totalTeachers || 0}</div>
-            <p className="text-xs text-muted-foreground">Teaching staff</p>
+            <p className="text-xs text-muted-foreground">{t("Teaching staff")}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Classes</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("Classes")}</CardTitle>
             <BookOpen className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats?.totalClasses || 0}</div>
-            <p className="text-xs text-muted-foreground">Active classes</p>
+            <p className="text-xs text-muted-foreground">{t("Active classes")}</p>
           </CardContent>
         </Card>
       </div>
@@ -98,23 +100,23 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
       {/* Admin Information */}
       <Card>
         <CardHeader>
-          <CardTitle>Administrator Information</CardTitle>
+          <CardTitle>{t("Administrator Information")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div>
-              <h3 className="font-medium">System Access</h3>
+              <h3 className="font-medium">{t("System Access")}</h3>
               <p className="text-sm text-muted-foreground">
-                Full administrative privileges with access to all system functions
+                {t("Full administrative privileges with access to all system functions")}
               </p>
             </div>
             <div>
-              <h3 className="font-medium">Responsibilities</h3>
+              <h3 className="font-medium">{t("Responsibilities")}</h3>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• User management and role assignment</li>
-                <li>• System configuration and settings</li>
-                <li>• Data backup and security oversight</li>
-                <li>• Performance monitoring and optimization</li>
+                <li>• {t("User management and role assignment")}</li>
+                <li>• {t("System configuration and settings")}</li>
+                <li>• {t("Data backup and security oversight")}</li>
+                <li>• {t("Performance monitoring and optimization")}  </li>
               </ul>
             </div>
           </div>
@@ -124,7 +126,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
       {/* Recent System Activities */}
       <Card>
         <CardHeader>
-          <CardTitle>Recent System Activities</CardTitle>
+          <CardTitle>{t("Recent System Activities")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -139,7 +141,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
                 </div>
               ))
             ) : (
-              <p className="text-sm text-muted-foreground">No recent activities</p>
+              <p className="text-sm text-muted-foreground">{t("No recent activities")}</p>
             )}
           </div>
         </CardContent>

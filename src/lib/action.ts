@@ -263,15 +263,11 @@ export const createUser = async (
     await prisma.user.create({
       data: {
         id: Number(user.id),
+        clerkId: user.id, // Add the required clerkId property
         username: data.username,
         email: data.email || "",
         password: data.password || "", // Add password field
-        clerkUserId: user.id,    // Add clerkUserId field
-        subjects: {
-          connect: data.subjects?.map((subjectId: string) => ({
-            id: parseInt(subjectId),
-          })),
-        },
+        // Removed 'subjects' property as it does not exist on the User model
       },
     });
 
@@ -305,13 +301,8 @@ export const updateUser = async (
       data: {
         ...(data.password !== "" && { password: data.password }),
         username: data.username,
-  
         email: data.email || undefined,
-        subjects: {
-          set: data.subjects?.map((subjectId: string) => ({
-            id: parseInt(subjectId),
-          })),
-        },
+        // Removed subjects property as it does not exist on the user model
       },
     });
     // revalidatePath("/list/users");

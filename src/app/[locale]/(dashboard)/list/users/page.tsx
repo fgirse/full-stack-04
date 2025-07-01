@@ -1,160 +1,249 @@
-import Image from "next/image";
-import Link from "next/link";
-import Header from "@/components/header";
-import { auth,  } from "@clerk/nextjs/server";
-import { Class, Prisma, Subject, User as PrismaUser } from "@prisma/client";
+"use client"
 
-import FormContainer from "@/components/FormContainer";
-import Pagination from "@/components/Pagination";
-import Table from "@/components/Table";
-import TableSearch from "@/components/TableSearch";
+import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Skeleton } from "@/components/ui/skeleton"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Search, Users, Mail, Calendar, Shield, RefreshCw } from "lucide-react"
+import { useAuth } from "@clerk/nextjs"
 
-import prisma from "../../../../../lib/prisma";
-import { ITEM_PER_PAGE } from "@/lib/settings"
-
-type UserList = User & { subjects: Subject[] } & { classes: Class[] } & { phone?: string; address?: string; imageUrl?: string; userId?: string; clerkUserId?: string; };
-
-interface User {
-  id: string;
-  username: string;
-  email: string;
-  clerkUserId: string;
-  createdAt: Date;
-  updatedAt?: Date;
-  imageUrl: string; // <-- add this if you want to use 'img'
-  address?: string; // <-- add this if you want to use 'address'
-  phone?: string; // <-- add this if you want to use 'phone'
+type User = {
+  id: string
+  firstName: string | null
+  lastName: string | null
+  emailAddresses: { emailAddress: string; id:string }[]
+  imageUrl: string
+  createdAt: number
+  lastSignInAt?: number
+  banned?: boolean
+  publicMetadata?: { role?: string }
+  privateMetadata?: { role?: string }
+  // add other fields as needed
 }
 
-const userListPage = async ({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | undefined };
-} ) => {
-  const { sessionClaims } = auth();
-  const role = (sessionClaims?.metadata as { role?: string })?.role;
+interface ClerkUser {
+  id: string
+  firstName: string | null
+  lastName: string | null
+  emailAddresses: Array<{
+    emailAddress: string
+    id: string
+  }>
+  imageUrl: string
+  createdAt: number
+  lastSignInAt: number | null
+  publicMetadata: Record<string, any>
+  privateMetadata: Record<string, any>
+  banned: boolean
+}
 
-  const renderRow = (item: UserList) => (
-    <tr
-      key={item.id}
-      className="border-b border-gray-200 even:bg-slate-300 text-sm hover:bg-plPurpleLight"
-    >
-      <td className="flex items-center gap-4 p-4">
-        <Image
-          src={item.imageUrl || "/noAvatar.png"}
-          alt=""
-          width={40}
-          height={40}
-          className="md:hidden xl:block w-10 h-10 rounded-full object-cover" />
-        <div className="flex flex-col">
-          <h3 className="font-semibold">{item.username}</h3>
-          <p className="text-xs text-gray-500">{item?.email}</p>
-        </div>
-      </td>
-      <td className="hidden md:table-cell">{item.clerkUserId}</td>
-      <td className="hidden md:table-cell">
+interface UsersResponse {
+  users: ClerkUser[]
+  totalCount: number
+}
 
-      </td>
-      <td className="hidden md:table-cell">
+export default function UsersPage() {
+  const t = useTranslations("UserManagement")
+  const [users, setUsers] = useState<User[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [totalCount, setTotalCount] = useState(0)
+  const { getToken } = useAuth()
 
-      </td>
-      <td className="hidden md:table-cell"></td>
-      <td>
-        <div className="flex items-center gap-2">
-          <Link href={`/list/users/${item.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-plSky">
-              <Image src="/view.png" alt="" width={16} height={16} />
-            </button>
-          </Link>
-          {role === "admin" && (
-             <>
-             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-plPurple">
-               <Image src="/delete.png" alt="" width={16} height={16} />
-             </button>
-            <FormContainer table="student" type="delete" id={item.id} />
-            </>
-          )}
-        </div>
-      </td>
-    </tr>
-  );
-  const { page, ...queryParams } = searchParams;
+  const fetchUsers = async () => {
+    try {
+      setLoading(true)
+      setError(null)
 
-  const columns = [
-    { header: "User", accessor: "username", className: "text-left" },
-    { header: "Clerk User ID", accessor: "clerkUserId", className: "hidden md:table-cell" },
-    { header: "Username", accessor: "username", className: "hidden md:table-cell" },
-    { header: "Phone", accessor: "phone", className: "hidden md:table-cell" },
-    { header: "Actions", accessor: "actions", className: "" },
-  ];
+      const token = await getToken()
+      const response = await fetch("/api/admin/users", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
 
-  const p = page ? parseInt(page) : 1;
-
-  // URL PARAMS CONDITION
-
-  const query: Prisma.UserWhereInput = {};
-
-  if (queryParams) {
-    for (const [key, value] of Object.entries(queryParams)) {
-      if (value !== undefined) {
-        switch (key) {
-          case "classId":
-            query.classes = {
-              some: {
-                id: Number(value),
-              },
-            };
-            break;
-          case "search":
-            query.username = { contains: value, mode: "insensitive" };
-            break;
-          default:
-            break;
-        }
+      if (!response.ok) {
+        throw new Error("Failed to fetch users")
       }
+
+      const data: UsersResponse = await response.json()
+      setUsers(
+              data.users.map((user) => ({
+                ...user,
+                imageUrl: user.imageUrl || "/placeholder.svg",
+                lastSignInAt: user.lastSignInAt === null ? undefined : user.lastSignInAt,
+              }))
+            )
+      setTotalCount(data.totalCount)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+    } finally {
+      setLoading(false)
     }
   }
 
-  const [data, count] = await prisma.$transaction([
-    prisma.user.findMany({
-      where: query,
-      // Remove or adjust the include if 'subjects' and 'classes' are not relations in your Prisma schema
-      take: ITEM_PER_PAGE,
-      skip: ITEM_PER_PAGE * (p - 1),
-    }),
-    prisma.user.count({ where: query }),
-  ]);
+  useEffect(() => {
+    fetchUsers()
+  }, [])
 
-  // Example: If you want to filter users by classId, use the queryParams logic above.
-  // Remove this block as it causes a type error and is not used in the component.
+  const filteredUsers = (users ?? []).filter((user) => {
+    const fullName = `${user.firstName || ""} ${user.lastName || ""}`.toLowerCase()
+    const email = user.emailAddresses[0]?.emailAddress.toLowerCase() || ""
+    const search = searchTerm.toLowerCase()
 
-  return (
-    <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
-      {/* TOP */}
-      <div className="flex items-center justify-between">
-        <h1 className="hidden md:block text-lg font-semibold">All users</h1>
-        <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
-          <TableSearch />
-          <div className="flex items-center gap-4 self-end">
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-plYellow">
-              <Image src="/filter.png" alt="" width={14} height={14} />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-plYellow">
-              <Image src="/sort.png" alt="" width={14} height={14} />
-            </button>
-            {role === "admin" && (
-              <FormContainer table="student" type={"create"} />
-            )}
+    return fullName.includes(search) || email.includes(search)
+  })
+
+  const formatDate = (timestamp: number) => {
+    return new Date(timestamp).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    })
+  }
+
+  const getInitials = (firstName: string | null, lastName: string | null) => {
+    return `${firstName?.[0] || ""}${lastName?.[0] || ""}`.toUpperCase() || "U"
+  }
+
+  const getUserRole = (user: User) => {
+    return user.publicMetadata?.role || user.privateMetadata?.role || "user"
+  }
+
+  if (loading) {
+    return (
+      <div className="container mx-auto p-6 space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <Skeleton className="h-8 w-48 mb-2" />
+            <Skeleton className="h-4 w-64" />
           </div>
+          <Skeleton className="h-10 w-32" />
+        </div>
+
+        <Skeleton className="h-10 w-full max-w-md" />
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Card key={i}>
+              <CardHeader className="flex flex-row items-center space-y-0 pb-2">
+                <Skeleton className="h-10 w-10 rounded-full" />
+                <div className="ml-4 space-y-1">
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-3 w-24" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <Skeleton className="h-3 w-full" />
+                  <Skeleton className="h-3 w-3/4" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
-      {/* LIST */}
-      <Table columns={columns} renderRow={renderRow} data={data} />
-      {/* PAGINATION */}
-      <Pagination page={p} count={count} />
-    </div>
-  
-  );
-};
+    )
+  }
 
-export default userListPage;
+  return (
+    <div className="container mx-auto p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
+            <Users className="h-8 w-8" />
+            {t("title")}
+          </h1>
+          <p className="text-muted-foreground">{t("description", { count: totalCount })}</p>
+        </div>
+        <Button onClick={fetchUsers} variant="outline" size="sm">
+          <RefreshCw className="h-4 w-4 mr-2" />
+          {t("refresh")}
+        </Button>
+      </div>
+
+      {error && (
+        <Alert variant="destructive">
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+
+      <div className="flex items-center space-x-2">
+        <Search className="h-4 w-4 text-muted-foreground" />
+        <Input
+          placeholder={t("searchPlaceholder")}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="max-w-md"
+        />
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {(users ?? []).map((user) => (
+          <Card key={user.id} className="hover:shadow-md transition-shadow">
+            <CardHeader className="flex flex-row items-center space-y-0 pb-2">
+              <Avatar className="h-10 w-10">
+                <AvatarImage src={user.imageUrl || "/placeholder.svg"} alt={`${user.firstName} ${user.lastName}`} />
+                <AvatarFallback>{getInitials(user.firstName, user.lastName)}</AvatarFallback>
+              </Avatar>
+              <div className="ml-4 space-y-1">
+                <CardTitle className="text-sm font-medium">
+                  {user.firstName || user.lastName
+                    ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
+                    : "No name provided"}
+                </CardTitle>
+                <div className="flex items-center gap-2">
+                  <Badge variant={getUserRole(user) === "admin" ? "default" : "secondary"} className="text-xs">
+                    <Shield className="h-3 w-3 mr-1" />
+                    {getUserRole(user)}
+                  </Badge>
+                  {user.banned && (
+                    <Badge variant="destructive" className="text-xs">
+                      Banned
+                    </Badge>
+                  )}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center text-muted-foreground">
+                  <Mail className="h-3 w-3 mr-2" />
+                  <span className="truncate">{user.emailAddresses[0]?.emailAddress || "No email"}</span>
+                </div>
+                <div className="flex items-center text-muted-foreground">
+                  <Calendar className="h-3 w-3 mr-2" />
+                  <span>Joined {formatDate(user.createdAt)}</span>
+                </div>
+                {user.lastSignInAt && (
+                  <div className="flex items-center text-muted-foreground">
+                    <Calendar className="h-3 w-3 mr-2" />
+                    <span>Last seen {formatDate(user.lastSignInAt)}</span>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {filteredUsers.length === 0 && !loading && (
+        <div className="text-center py-12">
+          <Users className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+          <h3 className="text-lg font-medium mb-2">No users found</h3>
+          <p className="text-muted-foreground">
+            {searchTerm ? "Try adjusting your search terms." : "No users have been created yet."}
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}

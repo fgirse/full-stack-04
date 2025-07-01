@@ -36,6 +36,13 @@ const menuItems = [
         href: "/list/users",
         visible: ["admin"],
       },
+
+      {
+        icon: "/statistics.png",
+        label: "Statistic",
+        href: "/list/statistics",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
       {
         icon: "/subject.png",
         label: "Subjects",

@@ -139,7 +139,7 @@ async function main() {
         password: `Basel_2024`,
         email: `student${i}@example.com`,
         imageUrl: `https://api.dicebear.com/7.x/identicon/svg?seed=student${i}`,
-        clerkUserId: `student${i}`,
+        clerkId: `student${i}`,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

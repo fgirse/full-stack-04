@@ -10,7 +10,37 @@
     "Text_02": "Registrieren"
   },
   
-  
+    "AdminDashboard": {
+    "title": "Admin Infobord",
+    "description": "Überblick über die Benutzer und Aktivitäten Ihrer Anwendung",
+    "totalUsers": "Total Benutzer",
+    "allRegisteredUsers": "Alle registrierten Anwender",
+    "newThisMonth": "New This Month",
+    "registeredThisMonth": "Registrierte Anwender in diesem Monat",
+    "activeThisWeek": "AktiverAnwender in dieser Woche",
+    "signedInThisWeek": "Angemeldetin dieser Woche",
+    "bannedUsers": "Ausgeschlossene Anwender",
+    "currentlyBanned": "Kürzlich ausgeschlossene Anwender",
+    "registrationTrend": "Registration Trend (30 Tag)",
+    "roleDistribution": "Verteilung der Rollen",
+    "recentActivity": "Recent Activity Summary",
+    "newUsersThisWeek": "Neue Anwender in dieser Woche",
+    "activeUsersThisWeek": "Active Anwender in dieser Woche",
+    "engagementRate": "Engagement Rate",
+    "roles": {
+      "admin": "Administrator",
+      "teacher": "Lehrer",
+      "student": "Student",
+      "parent": "Eltern",
+      "user": "Anwender"
+    },
+  "AdminNavigation": {
+    "dashboard": "Kontrollboard",
+    "users": "Anwenser",
+    "settings": "Einstellungen",
+    "security": "Sicherheit"
+  }
+},
 
   
   "Error": {

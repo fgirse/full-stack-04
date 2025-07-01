@@ -14,7 +14,7 @@ const config: Config = {
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
   		},
   		colors: {
-  			plSky: '#1',
+  			plSky: '#111010',
   			plSkyLight: '#00bc7d',
   			plPurple: '#             ',
   			plPurpleLight: '#D6D3D1',

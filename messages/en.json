@@ -4,11 +4,38 @@
     "AGB": "General Terms and Conditions"
   },
 
-  "authButton":{
+  "AdminDashboard": {
+    "title": "Admin Dashboard",
+    "description": "Overview of your application's users and activity",
+    "totalUsers": "Total Users",
+    "allRegisteredUsers": "All registered users",
+    "newThisMonth": "New This Month",
+    "registeredThisMonth": "Registered this month",
+    "activeThisWeek": "Active This Week",
+    "signedInThisWeek": "Signed in this week",
+    "bannedUsers": "Banned Users",
+    "currentlyBanned": "Currently banned",
+    "registrationTrend": "Registration Trend (30 Days)",
+    "roleDistribution": "Role Distribution",
+    "recentActivity": "Recent Activity Summary",
+    "newUsersThisWeek": "New Users This Week",
+    "activeUsersThisWeek": "Active Users This Week",
+    "engagementRate": "Engagement Rate",
+    "roles": {
+      "admin": "Admin",
+      "teacher": "Teacher",
+      "student": "Student",
+      "parent": "Parent",
+      "user": "User"
+    },
+  "AdminNavigation": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "settings": "Settings",
+    "security": "Security"
+  }
+},
 
-    "login": "Sign in",
-    "Text_02": "Registrieren"
-  },
   
    "Error": {
       "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
@@ -216,6 +243,28 @@
       "subtitelUsers": "Manage Users and their roles"  
 
     }, 
+
+    "UserManagement": {
+    "title": "Anwenderverwaltung",
+    "description": "Verwalte Benutzer und ihre Rollen",
+    "refresh": "Neu laden",
+    "searchPlaceholder": "Suche nach Benutzern nach",
+    "noName": "Kein Name  ",
+    "noEmail": "Keie email",
+    "banned": "gesperrt",
+    "joined": "verbunden",
+    "lastSeen": "zuletzt online",
+    "noUsersFound": "Keien Benutzer gefunden",
+    "adjustSearch": "Versuche .",
+    "noUsersCreated": "Keine Anmeldungen erstellt",
+    "roles": {
+      "admin": "Administrator",
+      "teacher": "Dozent",
+      "student": "Student",
+      "parent": "Eltern",
+      "user": "Anwender"
+    }
+  },
   
     "Whoweare": {
       "präTitle": "about 8zense.com",
