@@ -59,7 +59,6 @@ export default async function LocaleLayout({children, params}: Props) {
          <main className="flex-grow overflow-hidden  flex flex-col">
           {children}
           </main>
-          <Toaster/>
           <ScrollToTopButton />
           <Footer />
         </NextIntlClientProvider>

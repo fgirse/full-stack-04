@@ -1,39 +1,42 @@
 import Image from "next/image";
 import {Cloudinary, Transformation} from "@cloudinary/url-gen";
-import {getTranslations} from 'next-intl/server';
+
 // Import required actions.
+
 import {byAngle} from "@cloudinary/url-gen/actions/rotate"
+
+
 
   // Import the required actions and qualifiers.
   import {fill, scale} from "@cloudinary/url-gen/actions/resize";
   import {source} from "@cloudinary/url-gen/actions/overlay";
   import {byRadius, max} from "@cloudinary/url-gen/actions/roundCorners";
+
   // Import required values.
   import {image, text} from "@cloudinary/url-gen/qualifiers/source";
   import {Position} from "@cloudinary/url-gen/qualifiers/position";
-import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
-import {autoGravity, compass} from "@cloudinary/url-gen/qualifiers/gravity";
-import { TextAlignment } from "@cloudinary/url-gen/qualifiers";
-import { cartoonify, outline } from "@cloudinary/url-gen/actions/effect";
-import { outer } from "@cloudinary/url-gen/qualifiers/outlineMode";
+  import { useTranslations } from "next-intl";
+  import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
+  import {autoGravity, compass} from "@cloudinary/url-gen/qualifiers/gravity";
+  import { TextAlignment } from "@cloudinary/url-gen/qualifiers";
+  import { cartoonify, outline } from "@cloudinary/url-gen/actions/effect";
+  import { outer } from "@cloudinary/url-gen/qualifiers/outlineMode";
 import { effect } from "zod";
 import { LayerAction } from "@cloudinary/transformation-builder-sdk/actions/layer/LayerAction";
 import { format } from "@cloudinary/url-gen/actions/delivery";
+import { videoMp4 } from "@cloudinary/url-gen/qualifiers/format";
 import { hue } from "@cloudinary/transformation-builder-sdk/actions/adjust";
 import { backgroundRemoval, generativeRestore } from "@cloudinary/url-gen/actions/effect";
 // Create and configure your Cloudinary instance.
 
-
-const t = getTranslations('HeroMobil');
-
-export default async function HeroImage() {
+export default function HeroImage() {
 const cld = new Cloudinary({
   cloud: {
     cloudName: 'Carlo2024'
   }
 }); 
 
-
+const t = useTranslations('HeroMobil');
 
 // Use the image with public ID, 'sample'.
 const myImage = cld.image(
@@ -51,21 +54,21 @@ myImage
   
   .overlay(
     source(
-      text((await t)("Headline"), new TextStyle('bowlby one sc',220))
+      text(t("Headline"), new TextStyle('bowlby one sc',220))
         .textColor('#ffffff')
     )
     .position(new Position().gravity(compass('north_west')).offsetY(80).offsetX(260))
   )
   .overlay(
     source(
-      text((await t)("Jahr"), new TextStyle('bowlby one sc', 400))
+      text(t("Jahr"), new TextStyle('bowlby one sc', 400))
         .textColor('orange')
     )
     .position(new Position().gravity(compass('north_west')).offsetY(280).offsetX(260))
   )
   .overlay(   
     source(
-      text((await t)("Slogan"), new TextStyle('bowlby one sc',200))
+      text(t("Slogan"), new TextStyle('bowlby one sc',200))
       .textColor('orange')       
     )    
     .position(new Position().gravity(compass('west')).offsetY(2100).offsetX(260)))
@@ -73,8 +76,7 @@ myImage
 
     .overlay(   
       source(
-          text(
-            await (await t)("Title"),
+          text(t("Title"),
             new TextStyle("bowlby one sc", 260)
               .fontWeight("bold")
               .lineSpacing(-150)
