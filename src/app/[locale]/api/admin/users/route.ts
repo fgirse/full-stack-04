@@ -1,24 +1,32 @@
 import { auth, clerkClient } from "@clerk/nextjs/server"
 import { type NextRequest, NextResponse } from "next/server"
-import useTranslations from "@/hooks/useTranslations"
-import { type User } from "@/types/user"
+import { getTranslations } from 'next-intl/server';
 
 export async function GET(request: NextRequest) {
+  const t = await getTranslations('UserManagement');
+
   try {
     // Get the authenticated user
     const { userId } = await auth()
 
-    const t = useTranslations("UserManagement")
+
 
     if (!userId) {
-      return NextResponse.json({ error: <p>{t("Unauthorized - No user ID")}</p> , { status: 401 })
+      return NextResponse.json(
+        { error: t("Unauthorized - No user ID") },
+        { status: 401 }
+      )
     }
+
 
     // Optional: Check if user has admin role
     const currentUser = await clerkClient.users.getUser(userId)
     const userRole = currentUser.publicMetadata?.role || currentUser.privateMetadata?.role
-
-    if (userRole !== "admin") {    return NextResponse.json({ error: {t("Forbidden - Admin access required") }, { status: 403 })
+    if (userRole !== "admin") {
+      return NextResponse.json(
+        { error: t("Forbidden - Admin access required") },
+        { status: 403 }
+      );
     }
 
     // Get query parameters for pagination

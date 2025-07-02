@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs/server"
+import {useTranslations} from 'next-intl'
 
 export async function GET(request: NextRequest) {
   try {

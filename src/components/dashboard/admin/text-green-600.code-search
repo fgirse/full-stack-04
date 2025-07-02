@@ -1,0 +1,15 @@
+# Query: text-green-600
+# Flags: WordMatch
+# ContextLines: 1
+
+2 results - 2 files
+
+src/app/[locale]/(dashboard)/list/statistics/page.tsx:
+  203              <div className="text-center">
+  204:               <div className="text-2xl font-bold text-amber-500/50">{stats?.newUsersThisWeek || 0}</div>
+  205                <p className="text-sm text-muted-foreground">{t("newUsersThisWeek")}</p>
+
+src/components/UserCard.tsx:
+  20        <div className="flex justify-between items-center">
+  21:         <span className="text-[10px] bg-white px-2 py-1 rounded-full text-amber-400/60">
+  22            2024/25

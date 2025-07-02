@@ -4,7 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Users, GraduationCap, BookOpen } from "lucide-react"
 import { useEffect, useState } from "react"
-import { useTranslations } from "i18next"
+import useTranslations  from "i18next"
+import i18n from "i18next";
+
+
 
 interface AdminDashboardProps {
   user: any
@@ -25,7 +28,11 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
   const [stats, setStats] = useState<SystemStats | null>(null)
   const [loading, setLoading] = useState(true)
 
-  const t = useTranslations("AdminDashboard")
+  const t = (key: string) => i18n.t(`AdminDashboard.${key}`);
+
+
+
+
   useEffect(() => {
     const fetchStats = async () => {
       try {
@@ -35,7 +42,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
           setStats(data)
         }
       } catch (error) {
-        console.error("{t("Error fetching admin stats:")}, error)
+        console.error(`${t("Error fetching admin stats:")}`, error)
       } finally {
         setLoading(false)
       }
@@ -65,7 +72,7 @@ export function AdminDashboard({ user, data }: AdminDashboardProps) {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">{tStudents</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("Students")}</CardTitle>
             <GraduationCap className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>

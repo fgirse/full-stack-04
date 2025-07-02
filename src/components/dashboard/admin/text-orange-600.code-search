@@ -1,0 +1,10 @@
+# Query: text-orange-600
+# Flags: WordMatch
+# ContextLines: 1
+
+1 result - 1 file
+
+src/app/[locale]/(dashboard)/list/statistics/page.tsx:
+  211              <div className="text-center">
+  212:               <div className="text-2xl font-bold text-orange-300">
+  213                  {stats ? Math.round((stats.activeUsersThisWeek / stats.totalUsers) * 100) : 0}%
