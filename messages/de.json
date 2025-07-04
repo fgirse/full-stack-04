@@ -250,7 +250,52 @@
     },  
     
     
-    
+      "UserManagement": {
+    "title": "Anwender Management",
+    "description": "Anzeige und verwalte in your application ({count} total)",
+    "refresh": "Aktualisieren",
+    "searchPlaceholder": "Suche Anwender nach Name oder E-Mail...",
+    "createUser": "Anwender erstellen",
+    "editUser": "Anwender bearbeiten",
+    "viewUser": "View Details",
+    "deleteUser": "Delete User",
+    "banUser": "Ban User",
+    "unbanUser": "Unban User",
+    "noName": "No name provided",
+    "noEmail": "No email",
+    "banned": "Banned",
+    "active": "Active",
+    "joined": "Beigetreten",
+    "lastSeen": "Zuletzt gesehen",
+    "noUsersFound": "Keine Anwender gefunden",
+    "adjustSearch": "Versuchen Sie, Ihre Suchbegriffe anzupassen.",
+    "noUsersCreated": "Es wurden noch keine Anwender erstellt.",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "-Mail",
+    "password": "Password",
+    "role": "Role",
+    "cancel": "Cancel",
+    "updateUser": "Update User",
+    "createUserDescription": "Erstelle eine Beschreibungg des neu erstellten Anwenders.",
+    "editUserDescription": "Bearbeite die Informationen und die Rolle des Anwenders.",
+    "viewUserDescription": "Detaillierte Informationen über diesen Anwender.",
+    "deleteUserTitle": "Anwender löschen",
+    "deleteUserDescription": "Sind Sie sicher, dass Sie {userName} löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "userDetails": "Ihre Anwenderdaten",
+    "contactInformation": "Kontakt Information",
+    "accountInformation": "Konto Information",
+    "metadata": "Metadata",
+    "publicMetadata": "öffentliches Metadata",
+    "privateMetadata": "Privat Metadata",
+    "roles": {
+      "admin": "Admin",
+      "teacher": "Dozent",
+      "student": "Student",
+      "parent": "Elternteil",
+      "user": "Anwender"
+    }
+  },
 
     "Whoweare": {
       "präTitle": "über 8zense.com",
@@ -268,7 +313,7 @@
 
     "IndexPage": {
       "title": "Rechtliches",
-      "description": "absbssbbbsb"
+      "description": ""
     },
     "title": ""
   }

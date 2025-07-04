@@ -28,6 +28,7 @@
       "parent": "Parent",
       "user": "User"
     },
+    
   "AdminNavigation": {
     "dashboard": "Dashboard",
     "users": "Users",
