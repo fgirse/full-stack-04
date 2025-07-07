@@ -525,6 +525,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clerk/themes@npm:^2.2.54":
+  version: 2.2.54
+  resolution: "@clerk/themes@npm:2.2.54"
+  dependencies:
+    "@clerk/types": "npm:^4.63.0"
+    tslib: "npm:2.8.1"
+  checksum: 10c0/fb291a99783e1083f0b4b2cd41a0d752d262c7187b6e286e3058bccb848f35423f8c2a3e87b4e1695122371784b254cf5df36ef45e2dea044bf8ac79b7cd02ee
+  languageName: node
+  linkType: hard
+
 "@clerk/types@npm:4.26.0":
   version: 4.26.0
   resolution: "@clerk/types@npm:4.26.0"
@@ -549,6 +559,15 @@ __metadata:
   dependencies:
     csstype: "npm:3.1.3"
   checksum: 10c0/f4c3f68b4ac5b33419112202c750caf38b2c311169248ccfeb851ebf358a8e458468507e813a845a016977365e22ca59206fbad087b3cbb861a9fa8980c567a8
+  languageName: node
+  linkType: hard
+
+"@clerk/types@npm:^4.63.0":
+  version: 4.63.0
+  resolution: "@clerk/types@npm:4.63.0"
+  dependencies:
+    csstype: "npm:3.1.3"
+  checksum: 10c0/8d140455354cdea5d77c7c5d72d54f0b6e5d9beb583b83495c945a7d9610e75b06e74bb23a4f6227a1679fec47d974c704bf63dfd625a3f9e588110650e7a591
   languageName: node
   linkType: hard
 
@@ -786,6 +805,15 @@ __metadata:
   dependencies:
     tslib: "npm:2"
   checksum: 10c0/362ec83aca9382165be575f1cefa477478339e6fead8ca8866185ce6e58427ea1487a811b12c73d1bcfa99fd4db0c24543b35c823451839f585576bfccb8c9cc
+  languageName: node
+  linkType: hard
+
+"@hono/node-server@npm:^1.15.0":
+  version: 1.15.0
+  resolution: "@hono/node-server@npm:1.15.0"
+  peerDependencies:
+    hono: ^4
+  checksum: 10c0/e7a93c02a50cff228e049a51f538e9c9182f534b7efcd151a66454fb3ac182e7f61437ba163e17b52954f0e6dde41c53c56efea43c700658979abfa5405cc566
   languageName: node
   linkType: hard
 
@@ -1435,6 +1463,18 @@ __metadata:
   dependencies:
     "@prisma/debug": "npm:6.8.2"
   checksum: 10c0/3bab5b39d03c884bd23b69f7ee9092d060aa60bd737293529bb21282a6abdb690a208af49eb5644b509d402e863f09512a2ccf53bdde8860de8a2825d6f3d122
+  languageName: node
+  linkType: hard
+
+"@prisma/studio-core@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@prisma/studio-core@npm:0.5.1"
+  peerDependencies:
+    "@prisma/client": 6.5.0
+    "@types/react": ^18.0.0 || ^19.0.0
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  checksum: 10c0/195366f50f530b03a5aabd04e39702a504e69b4e103720540d7ecfd41ad635b81ac579178ffe5f67025f23b5b43907641342a744a367bab48af30b9c22da1c52
   languageName: node
   linkType: hard
 
@@ -5380,6 +5420,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hono@npm:^4.8.4":
+  version: 4.8.4
+  resolution: "hono@npm:4.8.4"
+  checksum: 10c0/3712bbb4f7d24b5f4f30d75730ae30111cafdb92132728c92e83c257008cfd64e234a6c0657807cb4dd7bc001e3e1daf2e4dd5eb0a73a32ef3a70eff0415d3b7
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^8.0.0, hosted-git-info@npm:^8.1.0":
   version: 8.1.0
   resolution: "hosted-git-info@npm:8.1.0"
@@ -7681,9 +7728,12 @@ __metadata:
     "@clerk/clerk-sdk-node": "npm:^5.1.6"
     "@clerk/elements": "npm:^0.14.6"
     "@clerk/nextjs": "npm:^5.4.1"
+    "@clerk/themes": "npm:^2.2.54"
+    "@hono/node-server": "npm:^1.15.0"
     "@hookform/resolvers": "npm:^3.9.0"
     "@neondatabase/serverless": "npm:^1.0.1"
     "@prisma/client": "npm:^6.9.0"
+    "@prisma/studio-core": "npm:^0.5.1"
     "@radix-ui/react-alert-dialog": "npm:^1.1.14"
     "@radix-ui/react-avatar": "npm:^1.1.10"
     "@radix-ui/react-checkbox": "npm:^1.3.2"
@@ -7707,6 +7757,7 @@ __metadata:
     date-fns: "npm:^4.1.0"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.2.5"
+    hono: "npm:^4.8.4"
     i18next: "npm:^25.3.0"
     lucide-react: "npm:^0.513.0"
     moment: "npm:^2.30.1"
@@ -7732,6 +7783,7 @@ __metadata:
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
     ts-node: "npm:^10.9.2"
+    tw-animate-css: "npm:^1.3.5"
     typescript: "npm:^5"
     zod: "npm:^3.23.8"
   languageName: unknown
@@ -9565,6 +9617,13 @@ __metadata:
     debug: "npm:^4.3.6"
     make-fetch-happen: "npm:^14.0.1"
   checksum: 10c0/4214dd6bb1ec8a6cadbc5690e5a8556de0306f0e95022e54fc7c0ff9dbcc229ab379fd4b048511387f9c0023ea8f8c35acd8f7313f6cbc94a1b8af8b289f62ad
+  languageName: node
+  linkType: hard
+
+"tw-animate-css@npm:^1.3.5":
+  version: 1.3.5
+  resolution: "tw-animate-css@npm:1.3.5"
+  checksum: 10c0/ce1b9d8495de68abdfd7107dbedb88c85c28b3dfa8652a65e08bff94c4d44df5e71216e955b2ae8c045e4d8f94ed19a888ce54d6ffaee89a3be6182d0fd46a5d
   languageName: node
   linkType: hard
 

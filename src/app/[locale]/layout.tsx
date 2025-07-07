@@ -1,5 +1,5 @@
 import {notFound} from 'next/navigation';
-import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
+import {Locale, hasLocale} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {clsx} from 'clsx';
@@ -11,13 +11,9 @@ import Header from '@/components/header';
 import { ClerkProvider } from '@clerk/nextjs';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import Footer from '@/components/layout/Footer';
-
-import { Toaster } from "@/components/ui/sonner"
-
-type Props = {
-  children: ReactNode;
-  params: Promise<{locale: Locale}>;
-};
+import { Toaster } from "@/components/ui/sonner" 
+import { dark } from '@clerk/themes';
+import { NextIntlClientProvider } from 'next-intl';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -38,6 +34,11 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
   };
 }
 
+interface Props {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
 export default async function LocaleLayout({children, params}: Props) {
   // Ensure that the incoming `locale` is valid
   const {locale} = await params;
@@ -48,22 +49,29 @@ export default async function LocaleLayout({children, params}: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  return (
-    <ClerkProvider>
-    <html className="h-full" lang={locale}>
-      <body className="  roboto.className">
-        <NextIntlClientProvider>
-          <Header/>
-         <Navbar />
-
-         <main className="flex-grow overflow-hidden  flex flex-col">
-          {children}
-          </main>
-          <ScrollToTopButton />
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+return (
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark, // Now properly imported
+        variables: {
+          colorPrimary: '#your-color',
+        },
+        elements: {
+          formButtonPrimary: 'your-custom-class',
+        },
+      }}>
+      <html className="h-full" lang={locale}>
+        <body className={`${roboto.className}`}>
+          <NextIntlClientProvider>
+            <Header/>
+            <Navbar />
+            <main className="flex-grow overflow-hidden flex flex-col">
+              {children}
+            </main>
+            <ScrollToTopButton />
+            <Footer />
+          </NextIntlClientProvider>
+        </body>
+      </html>
     </ClerkProvider>
-  );
-}
+  )}

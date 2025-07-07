@@ -43,6 +43,14 @@ const menuItems = [
         href: "/list/statistics",
         visible: ["admin", "teacher", "student", "parent"],
       },
+ {
+        icon: "/prism.png",
+        label: "Prisma Studio",
+        href: "/frontend",
+        visible: ["admin"],
+      },
+
+
       {
         icon: "/subject.png",
         label: "Subjects",
