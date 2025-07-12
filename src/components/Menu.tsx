@@ -46,7 +46,7 @@ const menuItems = [
  {
         icon: "/prism.png",
         label: "Prisma Studio",
-        href: "/frontend",
+        href: "/list/prisma/frontend",
         visible: ["admin"],
       },
 

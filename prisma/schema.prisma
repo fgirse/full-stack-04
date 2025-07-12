@@ -3,21 +3,22 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  username    String    @unique
-  email       String    @unique
-  createdAt   DateTime  @default(now())
-  clerkId     String ?  @unique    @default (cuid())
-  imageUrl    String?
-  password    String
-  updatedAt   DateTime  @updatedAt
-  id          Int       @id @default(autoincrement())
-  Class       Class[]   @relation("UserClasses")
-  Subject     Subject[] @relation("UserSubject")
+  id        Int       @id @default(autoincrement())
+  username  String    @unique
+  email     String    @unique
+  createdAt DateTime  @default(now())
+  imageUrl  String?
+  password  String
+  updatedAt DateTime  @updatedAt
+  clerkId   String?   @unique
+  classes   Class[]   @relation("UserClasses")
+  subjects  Subject[] @relation("UserSubject")
 }
 
 model Student {
@@ -30,7 +31,7 @@ model Student {
   address     String
   img         String?
   bloodType   String
-  sex         String?
+  sex         UserSex?
   createdAt   DateTime     @default(now())
   parentId    String
   classId     Int
@@ -78,7 +79,7 @@ model Grade {
   level       Int
   description String
   gradeLevel  Int
-  classess    Class[]
+  classes     Class[]
   students    Student[]
 }
 
@@ -94,7 +95,7 @@ model Class {
   events        Event[]
   lessons       Lesson[]
   students      Student[]
-  User          User[]         @relation("UserClasses")
+  users         User[]         @relation("UserClasses")
 }
 
 model Subject {
@@ -102,7 +103,7 @@ model Subject {
   name     String    @unique
   lessons  Lesson[]
   teachers Teacher[] @relation("SubjectToTeacher")
-  User     User[]    @relation("UserSubject")
+  users    User[]    @relation("UserSubject")
 }
 
 model Lesson {

@@ -44,9 +44,9 @@
     },
 
     "Dashboard": {
-      "Dashboard_title": "Bienvenue sur vote espace compte personelle de 8zense.com!",
-      "Dashboard_subtitle": "Un aperçu compact de vos projets en cours, de vos réussites et de vos objectifs.",
-      "LoginData": "Vous disposez d'un compte et êtes connecté avec les informations suivantes :",
+      "Title": "Implementment Prisma Studio",
+      "subtitle": "Organisez data,modals et tables",
+      "Open": "Connectez Tables Database", 
       "Galery": "Galeriy a demonstrez notre Beton-Compositions"
     },
 

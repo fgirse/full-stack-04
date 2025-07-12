@@ -91,10 +91,10 @@
 
     
     "Dashboard": {
-      "Dashboard_title": "Willkommen in ihrem persönlichen Account Bereich von 8zense.com!",
-      "Dashboard_subtitle": "Ein Kompakter Überblick über Ihre aktuellen Projekte, Ihre Erfolge und Ihre Ziele",
-      "LoginData": "Sie haben ein Konto und sind mit folgenden Daten angemeldet:",
-      "Galery": "Galerie unserer verschiedenen Beton-Compositionen:"
+      "Title": "Integration von Prisma Studio",
+      "subtitle": "Bearbeite Daten, Modals und Tabellen",
+      "Open": "Verbinde Datenbank Tabellen",
+      "": "Galerie unserer verschiedenen Beton-Compositionen:"
         },
 
     "emailMessage": {

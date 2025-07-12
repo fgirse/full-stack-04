@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Menu, X, ChevronRight, ChevronDown, Home, Settings, Users, BarChart3, FileText, Layers } from "lucide-react"
+import { Menu, X, ChevronRight, ChevronDown, Home, Settings, Users, BarChart3, FileText, Layers, Link } from "lucide-react"
 import { Button } from "./ui/button"
 
 // Header Component
@@ -40,9 +40,11 @@ function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link href="sign-in" className="text-gray-700 hover:text-blue-600">
             <Button variant="outline" className="bg-white text-gray-700">
               Sign In
             </Button>
+            </Link>
             <Button>Get Started</Button>
           </div>
 

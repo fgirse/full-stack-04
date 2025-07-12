@@ -1,0 +1,12 @@
+
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@tailwind base;
+
+@source "./frontend/**/*.{js,ts,jsx,tsx,html}";
+
+@custom-variant dark (&:is(.dark *));
+
+
+

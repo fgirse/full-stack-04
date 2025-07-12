@@ -6,7 +6,7 @@ const UserCard = async ({
 }: {
   type: "admin" | "teacher" | "student" | "parent";
 }) => {
-  const modelMap: Record<typeof type, any> = {
+  const modelMap: Record<"admin" | "teacher" | "student" | "parent", { count: () => Promise<number> }> = {
     admin: prisma.admin,
     teacher: prisma.teacher,
     student: prisma.student,

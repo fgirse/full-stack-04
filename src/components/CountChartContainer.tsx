@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Prisma } from "@prisma/client";
 
 import CountChart from "./CountChart";
 
@@ -9,10 +10,14 @@ const CountChartContainer = async () => {
   const data = await prisma.student.groupBy({
     by: ["sex"],
     _count: true,
-  });
+  }) as Prisma.StudentGroupByOutputType[];
 
-  const boys = data.find((d: { sex: string | null; _count: number }) => d.sex === "MALE")?._count || 0;
-  const girls = data.find((d: { sex: string | null; _count: number }) => d.sex === "FEMALE")?._count || 0;
+  // TypeScript now knows about the 'sex' property
+  const maleStudent = data.find((d) => d.sex === "MALE");
+  const boys = maleStudent?._count?._all ?? 0;
+
+  const femaleStudent = data.find((d) => d.sex === "FEMALE");
+  const girls = femaleStudent?._count?._all ?? 0;
 
   return (
     <div className="bg-white rounded-xl w-full h-full p-4">
