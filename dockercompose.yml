@@ -3,10 +3,14 @@ services:
   #The service name
   nextjs:
     #Build from where
-    build: .
-     #Exposed port
+    build:
+      context: .
+      dockerfile: Dockerfile.background
+    #Exposed port
     ports:
-      - "3002:3002"
+      - "5555:5555"
     #env vars if you need
     environment:
-      NODE_ENV: production
+      - NODE_ENV=production
+    volumes:
+      - ./data:/app/data

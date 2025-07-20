@@ -260,14 +260,24 @@ export const createUser = async (
       publicMetadata:{role:"teacher"}
     });
 
-    await prisma.user.create({
+    await prisma.teacher.create({
       data: {
-        id: Number(user.id),
-        clerkId: user.id, // Add the required clerkId property
+        id: user.id,
         username: data.username,
+        name: data.name,
+        surname: data.surname,
         email: data.email || "",
-        password: data.password || "", // Add password field
-        // Removed 'subjects' property as it does not exist on the User model
+        phone: data.phone || null,
+        address: data.address,
+        img: data.img || null,
+        bloodType: data.bloodType,
+        sex: data.sex,
+        birthday: data.birthday,
+        subjects: {
+          connect: data.subjects?.map((subjectId: string) => ({
+            id: parseInt(subjectId),
+          })),
+        },
       },
     });
 
@@ -294,15 +304,27 @@ export const updateUser = async (
       lastName: data.surname,
     });
 
-    await prisma.user.update({
+    await prisma.teacher.update({
       where: {
-        id: Number(data.id),
+        id: data.id,
       },
       data: {
         ...(data.password !== "" && { password: data.password }),
         username: data.username,
-        email: data.email || undefined,
-        // Removed subjects property as it does not exist on the user model
+        name: data.name,
+        surname: data.surname,
+        email: data.email || "",
+        phone: data.phone || null,
+        address: data.address,
+        img: data.img || null,
+        bloodType: data.bloodType,
+        sex: data.sex,
+        birthday: data.birthday,
+        subjects: {
+          set: data.subjects?.map((subjectId: string) => ({
+            id: parseInt(subjectId),
+          })),
+        },
       },
     });
     // revalidatePath("/list/users");
@@ -321,9 +343,9 @@ export const deleteUser = async (
   try {
     await clerkClient.users.deleteUser(id);
 
-    await prisma.user.delete({
+    await prisma.teacher.delete({
       where: {
-        id: Number(id) ,
+        id: id,
       },
     });
 

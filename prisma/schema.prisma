@@ -3,22 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int       @id @default(autoincrement())
-  username  String    @unique
-  email     String    @unique
-  createdAt DateTime  @default(now())
-  imageUrl  String?
-  password  String
-  updatedAt DateTime  @updatedAt
-  clerkId   String?   @unique
-  classes   Class[]   @relation("UserClasses")
-  subjects  Subject[] @relation("UserSubject")
+model Admin {
+  id       String @id
+  username String @unique
 }
 
 model Student {
@@ -31,7 +22,7 @@ model Student {
   address     String
   img         String?
   bloodType   String
-  sex         UserSex?
+  sex         UserSex
   createdAt   DateTime     @default(now())
   parentId    String
   classId     Int
@@ -75,12 +66,10 @@ model Parent {
 }
 
 model Grade {
-  id          Int       @id @default(autoincrement())
-  level       Int
-  description String
-  gradeLevel  Int
-  classes     Class[]
-  students    Student[]
+  id       Int       @id @default(autoincrement())
+  level    Int       @unique
+  classess Class[]
+  students Student[]
 }
 
 model Class {
@@ -95,7 +84,6 @@ model Class {
   events        Event[]
   lessons       Lesson[]
   students      Student[]
-  users         User[]         @relation("UserClasses")
 }
 
 model Subject {
@@ -103,7 +91,6 @@ model Subject {
   name     String    @unique
   lessons  Lesson[]
   teachers Teacher[] @relation("SubjectToTeacher")
-  users    User[]    @relation("UserSubject")
 }
 
 model Lesson {
@@ -183,11 +170,6 @@ model Announcement {
   class       Class?   @relation(fields: [classId], references: [id])
 }
 
-model Admin {
-  id       String @id
-  username String @unique
-}
-
 enum UserSex {
   MALE
   FEMALE
@@ -199,11 +181,4 @@ enum Day {
   WEDNESDAY
   THURSDAY
   FRIDAY
-}
-
-enum Role {
-  ADMIN
-  TEACHER
-  STUDENT
-  PARENT
 }

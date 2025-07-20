@@ -6,6 +6,17 @@ const nextConfig = {
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: "Carlo2024",
     NEXT_PUBLIC_CLOUDINARY_PRESET_NAME: "school",
   },
+  experimental: {
+    serverComponentsExternalPackages: ['@prisma/studio-core']
+  },
+  webpack: (config) => {
+    // Handle Prisma Studio assets
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+    };
+    return config;
+  },
   images: {
     remotePatterns: [
       {

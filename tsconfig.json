@@ -30,7 +30,7 @@
   "include": [
     "src/**/*",
     ".next/types/**/*.ts"
-  ],
+, "src/app/[locale]/(dashboard)/server", "src/components/background-server.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -12,6 +12,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/sonner" 
+import { ToastContainer } from 'react-toastify';
 import { dark } from '@clerk/themes';
 import { NextIntlClientProvider } from 'next-intl';
 
@@ -66,7 +67,7 @@ return (
             <Header/>
             <Navbar />
             <main className="flex-grow overflow-hidden flex flex-col">
-              {children}
+              {children}<ToastContainer position="bottom-right" theme="dark" />
             </main>
             <ScrollToTopButton />
             <Footer />

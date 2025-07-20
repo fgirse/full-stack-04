@@ -1,43 +1,48 @@
-
-import { Day, PrismaClient, UserSex } from '@prisma/client';
-
+import { Day, PrismaClient, UserSex } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
- 
+  // ADMIN
+  for (let i = 1; i <= 3; i++) {
+  await prisma.admin.upsert({
+    where: { id: `admin-${i}` },
+    update: {},
+    create: {
+      id: `admin-${i}`,
+        username: `admin-${i}`,
+      // other fields
+    }
+  })
+}
 
- // GRADE
-
+//GRADE
   for (let i = 1; i <= 6; i++) {
+  await prisma.grade.upsert({
+    where: { level: i },
+    update: {},
+    create: {
+      level: i,
+      // other fields
+    }
+  })
+}
 
-    await prisma.grade.create({
-
-      data: {
-
-
-        
-        level: i, // Level of the grade
-
-        description: `Grade ${i}`, // Description of the grade
-
-        gradeLevel: i, // Grade level, can be the same as level
-
-      },
-
-    });
-
-  }
-
-  // CLASS
-  for (let i = 1; i <= 6; i++) {
-    await prisma.class.create({
-      data: {
-        name: `${i}A`, 
-        gradeId: i, 
-        capacity: Math.floor(Math.random() * (20 - 15 + 1)) + 15,
-      },
-    });
-  }
+// CLASS
+ for (let i = 1; i <= 15; i++) {
+  await prisma.class.upsert({
+    where: {
+      name: `Class-${i}`  // Use the loop variable for unique names
+    },
+    update: {},
+    create: {
+      name: `Class-${i}`,
+      capacity: 30,
+      grade: {
+        connect: { level: ((i - 1) % 6) + 1 }  // Connect to grades 1-6 cyclically
+      }
+    }
+  })
+}
 
   // SUBJECT
   const subjectData = [
@@ -128,22 +133,6 @@ async function main() {
         gradeId: (i % 6) + 1, 
         classId: (i % 6) + 1, 
         birthday: new Date(new Date().setFullYear(new Date().getFullYear() - 10)),
-      },
-    });
-  }
-
-// USER
-  for (let i = 1; i <= 50; i++) {
-    await prisma.user.create({
-      data: {
-        id: i,  
-        username: `student${i}`,
-        password: `Basel_2024`,
-        email: `student${i}@example.com`,
-        imageUrl: `https://api.dicebear.com/7.x/identicon/svg?seed=student${i}`,
-        clerkId: `student${i}`,
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
     });
   }

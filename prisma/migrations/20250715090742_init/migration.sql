@@ -5,16 +5,6 @@ CREATE TYPE "UserSex" AS ENUM ('MALE', 'FEMALE');
 CREATE TYPE "Day" AS ENUM ('MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY');
 
 -- CreateTable
-CREATE TABLE "User" (
-    "id" TEXT NOT NULL,
-    "username" TEXT NOT NULL,
-    "email" TEXT,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "Admin" (
     "id" TEXT NOT NULL,
     "username" TEXT NOT NULL,
@@ -33,7 +23,7 @@ CREATE TABLE "Student" (
     "address" TEXT NOT NULL,
     "img" TEXT,
     "bloodType" TEXT NOT NULL,
-    "sex" TEXT,
+    "sex" "UserSex" NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "parentId" TEXT NOT NULL,
     "classId" INTEGER NOT NULL,
@@ -79,8 +69,6 @@ CREATE TABLE "Parent" (
 CREATE TABLE "Grade" (
     "id" SERIAL NOT NULL,
     "level" INTEGER NOT NULL,
-    "description" TEXT NOT NULL,
-    "gradeLevel" INTEGER NOT NULL,
 
     CONSTRAINT "Grade_pkey" PRIMARY KEY ("id")
 );
@@ -194,12 +182,6 @@ CREATE TABLE "_SubjectToTeacher" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
-
--- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Admin_username_key" ON "Admin"("username");
 
 -- CreateIndex
@@ -228,6 +210,9 @@ CREATE UNIQUE INDEX "Parent_email_key" ON "Parent"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Parent_phone_key" ON "Parent"("phone");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Grade_level_key" ON "Grade"("level");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Class_name_key" ON "Class"("name");
