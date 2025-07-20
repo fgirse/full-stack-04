@@ -350,7 +350,7 @@ export const deleteUser = async (
     });
 
     // revalidatePath("/list/users");
-    return { success: true, error: false };
+    return { success: true, error: false   };
   } catch (err) {
     console.log(err);
     return { success: false, error: true };
