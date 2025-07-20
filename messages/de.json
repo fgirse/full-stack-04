@@ -92,9 +92,8 @@
     
     "Dashboard": {
       "Title": "Integration von Prisma Studio",
-      "subtitle": "Bearbeite Daten, Modals und Tabellen",
-      "Open": "Verbinde Datenbank Tabellen",
-      "": "Galerie unserer verschiedenen Beton-Compositionen:"
+      "subtitle": "Bearbeite Daten, Modals und Tabellen"
+     
         },
 
     "emailMessage": {

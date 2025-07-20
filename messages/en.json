@@ -70,10 +70,8 @@
 
     "Dashboard": {
       "Title": "Prisma Studio Integration",
-      "subtitle": "Manage Data, Modals and Tables",
-      "Open": "Open Database Tables",  
-      "Galery": "Galeriy to demonstrate our several Concret-Compositions"
-    },
+      "subtitle": "Edit data, modals, and tables"
+      },
   
     "Datenschutz": {
       "Title_Datenschutz": "Data Protection"
