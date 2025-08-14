@@ -20,13 +20,13 @@ export default function Home() {
         <div className="block md:hidden"> 
             <Hero_mobile/>
         </div>
-        <div className=" hidden lg:block mt-[12vH]">
+        <div className=" hidden lg:block mt-[3vH]">
       <HeroImageB/> 
         </div>    
         <div className=" hidden md:block  lg:hidden">
       <HeroImageC/> 
         </div>                                              
-         <div className="mt-60  bg-gradient-to-b from-[#938d7d] lg:bg-gradient-to-b via-transparent  to-transparent lg:mt-[5vh]">
+         <div className="mt-6  bg-gradient-to-b from-[#938d7d] lg:bg-gradient-to-b via-transparent  to-transparent lg:mt-[5vh]">
          <h1 className=" py-12 ml-1 text-5xl font-bold tracking-tighter text-center md:text-8xl">
               PRODUCT
               <br />

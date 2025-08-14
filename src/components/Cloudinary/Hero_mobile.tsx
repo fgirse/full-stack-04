@@ -40,7 +40,7 @@ const t = useTranslations('HeroMobil');
 
 // Use the image with public ID, 'sample'.
 const myImage = cld.image(
-  'Bild_30.05.25_um_10.18_ztc4t8', // Replace with your image public ID  
+  '', // Replace with your image public ID  
    // Pass an empty object if no additional options are needed
 );
 

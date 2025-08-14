@@ -42,20 +42,21 @@ export function PrismaStudioModal({ open, onOpenChange }: PrismaStudioModalProps
   }
 
   return (
+    <section className="flex flex-col items-center justify-center">
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[78vw] h-[86vh] flex flex-col">
+      <DialogContent className="max-w-[78vw] h-[86vh] flex flex-col items-cente">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between">
+          <DialogTitle className="flex col items-center justify-between">
             <span>Prisma Studio</span>
             <div className="flex items-center gap-2">
               {status.isRunning && (
                 <Button
-                  variant="outline"
-                  size="sm"
+                  variant="default"
+                  size="default"
                   onClick={handleOpenInNewTab}
-                  className="flex items-center gap-2 bg-transparent"
+                  className="flex items-center gap-2 bg-amber-700"
                 >
-                  <ExternalLink className="h-4 w-4" />
+               <ExternalLink className="h-4 w-4" />
                   Open in New Tab
                 </Button>
               )}
@@ -113,5 +114,6 @@ export function PrismaStudioModal({ open, onOpenChange }: PrismaStudioModalProps
         </div>
       </DialogContent>
     </Dialog>
+    </section>
   )
 }

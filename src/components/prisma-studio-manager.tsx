@@ -25,6 +25,7 @@ export function PrismaStudioManager() {
 
   return (
     <>
+    <section className="flex flex-col items-center justify-center">
       <Card className="bg-orange-50">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -108,7 +109,7 @@ export function PrismaStudioManager() {
           )}
         </CardContent>
       </Card>
-
+</section>
       <PrismaStudioModal open={showModal} onOpenChange={setShowModal} />
     </>
   )

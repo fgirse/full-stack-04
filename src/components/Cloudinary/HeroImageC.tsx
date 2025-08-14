@@ -30,18 +30,18 @@ const cld = new Cloudinary({
 const t = useTranslations('HeroMobil');
 
 // Use the image with public ID, 'sample'.
-const myImage = cld.image('hero-banner05-Photoroom_1_c0uw5q',);
+const myImage = cld.image('image_alpiog',);
 
 
 // Transform the image.
 myImage
              
-  .resize(fill(2400,850))
-  .effect(backgroundRemoval())
+  .resize(fill(2400,950))
+  
   .roundCorners(byRadius(0))
   .overlay(   
     source(
-      text(t("Headline"), new TextStyle('bowlby one sc',90))
+      text(t("Headline"), new TextStyle('Feeling passionate',90))
       .textColor('#898989')       
     )
     // Removed invalid line

@@ -44,9 +44,9 @@
     },
 
     "Dashboard": {
-      "Title": "Implementment Prisma Studio",
-      "subtitle": "Organisez data,modals et tables",
-      "Open": "Connectez Tables Database", 
+      "Dashboard_title": "Bienvenue sur vote espace compte personelle de 8zense.com!",
+      "Dashboard_subtitle": "Un aperçu compact de vos projets en cours, de vos réussites et de vos objectifs.",
+      "LoginData": "Vous disposez d'un compte et êtes connecté avec les informations suivantes :",
       "Galery": "Galeriy a demonstrez notre Beton-Compositions"
     },
 
@@ -68,7 +68,7 @@
       "Headline": "coaching d'apprentissage numérique freiburg",
       "Jahr": "2025",
       "präTitle": "Adapté au système de gestion allemand",
-      "Title": "soins numériques en ligne",
+      "Title": "Pour plus de sérénité et d'énergie au quotidien sans vous surmener. Découvrez de nouvelles compétences pour relever les défis quotidien",
       "postTitle": "école en ligne pour étudiants infirmiers internationaux"
      
     },
@@ -127,8 +127,9 @@
   
     "Navbar": {
       "home": "Maison",
-      "kurse": "Courses",
-      "about": "apropos de nous",
+      "Enterprices": "pour entreprises",
+      "enterprices": "Pour les entreprises",
+      "about": "apropos de mois",
       "cv": "Curriculum",
       "whatwedo": "Questque fait?",
       "whoweare": "Qui nous sommes?",
@@ -195,6 +196,11 @@
       
     },
 
+    "Unternehmen": {
+      "title": "Pour les entreprises"
+
+    },  
+
     "Users": {
       "titleUsers": "Gestion des utilisateurs",
       "subtitleUsers": "Organisez vos utilisateurs et leurs rôles pour une gestion efficace de votre plateforme."
@@ -215,5 +221,4 @@
     }
     
   }
-
 

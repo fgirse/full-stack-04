@@ -69,9 +69,11 @@
     },
 
     "Dashboard": {
-      "Title": "Prisma Studio Integration",
-      "subtitle": "Edit data, modals, and tables"
-      },
+      "Dashboard_title": "Welcome to your personal account area of ​​8zense.com!",
+      "Dashboard_subtitle": "A compact overview of your current projects, your successes and your goals.",
+      "LoginData": "You have an account and are logged in with the following data:",  
+      "Galery": "Galeriy to demonstrate our several Concret-Compositions"
+    },
   
     "Datenschutz": {
       "Title_Datenschutz": "Data Protection"
@@ -104,9 +106,9 @@
       "Jahr": "2025",
       "Slogan": "make your masterpiece !",
       "präTitle": "make your masterpiece in german healthcare",
-  
-      "Title": "digital\nlearncoaching",
-  
+
+      "Title":  "For more serenity and energy in everyday life without overtaxing yourself. Discover new skills to master daily challenges.",
+
       "postTitle": "fit for the german gesundheitssystem"
     },
 
@@ -174,8 +176,8 @@
   
     "Navbar": {
       "home": "Home",
-      "kurse": "Kurse",
-      "info": "Information",
+      "enterprices": "For Enterprises",
+      "Enterprices": "Enterprices",
       "about": "About",
       "cv": "Curriculum vitae",
       "whatwedo": "What we do?",
@@ -198,7 +200,7 @@
       "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
       "title": "Page not found"
     },
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                   
     "OurHistory": {},
 
   
@@ -234,6 +236,11 @@
     "SignIn": {
       "welcome": "Welcome to 8zense.com",
       "signin": "Please sign in to your account"  
+      
+    },
+
+    "Unternehmen": {
+      "title": "For Enterprises"
       
     },
 

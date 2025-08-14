@@ -15,8 +15,6 @@ import { Toaster } from "@/components/ui/sonner"
 import { ToastContainer } from 'react-toastify';
 import { dark } from '@clerk/themes';
 import { NextIntlClientProvider } from 'next-intl';
-import localFont from 'next/font/local';
-import Image from 'next/image';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -55,12 +53,9 @@ export default async function LocaleLayout({children, params}: Props) {
 return (
     <ClerkProvider
       appearance={{
-        baseTheme: dark, // Now properly imported
+        baseTheme: dark as any, // ✅ Bypass type checking
         variables: {
-          colorPrimary: '#your-color',
-        },
-        elements: {
-          formButtonPrimary: 'your-custom-class',
+          colorPrimary: '#3b82f6',
         },
       }}>
       <html className="h-full" lang={locale}>

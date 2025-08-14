@@ -44,25 +44,25 @@ const navigation = [
         { title: t("agb"), href: "/agb", description: "zur freien Verfügung  " },
       ],
     },
-    { title: "kurse", href: "/kurse" },
-    { title: "info", href: "/info" },
+    { title: "Für Unternehmen", href: "/kurse" },
+    { title: "enterprices", href: "/Enterprices" },
     { title: "contact", href: "/contact" },
 
   ]
 
   return (
-    <header className="w-full lg:w-[100vw] bg-[#414f4f] md:bg-amber-500 shadow-sm ">
+    <header className="w-full lg:w-[100vw] bg-[#6EAAA8]  shadow-sm ">
       <nav className="mx-auto   flex lg:max-w-8xl items-center justify-between lg:px-5" aria-label="Global">
-        <div className="flex overflow-hidden lg: flex-col flex">
+        <div className="flex overflow-hidden lg: flex-col">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only"></span>
             <div className="mt-2 w-12 font-bold text-xl mb-3">
               <Image src="/LogoDms.png" alt="Logo" width={80} height={50} className="bg-neutral-700/60 rounded-lg shadow-xl" />
             </div>
           </Link>
-          <div className="flex flex-col items-start">
-          <h1 className="text-neutral-100 text-[.4rem] font-bold ml-4 hidden lg:block"> ☎: +49 761 606060</h1> 
-          <h1 className="text-neutral-100 text-[.4rem] font-bold ml-4 hidden lg:block"> 📩: online-pflegeschule-freiburg</h1> 
+          <div className="flex flex-row items-start">
+          <h1 className="text-neutral-100 text-[.6rem] font-bold ml-4 hidden lg:block"> ☎: +49 761 606060</h1> 
+          <h1 className="text-neutral-100 text-[.6rem] font-bold ml-4 hidden lg:block"> 📩: Sarah Maria Huber</h1> 
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const navigation = [
         {/* Desktop menu */}
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <div key={item.title} className="relative bg-orange-600/20 hover:bg-amber-900/30 rounded-lg px-2 py-1 hover:translate-x-2 hover:-translate-y-2 hover:scale-110"     
+            <div key={item.title} className="relative rounded-lg px-2 py-1 hover:translate-x-2 hover:-translate-y-2 hover:scale-110"     
              >
 
               {item.children ? (
@@ -204,7 +204,7 @@ const navigation = [
           ))}
         </div>
         <div className="mt-3 mb-3 border-t-2">
-          <div className="flex flex items-center gap-1">
+          <div className="flex items-center gap-1">
         <Link href="/admin" className="py-2">
         
         <AdminBoard/>
@@ -217,7 +217,6 @@ const navigation = [
     </header>
   )
 }
-
 
 
 

@@ -32,7 +32,7 @@ const InputField = ({
         defaultValue={defaultValue}
       />
       {error?.message && (
-        <p className="text-xs text-red-400">{error.message.toString()}</p>
+        <p className="text-xs text-wfguzz0">{error.message.toString()}</p>
       )}
     </div>
   );

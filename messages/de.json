@@ -91,9 +91,10 @@
 
     
     "Dashboard": {
-      "Title": "Integration von Prisma Studio",
-      "subtitle": "Bearbeite Daten, Modals und Tabellen"
-     
+      "Dashboard_title": "Willkommen in ihrem persönlichen Account Bereich von 8zense.com!",
+      "Dashboard_subtitle": "Ein Kompakter Überblick über Ihre aktuellen Projekte, Ihre Erfolge und Ihre Ziele",
+      "LoginData": "Sie haben ein Konto und sind mit folgenden Daten angemeldet:",
+      "Galery": "Galerie unserer verschiedenen Beton-Compositionen:"
         },
 
     "emailMessage": {
@@ -109,14 +110,14 @@
   
 
     "Hero": {
-      "Headline": "digitales lerncoaching freiburg",
+      "Headline": "Aktiviere Deine mentale Stärke",
       "Jahr": "2025",
       "präTitle": "mach dich fit für das deutsche gesundheitssystem",
-       "Title": "digitale online Lerncoaching",  
+       "Title": "für mehr Gelassenheit und Energie im Alltagohne Dich zu überfordern. Entdecke neue Fähigkeiten, um tägliche Herausforderungen zu meistern.",  
       "postTitle": "online schule für internationale krankenpflege studenten"                                  
 },
 "HeroMobil": {
-  "Headline": "digitales lerncoaching",
+  "Headline": "Aktiviere Deine mentale Stärke",
   "Jahr": "2025",
   "Slogan": "mach dich fit !",
   "präTitle": "mach dich fit fürs deutsche gesundheitswesen",
@@ -181,11 +182,11 @@
 
     "Navbar": {
       "home": "Start",
-      "kurse": "Kurse",
-      "about": "über uns",
+      "enterprices": "für Unternehmen",
+      "about": "über mich",
       "cv": "Lebenslauf",
       "whatwedo": "Was wir tun?",
-      "whoweare": "Wer wir sind?",
+      "whoweare": "Wer ich bin?",
       "Projects": "Projekte",
       "services": "Dienstleistung",
       "contact": "Kontakt",
@@ -195,7 +196,7 @@
       "cookies": "Cookies",
       "agb": "allgemeine Geschäftsbedingungen",
       "Admin": "Admin",
-      "descriptionA": "Wir stellen uns vor!",
+      "descriptionA": "Ich stelle mich vor!",
       "descriptionB": "Hier finden Sie alle Informationen zu unseren Dienstleistungen und Angeboten.",
       "descriptionC": "Nähere Informationene zu unserer Schulleitung und zu den Lehrern",
       "descriptionD": "frei zur Verfügung",
@@ -241,6 +242,12 @@
       "signin": "Bitte melden Sie sich an um fortzufahren"  
 
     },
+
+
+  "Unternehmen": {
+      "title": "Für Unternehmen"
+
+    },  
     
     "Users": {
       "titleUsers": "Management der Anwender",
