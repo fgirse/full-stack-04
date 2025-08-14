@@ -15,6 +15,8 @@ import { Toaster } from "@/components/ui/sonner"
 import { ToastContainer } from 'react-toastify';
 import { dark } from '@clerk/themes';
 import { NextIntlClientProvider } from 'next-intl';
+import localFont from 'next/font/local';
+import Image from 'next/image';
 
 const roboto = Roboto({
   subsets: ['latin'],
